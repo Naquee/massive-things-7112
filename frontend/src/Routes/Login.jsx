@@ -88,8 +88,6 @@ const Login = () => {
         event.preventDefault();
     };
 
-    // const theme = useTheme();
-    // const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
     return (
         <LoginContainer>
             <Button onClick={handleOpen}>Open modal</Button>

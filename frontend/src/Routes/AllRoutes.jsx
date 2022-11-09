@@ -5,8 +5,7 @@ import Login from './Login'
 const AllRoutes = () => {
   return (
     <Routes>
-        {/* <Route path='/' element={<h1>Welcome</h1>}/> */}
-        <Route path='/' element={<Login/>}/>
+        <Route path='/login' element={<Login/>}/>
     </Routes>
   )
 }
