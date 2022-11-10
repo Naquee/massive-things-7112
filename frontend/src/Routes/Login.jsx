@@ -62,7 +62,7 @@ const Login = () => {
                     }).catch((err) => {
                         setStatus({ ...show, status: true, msg: err, type: 'error' });
                     })
-                }else {
+                } else {
                     setStatus({ ...show, status: true, msg: res.payload.msg, type: "error" });
                 }
             }).catch((err) => {
@@ -90,7 +90,14 @@ const Login = () => {
 
     return (
         <LoginContainer>
-            <Button onClick={handleOpen}>Open modal</Button>
+            <Button onClick={handleOpen} variant="outlined" sx={{
+                color: '#b9583c', borderColor: '#b9583c', 
+                '&:hover': {
+                    backgroundColor: '#b9583c',
+                    color: 'white',
+                     borderColor: '#b9583c'
+                }
+            }}>Sign In</Button>
             <Modal
                 open={open}
                 onClose={handleClose}
@@ -112,7 +119,7 @@ const Login = () => {
                                 onChange={handleChange('email')} />
                             <FormBox sx={{ m: 1, width: "80%" }} variant="standard">
                                 <InputLabel htmlFor="standard-adornment-password">Password</InputLabel>
-                                <FormInputBox
+                                <Input
                                     sx={{
                                         // underline when selected
                                         ':after': { borderBottomColor: '#84c225' },
@@ -207,10 +214,6 @@ const FormBox = styledComp(FormControl)`
   & label.Mui-focused {
     color: #84c225;
   }
-`;
-
-const FormInputBox = styledComp(Input)`
-    
 `;
 
 export default Login

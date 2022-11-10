@@ -328,11 +328,9 @@ import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import stylesc from "styled-components"
 import { HiOutlineShoppingBag } from "react-icons/hi";
-import { CiSearch } from "react-icons/ci";
 import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
@@ -345,7 +343,10 @@ import { Link } from 'react-router-dom';
 import logo from "./assets/logo.png";
 import SearchIcon from '@mui/icons-material/Search';
 import { InputBase, Paper } from '@mui/material';
-
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import Fade from '@mui/material/Fade';
+import LocalOfferIcon from '@mui/icons-material/LocalOffer';
+import Login from '../Routes/Login';
 
 const pages = ['Gifts', 'New', 'Women', 'Men', 'Kids', 'Cashmere', 'Home', 'Stories', 'Sale'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -411,7 +412,7 @@ const Navbar = () => {
     <MenuContainer>
       <List sx={{ mt: 5, width: '250px' }} >
         <Divider />
-        <Typography textAlign="center" padding="10px">{menu}</Typography>
+        <Typography textAlign="center" padding="10px" fontSize='small' fontWeight={'bold'} color='#cf6c4d'>{menu}</Typography>
         <Divider />
         {[{ title: 'Fresh Vegetables', path: '/freshvegetables' },
         { title: 'Cashmere', path: '/cashmere' },
@@ -434,7 +435,7 @@ const Navbar = () => {
     <MenuContainer>
       <List sx={{ mt: 5, width: '250px' }} >
         <Divider />
-        <Typography textAlign="center" padding="10px">{menu}</Typography>
+        <Typography textAlign="center" padding="10px" fontSize='small' fontWeight={'bold'} color='#cf6c4d'>{menu}</Typography>
         <Divider />
         {[{ title: 'Fresh Vegetables', path: '/freshvegetables' },
         { title: 'Cashmere', path: '/cashmere' },
@@ -455,9 +456,9 @@ const Navbar = () => {
 
   const gift = (
     <MenuContainer>
-      <List sx={{ mt: 5, width: '250px' }} >
+      <List sx={{ mt: 5, width: '280px' }} >
         <Divider />
-        <Typography textAlign="center" padding="10px">{menu}</Typography>
+        <Typography textAlign="center" padding="10px" fontSize='small' fontWeight={'bold'} color='#cf6c4d'>{menu}</Typography>
         <Divider />
         {[{ title: 'For Men', path: '/formen' },
         { title: 'Cashmere', path: '/cashmere' },
@@ -476,26 +477,39 @@ const Navbar = () => {
     </MenuContainer>
   )
 
+
+  //Category Box
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+
+
   return (
     <NavbarContainer>
       <AppBar elevation={0} position="static" sx={{ borderBottom: "1px solid #ddd", backgroundColor: "white", color: "black" }}>
         <Container maxWidth="xl">
           <Toolbar disableGutters>
-            <Box
-              component="img"
-              sx={{
-                display: { xs: 'none', md: 'flex' },
-                m: 0,
-                p: 0,
-                mr: 1,
-                height: 120,
-                width: 130,
-                maxHeight: { xs: 233, md: 167 },
-                maxWidth: { xs: 350, md: 250 },
-              }}
-              alt="The house from the offer."
-              src={logo}
-            />
+            <Link to='/'>
+              <Box
+                component="img"
+                sx={{
+                  display: { xs: 'none', md: 'flex' },
+                  m: 0,
+                  p: 0,
+                  mr: 1,
+                  height: 80,
+                  width: 130,
+                }}
+                alt="The house from the offer."
+                src={logo}
+              />
+            </Link>
 
             <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
               <IconButton
@@ -509,13 +523,14 @@ const Navbar = () => {
                 <MenuIcon />
               </IconButton>
               <Drawer
-                sx={{ position: 'relative' }}
+                sx={{ position: 'relative', cursor: 'pointer' }}
                 anchor={"left"}
                 open={state["left"]}
+
               >
                 <VscChromeClose style={{ position: "absolute", top: menu === 'list' ? '25' : '18', left: "25", fontSize: "large" }} onClick={toggleDrawer("left", false)} />
 
-                {menu !== "list" && <BiChevronLeft style={{ zIndex: 13000, position: "absolute", top: "62px", left: "25", fontSize: "large" }} onClick={() => setMenu("list")} />}
+                {menu !== "list" && <BiChevronLeft style={{ zIndex: 13000, position: "absolute", top: "60px", left: "25", fontSize: "large" }} onClick={() => setMenu("list")} />}
 
 
                 <div className="menuList">
@@ -523,7 +538,7 @@ const Navbar = () => {
                   {menu === "Gifts" && gift}
                   {menu === "Fruits & Vegetables" && fruitandvegetables}
                   {menu === "Foodgrains, Oil & Masala" && foodgrains}
-                  
+
                 </div>
               </Drawer>
 
@@ -554,17 +569,18 @@ const Navbar = () => {
                 ))}
               </Menu>
             </Box>
-
-            <Box
-              component="img"
-              sx={{
-                display: { xs: 'flex', md: 'none' }, mr: 1,
-                height: 120,
-                width: 130,
-              }}
-              alt="The house from the offer."
-              src={logo}
-            />
+            <Link to='/'>
+              <Box
+                component="img"
+                sx={{
+                  display: { xs: 'flex', md: 'none' }, mr: 1,
+                  height: 120,
+                  width: 130,
+                }}
+                alt="The house from the offer."
+                src={logo}
+              />
+            </Link>
 
             <Typography
               variant="h5"
@@ -585,8 +601,6 @@ const Navbar = () => {
             </Typography>
 
             <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" }, alignItems: 'center', justifyContent: 'center' }}>
-
-
               <Paper
                 component="form"
                 sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: 600 }}
@@ -600,15 +614,18 @@ const Navbar = () => {
                 <IconButton type="button" sx={{
                   p: '10px', color: '#cf6c4d', '&:hover': {
                     backgroundColor: "#cf6c4d",
-                    color:"white"
+                    color: "white"
                   }
                 }} >
                   <SearchIcon />
                 </IconButton>
               </Paper>
             </Box>
+            <Box sx={{ mt: '4px' }}>
+              <Login />
+            </Box>
 
-            <Box sx={{ flexGrow: 0, mr: '5px', display: { lg: 'flex' } }}>
+            {/* <Box sx={{ flexGrow: 0, mr: '5px', display: { lg: 'flex' } }}>
               <Tooltip title="Open settings">
                 <IconButton onClick={handleOpenUserMenu} sx={{ padding: '0px 8px' }}>
                   <p className="signIn">SignIn</p>
@@ -636,7 +653,7 @@ const Navbar = () => {
                   </MenuItem>
                 ))}
               </Menu>
-            </Box>
+            </Box> */}
 
             <Box sx={{ display: { xs: 'none', lg: 'flex', md: 'flex' }, mr: 1, }}
               marginLeft="20px"
@@ -644,11 +661,117 @@ const Navbar = () => {
               alignItems="center"
               height="30px"
               fontSize="25px">
-              <HiOutlineShoppingBag fontSize={'xxx-large'} color={'#cf6c4d'} />
+              <HiOutlineShoppingBag fontSize={'40px'} color={'#cf6c4d'} />
             </Box>
           </Toolbar>
         </Container>
       </AppBar>
+      <Box sx={{ boxShadow: 'rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px', width: '100%', display: { xs: 'none', md: 'flex' }, alignItems: 'center', padding: '0px 50px' }}>
+        <Box>
+          <Button
+            id="fade-button"
+            aria-controls={open ? 'fade-menu' : undefined}
+            aria-haspopup="true"
+            aria-expanded={open ? 'true' : undefined}
+            onMouseOver={handleClick}
+          >
+            <span style={{ display: 'flex', alignItems: 'center', gap: "10px", padding: '10px 15px', backgroundColor: '#cf6c4d', color: 'white' }}>Shop By Category<KeyboardArrowDownIcon /></span>
+          </Button>
+          <Menu
+            id="fade-menu"
+            MenuListProps={{
+              'aria-labelledby': 'fade-button',
+            }}
+            anchorEl={anchorEl}
+            open={open}
+            onClose={handleClose}
+            TransitionComponent={Fade}
+            sx={{ ml: 1}}
+          >
+            <Box sx={{ ml: 1, display: 'flex' }}>
+              <Box>
+                {['Profile dsfdsfdsfdsfdsfdsfsdf','My account','Logout'].map((ele)=>(
+                  <MenuItem onClick={handleClose}>{ele}</MenuItem>
+                ))}
+                <MenuItem onClick={handleClose}>Profile</MenuItem>
+                <MenuItem onClick={handleClose}>My account</MenuItem>
+                <MenuItem onClick={handleClose}>Logout</MenuItem>
+                <MenuItem onClick={handleClose}>Profile</MenuItem>
+                <MenuItem onClick={handleClose}>My account</MenuItem>
+                <MenuItem onClick={handleClose}>Logout</MenuItem>
+                <MenuItem onClick={handleClose}>Profile</MenuItem>
+                <MenuItem onClick={handleClose}>My account</MenuItem>
+                <MenuItem onClick={handleClose}>Logout</MenuItem>
+                <MenuItem onClick={handleClose}>Profile</MenuItem>
+              </Box>
+              <Box>
+                <MenuItem onClick={handleClose}>Profile dsfdsfdsfdsfdsfdsfsdf</MenuItem>
+                <MenuItem onClick={handleClose}>My account</MenuItem>
+                <MenuItem onClick={handleClose}>Logout</MenuItem>
+                <MenuItem onClick={handleClose}>Profile</MenuItem>
+                <MenuItem onClick={handleClose}>My account</MenuItem>
+                <MenuItem onClick={handleClose}>Logout</MenuItem>
+                <MenuItem onClick={handleClose}>Profile</MenuItem>
+                <MenuItem onClick={handleClose}>My account</MenuItem>
+                <MenuItem onClick={handleClose}>Logout</MenuItem>
+                <MenuItem onClick={handleClose}>Profile</MenuItem>
+                <MenuItem onClick={handleClose}>My account</MenuItem>
+                <MenuItem onClick={handleClose}>Logout</MenuItem>
+                <MenuItem onClick={handleClose}>Profile</MenuItem>
+              </Box>
+              <Box>
+                <MenuItem onClick={handleClose}>Profile dsfdsfdsfdsfdsfdsfsdf</MenuItem>
+                <MenuItem onClick={handleClose}>My account</MenuItem>
+                <MenuItem onClick={handleClose}>Logout</MenuItem>
+                <MenuItem onClick={handleClose}>Profile</MenuItem>
+                <MenuItem onClick={handleClose}>My account</MenuItem>
+                <MenuItem onClick={handleClose}>Logout</MenuItem>
+                <MenuItem onClick={handleClose}>Profile</MenuItem>
+                <MenuItem onClick={handleClose}>My account</MenuItem>
+                <MenuItem onClick={handleClose}>Logout</MenuItem>
+                <MenuItem onClick={handleClose}>Profile</MenuItem>
+                <MenuItem onClick={handleClose}>My account</MenuItem>
+                <MenuItem onClick={handleClose}>Logout</MenuItem>
+                <MenuItem onClick={handleClose}>Profile</MenuItem>
+              </Box>
+              <Box>
+                <MenuItem onClick={handleClose}>Profile dsfdsfdsfdsfdsfdsfsdf</MenuItem>
+                <MenuItem onClick={handleClose}>My account</MenuItem>
+                <MenuItem onClick={handleClose}>Logout</MenuItem>
+                <MenuItem onClick={handleClose}>Profile</MenuItem>
+                <MenuItem onClick={handleClose}>My account</MenuItem>
+                <MenuItem onClick={handleClose}>Logout</MenuItem>
+                <MenuItem onClick={handleClose}>Profile</MenuItem>
+                <MenuItem onClick={handleClose}>My account</MenuItem>
+                <MenuItem onClick={handleClose}>Logout</MenuItem>
+                <MenuItem onClick={handleClose}>Profile</MenuItem>
+                <MenuItem onClick={handleClose}>My account</MenuItem>
+                <MenuItem onClick={handleClose}>Logout</MenuItem>
+                <MenuItem onClick={handleClose}>Profile</MenuItem>
+              </Box>
+              <Box>
+                <MenuItem onClick={handleClose}>Profile dsfdsfdsfdsfdsfdsfsdf</MenuItem>
+                <MenuItem onClick={handleClose}>My account</MenuItem>
+                <MenuItem onClick={handleClose}>Logout</MenuItem>
+                <MenuItem onClick={handleClose}>Profile</MenuItem>
+                <MenuItem onClick={handleClose}>My account</MenuItem>
+                <MenuItem onClick={handleClose}>Logout</MenuItem>
+                <MenuItem onClick={handleClose}>Profile</MenuItem>
+                <MenuItem onClick={handleClose}>My account</MenuItem>
+                <MenuItem onClick={handleClose}>Logout</MenuItem>
+                <MenuItem onClick={handleClose}>Profile</MenuItem>
+                <MenuItem onClick={handleClose}>My account</MenuItem>
+                <MenuItem onClick={handleClose}>Logout</MenuItem>
+                <MenuItem onClick={handleClose}>Profile</MenuItem>
+              </Box>
+            </Box>
+
+          </Menu>
+        </Box>
+        <Box>
+          <span style={{ display: 'flex', alignItems: 'center', gap: "10px", padding: '10px 15px', backgroundColor: '#cf6c4d', color: 'white' }}><LocalOfferIcon /> OFFERS</span>
+        </Box>
+      </Box>
     </NavbarContainer >
   );
 }
