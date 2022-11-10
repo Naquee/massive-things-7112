@@ -50,7 +50,8 @@ const Footer = () => {
     </Box>
     </div>
 
-    <img src={footer} alt="footer" />
+    {/* <img src={footer} alt="footer" /> */}
+    {/* <h1>hello</h1> */}
     </>
 
   )
