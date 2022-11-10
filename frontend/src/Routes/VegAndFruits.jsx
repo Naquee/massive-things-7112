@@ -42,7 +42,7 @@ const Vegs = () => {
         border:'1px solid black',
          display: 'grid',
 
-         gridTemplateColumns:'repeat(3, 1fr)' ,
+         gridTemplateColumns:'repeat(4, 1fr)' ,
          gridGap:"2rem",
          
          

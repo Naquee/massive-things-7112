@@ -209,12 +209,12 @@ const Filter = () => {
           <label>Tvs Organics</label>
         </div>
         <div>
-          <input type="checkbox" value="Basket" checked={category.includes('Basket')} onChange={handleFilterCheckbox}  />
-          <label>Basket</label>
+          <input type="checkbox" value="USA" checked={category.includes('USA')} onChange={handleFilterCheckbox}  />
+          <label>USA</label>
         </div>
         <div>
           <input type="checkbox" value="Bouquet" checked={category.includes('Bouquet')} onChange={handleFilterCheckbox}  />
-          <label>Bouquet</label>
+          <label>Val</label>
         </div>
         <div>
           <input type="checkbox" value="Bunches" checked={category.includes('Bunches')} onChange={handleFilterCheckbox}  />
