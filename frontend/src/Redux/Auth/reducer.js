@@ -1,6 +1,5 @@
 import { accesData, saveData } from "../../Utils/appLocalStorage";
 import * as types from "./actionTypes";
-
 const initialState = {
     isAuth: accesData('isAuth') || false,
     isAdmin: false,
