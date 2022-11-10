@@ -1,4 +1,3 @@
-
 import { accesData, saveData } from "../../Utils/appLocalStorage";
 import * as types from "./actionTypes";
 
@@ -60,4 +59,3 @@ const reducer = (oldstate = initialState, action) => {
     }
 };
 export { reducer }
-
