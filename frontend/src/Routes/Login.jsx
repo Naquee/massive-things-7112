@@ -107,14 +107,14 @@ const Login = () => {
                 <Box sx={style}>
                     <AlertMessage show={show} setStatus={setStatus} />
                     <Box sx={{ width: { xs: '75%', md: '88%' }, height: "500px", bgcolor: 'background.paper', boxShadow: 24, position: 'relative', zIndex: 10 }}>
-                        <Typography variant="p" component="p" textAlign='center' padding='20px' color='#84c225' fontWeight={'600'}  >
+                        <Typography variant="p" component="p" textAlign='center' padding='20px' color='#cf6c4d' fontWeight={'600'}  >
                             LOGIN/SIGN UP
                         </Typography>
                         <Box sx={{ width: "100%", display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px', justifyContent: 'center', mt: "50px" }}>
                             <InputBox id="standard-basic" label="Enter Email" variant="standard"
                                 sx={{
                                     width: "80%", borderBottom: '0px',
-                                    '& .MuiInput-underline:after': { borderBottomColor: '#84c225', color: '#84c225' },
+                                    '& .MuiInput-underline:after': { borderBottomColor: '#cf6c4d', color: '#cf6c4d' },
                                 }}
                                 onChange={handleChange('email')} />
                             <FormBox sx={{ m: 1, width: "80%" }} variant="standard">
@@ -122,7 +122,7 @@ const Login = () => {
                                 <Input
                                     sx={{
                                         // underline when selected
-                                        ':after': { borderBottomColor: '#84c225' },
+                                        ':after': { borderBottomColor: '#cf6c4d' },
                                     }}
                                     id="standard-adornment-password"
                                     type={values.showPassword ? 'text' : 'password'}
@@ -143,12 +143,12 @@ const Login = () => {
                             </FormBox>
                             <Button disabled={values.email !== '' && values.password !== '' ? false : true} variant="contained" sx={{
                                 '&:hover': {
-                                    backgroundColor: '#84c225',
+                                    backgroundColor: '#cf6c4d',
                                 },
                                 ":disabled": {
                                     backgroundColor: '#bfe08e',
                                     color: "white"
-                                }, width: '80%', backgroundColor: '#84c225', padding: '12px 0px', marginTop: "140px"
+                                }, width: '80%', backgroundColor: '#dd9882', padding: '12px 0px', marginTop: "140px"
                             }}
                                 onClick={() => handleSubmit()}
                             >
@@ -206,13 +206,13 @@ const LoginContainer = styledComp.div`
 
 const InputBox = styledComp(TextField)`
   & label.Mui-focused {
-    color: #84c225;
+    color: #cf6c4d;
   }
 `;
 
 const FormBox = styledComp(FormControl)`
   & label.Mui-focused {
-    color: #84c225;
+    color: #cf6c4d;
   }
 `;
 
