@@ -8,7 +8,7 @@ export const cartreducer = (state = INIT_STATE, action) => {
       const ItemIndex = state.carts.findIndex(
         (item) => item.id === action.payload.id
       );
-    if (ItemIndex >= 0) {
+      if (ItemIndex >= 0) {
         state.carts[ItemIndex].quantity += 1;
         return {
           ...state,
@@ -27,31 +27,30 @@ export const cartreducer = (state = INIT_STATE, action) => {
         carts: [],
       };
     }
-  case "RMV_CART":
-   const data = state.carts.filter((el) => el.id !== action.payload);
-   return {
+    case "RMV_CART":
+      const data = state.carts.filter((el) => el.id !== action.payload);
+      return {
         ...state,
         carts: data,
       };
-   case "RMV_ONE":
+    case "RMV_ONE":
       const ItemIndex_dec = state.carts.findIndex(
         (item) => item.id === action.payload.id
       );
-    if (state.carts[ItemIndex_dec].quantity >= 1) {
+      if (state.carts[ItemIndex_dec].quantity >= 1) {
         const dltitems = (state.carts[ItemIndex_dec].quantity -= 1);
         console.log([...state.carts, dltitems]);
-     return {
+        return {
           ...state,
           carts: [...state.carts],
         };
       } else if (state.carts[ItemIndex_dec].quantity === 1) {
         const data = state.carts.filter((el) => el.id !== action.payload);
-     return {
+        return {
           ...state,
           carts: data,
         };
       }
-      default:
-      return state;
+    default: return state;
   }
 };

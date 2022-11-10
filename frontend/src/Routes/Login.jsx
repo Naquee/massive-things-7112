@@ -53,16 +53,16 @@ const Login = () => {
             dispatch(userAuthentication(payload)).then((res) => {
                 if (res.payload.msg === 'Signup Successfull') {
                     dispatch(userAuthentication(payload)).then((res) => {
-
+                        if (res.payload.msg === 'Login Successfull') {
+                            setStatus({ ...show, status: true, msg: res.payload.msg, type: "success" });
+                            setTimeout(() => {
+                                navigate("/");
+                            }, 2000)
+                        }
                     }).catch((err) => {
-
+                        setStatus({ ...show, status: true, msg: err, type: 'error' });
                     })
-                } else if (res.payload.msg === 'Login Successfull') {
-                    setStatus({ ...show, status: true, msg: res.payload.msg, type: "success" });
-                    setTimeout(() => {
-                        navigate("/");
-                    }, 2000)
-                } else {
+                }else {
                     setStatus({ ...show, status: true, msg: res.payload.msg, type: "error" });
                 }
             }).catch((err) => {
