@@ -39,9 +39,9 @@ const Footer = () => {
           <img src="https://www.bbassets.com/static/v2608/custPage/build/content/img/Apple-App-store-icon.png" alt="" />
         </Box>
 
-        <Box  >
+        <Box sx={{ display: "flex", flexDirection: 'column', alignItems: 'flex-start', fontSize: 'small' }} >
           <h3 style={{ color: "#84c225" }}>Get Social With Us</h3>
-          <div style={{ gap: "20px", width: "300px" }}>
+          <div style={{display: "flex", alignItems: 'flex-start', fontSize: 'small' , gap: "5px"}}>
             <span style={{ color: "#3b5998" }}><FacebookIcon /></span>
             <span style={{ color: "#db3236" }}><PinterestIcon /></span>
             <span style={{ color: "#00aced" }}><TwitterIcon /></span>
