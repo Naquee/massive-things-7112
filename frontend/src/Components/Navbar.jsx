@@ -470,6 +470,62 @@ const serach=[
   },
   
 ]
+// {['Frouits & Vegitables','Food Grands & Masala','Backery Cakes & Daily ', 'Beauty & hyegene','Saneks & Branded Food',  'Cleaning and Household',
+// 'Kitchen , Garden & Pets','Eggs , Meat & Fish','Gourmet and & World Food',  'Baby Care']
+const phal = [
+  {
+    id:1,
+    title:"Frouits & Vegitables",
+    path:"/fruitsandvegitables"
+  },
+  {
+    id:2,
+    title:"Food Grands & Masala",
+    path:"/foodgrands"
+  },
+  {
+    id:3,
+    title:"Backery Cakes & Daily",
+    path:"/backerycakes"
+  },
+  {
+    id:4,
+    title:"Beauty & hyegene",
+    path:"/beautyhyegene"
+  },
+    {
+    id:5,
+    title:"Saneks & Branded Food",
+    path:"/saneksbranded"
+  },
+    {
+    id:6,
+    title:"Cleaning and Household",
+    path:"/cleaninghousehold"
+  },
+    {
+    id:7,
+    title:"Kitchen , Garden & Pets",
+    path:"/kitchenpets"
+  },
+  {
+    id:8,
+    title:"Meat & Fish",
+    path:"/meatfish"
+  },
+  {
+    id:9,
+    title:"Gourmet and & World Food",
+    path:"/gourmetworld"
+  },
+  {
+    id:10,
+    title:"Baby Care",
+    path:"/babycare"
+  }  
+ 
+
+]
 
 
 const Navbar = () => {
@@ -623,7 +679,7 @@ const Navbar = () => {
 
   return (
     <NavbarContainer>
-      <AppBar elevation={0} position="static" sx={{ borderBottom: "1px solid #ddd", backgroundColor: "white", color: "black" }}>
+      <AppBar elevation={0} position="static" sx={{ width:'100%', borderBottom: "1px solid #ddd", backgroundColor: "white", color: "black" }}>
         <Container maxWidth="xl">
           <Toolbar disableGutters>
             <Link to='/'>
@@ -635,7 +691,7 @@ const Navbar = () => {
                   p: 0,
                   mr: 1,
                   height: 80,
-                  width: 130,
+                  width: 120,
                 }}
                 alt="The house from the offer."
                 src={logo}
@@ -797,7 +853,7 @@ const Navbar = () => {
           </Toolbar>
         </Container>
       </AppBar>
-      <Box sx={{ boxShadow: 'rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px', width: '100%', display: { xs: 'none', md: 'flex' }, alignItems: 'center', padding: '0px 50px' }}>
+      <Box sx={{ boxShadow: 'rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px', display: { xs: 'none', md: 'flex' }, alignItems: 'center', padding: '0px 50px' }}>
         <Box>
           <Button
             id="fade-button"
@@ -821,10 +877,22 @@ const Navbar = () => {
           >
             <Box sx={{ ml: 1, display: 'flex' }}>
               <Box>
-                {['Frouits & Vegitables','Food Grands & Masala','Backery Cakes & Daily ', 'Beauty & hyegene','Saneks & Branded Food',  'Cleaning and Household',
+                {/* {['Frouits & Vegitables','Food Grands & Masala','Backery Cakes & Daily ', 'Beauty & hyegene','Saneks & Branded Food',  'Cleaning and Household',
                 'Kitchen , Garden & Pets','Eggs , Meat & Fish','Gourmet and & World Food',  'Baby Care'].map((ele)=>(
                   <MenuItem onClick={handleClose}>{ele}</MenuItem>
-                ))}
+                ))} */}
+
+                {
+            phal.map((el, index) => (
+          <Link to={el.path} >
+            <ListItem key={index} disablePadding>
+              <ListItemButton>
+                <ListItemText sx={{color:"black", root: {textDecoration: 'none',},}}  
+                primary={el.title} />
+              </ListItemButton>
+            </ListItem>
+          </Link>
+        ))}
               </Box>
               <Box>
               {

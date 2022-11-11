@@ -44,7 +44,6 @@ const Login = () => {
     });
 
     const handleSubmit = () => {
-        console.log(values)
         if (values.email !== '' && values.password !== '') {
             const payload = {
                 email: values.email,
@@ -149,8 +148,11 @@ const Login = () => {
                                 />
                             </FormBox>
                             <Button disabled={values.email !== '' && values.password !== '' ? false : true} variant="contained" sx={{
+                                '&:hover': {
+                                    backgroundColor: '#cf6c4d',
+                                },
                                 ":disabled": {
-                                    backgroundColor: '#b67979',
+                                    backgroundColor: '#b56767',
                                     color: "white"
                                 }, width: '80%', backgroundColor: '#cf6c4d', padding: '12px 0px', marginTop: "140px"
                             }}

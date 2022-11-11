@@ -26,8 +26,6 @@ const VegsAndFruits = () => {
         }
     }, [location.search])
 
-    console.log(vegs)
-
     return (
         <div style={{width:"95%",marginLeft:"3rem"}}>
         <div style={{display:"flex",
