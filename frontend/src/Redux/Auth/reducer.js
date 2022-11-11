@@ -7,7 +7,7 @@ const initialState = {
     isLoading: false,
     isError: false,
     message: '',
-    user: [],
+    user: accesData('user') || [],
     users: [],
 }
 
@@ -20,17 +20,23 @@ const reducer = (oldstate = initialState, action) => {
             let isUserAuth = true;
             saveData('isAuth', isUserAuth);
 
+            let userData = payload.user;
+            saveData('user', userData);
+
             let isUserAdmin = payload.isAdmin;
             saveData('isUserAdmin', isUserAdmin)
 
             let userToken = payload.token;
             saveData('token', userToken)
 
-            return { ...oldstate, isLoading: false, isAuth: isUserAuth, message: payload.msg, token: userToken, isAdmin: isUserAdmin };
+            return { ...oldstate, isLoading: false, isAuth: isUserAuth, message: payload.msg, token: userToken, isAdmin: isUserAdmin, user: userData };
 
         case types.USER_LOGIN_FAILURE:
             isUserAuth = false;
             saveData('isAuth', isUserAuth);
+
+            userData = [];
+            saveData('user', userData);
 
             isUserAdmin = false;
             saveData('isUserAdmin', isUserAdmin);
@@ -50,7 +56,7 @@ const reducer = (oldstate = initialState, action) => {
 
         case types.USER_DATA_SUCCESS: return { ...oldstate, isLoading: false, isAdmin: payload.status, users: payload.users, user: payload.user };
 
-        case types.USER_DATA_FAILURE: return { ...oldstate, isLoading: false, isError: true, users: [], user: [] , isAdmin: false, isAuth: false };
+        case types.USER_DATA_FAILURE: return { ...oldstate, isLoading: false, isError: true, users: [], user: [], isAdmin: false, isAuth: false };
 
         case types.USER_SIGNOUT_SUCCESS: return { isAuth: false, isLoading: false, isError: false };
 

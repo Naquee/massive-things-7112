@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Box,
   FormLabel,
@@ -26,16 +26,19 @@ import {
   RadioGroup,
 } from "@chakra-ui/react";
 import { Navbarcheck } from "./Checkoutnav";
+import { useDispatch, useSelector } from "react-redux";
+import { addAddress, getAddress } from "../Redux/App/action";
 
 export const Checkout = () => {
+  const dispatch = useDispatch();
+  const { token } = useSelector((store) => (store.AuthReducer));
   const [formData, setFormData] = useState({
     fname: "",
     lname: "",
-    email: "",
+    contact: "",
     state: "",
     address: "",
     city: "",
-    state: "",
     zip: "",
   });
 
@@ -45,13 +48,41 @@ export const Checkout = () => {
     setFormData({ ...formData, [name]: value });
   }
 
-  function handleSubmit(event) {
-    event.preventDefault();
-    fetch("http://localhost:5000/checkout", {
-      method: "POST",
-      body: formData,
-    });
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const payload = formData;
+    const headers = {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    }
+    dispatch(addAddress(payload, headers)).then((res) => {
+      console.log(res);
+    }).catch((err) => {
+      console.log(err);
+    })
   }
+
+
+  // const dispatch = useDispatch();
+  // const { address } = useSelector((store) => (store.AppReducer));
+  // const getUserAddress = () => {
+  //   const headers = {
+  //     headers: {
+  //       Authorization: `Bearer ${token}`
+  //     }
+  //   }
+  //   dispatch(getAddress(headers))
+  //     .then((res) => { })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
+ 
+
+  // useEffect(() => {
+  //   getUserAddress();
+  // }, []);
 
   return (
     <Box>
@@ -168,15 +199,15 @@ export const Checkout = () => {
                           color: "gray.50",
                         }}
                       >
-                        Email address
+                        Contact Number
                       </FormLabel>
                       <Input
                         onChange={handleChange}
-                        value={formData.email}
-                        type="text"
-                        name="email"
-                        id="email_address"
-                        autoComplete="email"
+                        value={formData.contact}
+                        type="number"
+                        name="contact"
+                        id="contact_number"
+                        autoComplete="contact"
                         mt={1}
                         focusBorderColor="brand.400"
                         shadow="sm"
