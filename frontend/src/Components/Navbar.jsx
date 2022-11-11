@@ -347,9 +347,130 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import Fade from '@mui/material/Fade';
 import LocalOfferIcon from '@mui/icons-material/LocalOffer';
 import Login from '../Routes/Login';
+import { Search } from '@mui/icons-material';
 
 const pages = ['Gifts', 'New', 'Women', 'Men', 'Kids', 'Cashmere', 'Home', 'Stories', 'Sale'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+// const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const aalu =[
+  {
+    id:1,
+    title:"Potato, Onion & Tomato",
+    path:"/patato"
+  },
+  {
+    id:2,
+    title:"Cucumber & Capsicum",
+    path:"/cucumber"
+  },
+  {
+    id:3,
+    title:"Leafy Vegetables",
+    path:"/leafy"
+  },
+  {
+    id:4,
+    title:"Root Vegetables",
+    path:"/root"
+  },
+  {
+    id:5,
+    title:"Beans, Brinjals & Okra",
+    path:"/beans"
+  },
+    {
+    id:6,
+    title:"Potato, Onion & Tomato",
+    path:"/patato"
+  },
+  {
+    id:7,
+    title:"Cabbage & Cauliflower",
+    path:"/cabbage"
+  },
+  {
+    id:8,
+    title:"Gourd, Pumpkin, Drumstick",
+    path:"/rourd"
+  },
+  {
+    id:9,
+    title:"Specialty",
+    path:"/specialty"
+  },
+
+]
+
+const fresh = [
+  {
+    id:1,
+    title:"Herbs & Seasonings",
+    path:"/herbs"
+  },
+  {
+    id:2,
+    title:"Fresh Fruits",
+    path:"/freshfruits"
+  },
+  {
+    id:3,
+    title:"Organic Fruits & Vegitables",
+    path:"/organicfruits"
+  },
+  {
+    id:4,
+    title:"Veg",
+    path:"/Veg"
+  },
+  {
+    id:1,
+    title:"Cuts & Sprouts",
+    path:"/cuts"
+  },
+  {
+    id:2,
+    title:"Exotic Fruits & Veggies",
+    path:"/exotic"
+  },
+  {
+    id:3,
+    title:"Vegetables",
+    path:"/Vegetables"
+  },
+  {
+    id:4,
+    title:"Flower Bouquets Buncheses",
+    path:"/bouquets"
+  },
+]
+
+
+
+
+
+const serach=[
+  {
+    id:1,
+    title:"Popular Searches",
+    path:"/PopularSearches"
+  },
+  {
+    id:2,
+    title:"Ash Gourd",
+    path:"/AshGourd"
+  },
+  {
+    id:3,
+    title:"Vegetables",
+    path:"/Vegetables"
+  },
+  {
+    id:4,
+    title:"Veg",
+    path:"/Veg"
+  },
+  
+]
+
 
 const Navbar = () => {
 
@@ -375,7 +496,7 @@ const Navbar = () => {
     >
       <Button size="large" href="https://www.google.com" sx={{ ml: 10 }}>SignIN</Button>
       <List>
-        {['Fruits & Vegetables', 'Foodgrains, Oil & Masala', 'Women', 'Men', 'Kids', 'Cashmere', 'Home', 'Stories', 'Sale'].map((text, index) => (
+        {['Fruits & Vegetables', 'Fresh Vegitables', 'Popular Search'].map((text, index) => (
           <ListItem key={text} disablePadding onClick={() => setMenu(text)}>
             <ListItemButton>
               <ListItemText primary={text} />
@@ -410,14 +531,21 @@ const Navbar = () => {
 
   const fruitandvegetables = (
     <MenuContainer>
-      <List sx={{ mt: 5, width: '250px' }} >
+      <List sx={{ mt: 5, width: '250px' }}>
         <Divider />
         <Typography textAlign="center" padding="10px" fontSize='small' fontWeight={'bold'} color='#cf6c4d'>{menu}</Typography>
         <Divider />
-        {[{ title: 'Fresh Vegetables', path: '/freshvegetables' },
-        { title: 'Cashmere', path: '/cashmere' },
-        { title: 'For Men', path: '/formen' },
-        { title: 'Cashmere', path: '/cashmere' },
+        {[{ title: 'Fruits & Vegetables', path: '/fruitsvegetables' },
+        { title: 'Food Grands & Masala', path: '/foodgrand' },
+        { title: 'Backery Cakes & Daily', path: '/backerycake' },
+        { title: 'Saneks & Branded Food', path: '/sneksbranded' },
+        { title: 'Beauty & hyegene', path: '/beauty' },
+        { title: 'Cleaning and Household', path: '/cleaning' },
+        { title: 'Kitchen , Garden & Pets', path: '/kitchen' },
+        { title: 'Eggs , Meat & Fish', path: '/eggs' },
+        { title: 'Gourmet and & World Food', path: '/gourmet' },
+        { title: 'Baby Care', path: '/baby' },
+      
         ].map((ele, index) => (
           <Link to={ele.path} >
             <ListItem key={index} disablePadding>
@@ -431,16 +559,19 @@ const Navbar = () => {
     </MenuContainer>
   )
 
-  const foodgrains = (
+  const FreshVegitables = (
     <MenuContainer>
       <List sx={{ mt: 5, width: '250px' }} >
         <Divider />
         <Typography textAlign="center" padding="10px" fontSize='small' fontWeight={'bold'} color='#cf6c4d'>{menu}</Typography>
         <Divider />
-        {[{ title: 'Fresh Vegetables', path: '/freshvegetables' },
-        { title: 'Cashmere', path: '/cashmere' },
-        { title: 'For Men', path: '/formen' },
-        { title: 'Cashmere', path: '/cashmere' },
+        {[{ title: 'Fresh Vegitables', path: '/freshvegetables' },
+        { title: 'Herbs & Seasioning', path: '/herbs' },
+        { title: 'Fresh Fruits', path: '/formen' },
+        { title: 'Organic Fruits nad Vegitables', path: '/organicfrouts' },
+        { title: 'Ecxotic Frouits', path: '/exotic' },
+        { title: 'Flower Bouquets Buncheses', path: '/flower' },
+        
         ].map((ele, index) => (
           <Link to={ele.path} >
             <ListItem key={index} disablePadding>
@@ -454,16 +585,16 @@ const Navbar = () => {
     </MenuContainer>
   )
 
-  const gift = (
+  const popular = (
     <MenuContainer>
       <List sx={{ mt: 5, width: '280px' }} >
         <Divider />
         <Typography textAlign="center" padding="10px" fontSize='small' fontWeight={'bold'} color='#cf6c4d'>{menu}</Typography>
         <Divider />
-        {[{ title: 'For Men', path: '/formen' },
-        { title: 'Cashmere', path: '/cashmere' },
-        { title: 'For Men', path: '/formen' },
-        { title: 'Cashmere', path: '/cashmere' },
+        {[{ title: 'Ash Grand', path: '/ashgrand' },
+        { title: 'Vegitables', path: '/vegitables' },
+        { title: 'Veg', path: '/veg' },
+       
         ].map((ele, index) => (
           <Link to={ele.path} >
             <ListItem key={index} disablePadding>
@@ -535,9 +666,9 @@ const Navbar = () => {
 
                 <div className="menuList">
                   {menu === "list" && list("left")}
-                  {menu === "Gifts" && gift}
                   {menu === "Fruits & Vegetables" && fruitandvegetables}
-                  {menu === "Foodgrains, Oil & Masala" && foodgrains}
+                  {menu === "Fresh Vegitables" && FreshVegitables}
+                  {menu === "Popular Search" && popular}
 
                 </div>
               </Drawer>
@@ -690,24 +821,29 @@ const Navbar = () => {
           >
             <Box sx={{ ml: 1, display: 'flex' }}>
               <Box>
-                {['Profile dsfdsfdsfdsfdsfdsfsdf','My account','Logout'].map((ele)=>(
+                {['Frouits & Vegitables','Food Grands & Masala','Backery Cakes & Daily ', 'Beauty & hyegene','Saneks & Branded Food',  'Cleaning and Household',
+                'Kitchen , Garden & Pets','Eggs , Meat & Fish','Gourmet and & World Food',  'Baby Care'].map((ele)=>(
                   <MenuItem onClick={handleClose}>{ele}</MenuItem>
                 ))}
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
-                <MenuItem onClick={handleClose}>My account</MenuItem>
-                <MenuItem onClick={handleClose}>Logout</MenuItem>
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
-                <MenuItem onClick={handleClose}>My account</MenuItem>
-                <MenuItem onClick={handleClose}>Logout</MenuItem>
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
-                <MenuItem onClick={handleClose}>My account</MenuItem>
-                <MenuItem onClick={handleClose}>Logout</MenuItem>
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
               </Box>
               <Box>
-                <MenuItem onClick={handleClose}>Profile dsfdsfdsfdsfdsfdsfsdf</MenuItem>
-                <MenuItem onClick={handleClose}>My account</MenuItem>
-                <MenuItem onClick={handleClose}>Logout</MenuItem>
+              {
+            fresh.map((el, index) => (
+          <Link to={el.path} >
+            <ListItem key={index} disablePadding>
+              <ListItemButton>
+                <ListItemText sx={{padding:"-10px",color:"black", root: {textDecoration: 'none',},}}  
+                primary={el.title} />
+              </ListItemButton>
+            </ListItem>
+          </Link>
+        ))}
+            
+                
+          
+                
+              
+                {/* <MenuItem onClick={handleClose}>Logout</MenuItem>
                 <MenuItem onClick={handleClose}>Profile</MenuItem>
                 <MenuItem onClick={handleClose}>My account</MenuItem>
                 <MenuItem onClick={handleClose}>Logout</MenuItem>
@@ -717,10 +853,23 @@ const Navbar = () => {
                 <MenuItem onClick={handleClose}>Profile</MenuItem>
                 <MenuItem onClick={handleClose}>My account</MenuItem>
                 <MenuItem onClick={handleClose}>Logout</MenuItem>
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
+                <MenuItem onClick={handleClose}>Profile</MenuItem> */}
               </Box>
               <Box>
-                <MenuItem onClick={handleClose}>Profile dsfdsfdsfdsfdsfdsfsdf</MenuItem>
+          {
+            aalu.map((el, index) => (
+          <Link to={el.path} >
+            <ListItem key={index} disablePadding>
+              <ListItemButton>
+                <ListItemText sx={{padding:"-10px",color:"black", root: {textDecoration: 'none',},}}  
+                primary={el.title} />
+              </ListItemButton>
+            </ListItem>
+          </Link>
+        ))}
+
+          
+                {/* <MenuItem onClick={handleClose}>Profile dsfdsfdsfdsfdsfdsfsdf</MenuItem>
                 <MenuItem onClick={handleClose}>My account</MenuItem>
                 <MenuItem onClick={handleClose}>Logout</MenuItem>
                 <MenuItem onClick={handleClose}>Profile</MenuItem>
@@ -732,10 +881,22 @@ const Navbar = () => {
                 <MenuItem onClick={handleClose}>Profile</MenuItem>
                 <MenuItem onClick={handleClose}>My account</MenuItem>
                 <MenuItem onClick={handleClose}>Logout</MenuItem>
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
+                <MenuItem onClick={handleClose}>Profile</MenuItem> */}
               </Box>
+
               <Box>
-                <MenuItem onClick={handleClose}>Profile dsfdsfdsfdsfdsfdsfsdf</MenuItem>
+              {
+                serach.map((el, index) => (
+          <Link to={el.path} >
+            <ListItem key={index} disablePadding>
+              <ListItemButton>
+                <ListItemText sx={{padding:"-10px",color:"black", root: {textDecoration: 'none',},}} 
+                primary={el.title} />
+              </ListItemButton>
+            </ListItem>
+          </Link>
+        ))}
+                {/* <MenuItem onClick={handleClose}>Profile dsfdsfdsfdsfdsfdsfsdf</MenuItem>
                 <MenuItem onClick={handleClose}>My account</MenuItem>
                 <MenuItem onClick={handleClose}>Logout</MenuItem>
                 <MenuItem onClick={handleClose}>Profile</MenuItem>
@@ -747,23 +908,10 @@ const Navbar = () => {
                 <MenuItem onClick={handleClose}>Profile</MenuItem>
                 <MenuItem onClick={handleClose}>My account</MenuItem>
                 <MenuItem onClick={handleClose}>Logout</MenuItem>
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
+                <MenuItem onClick={handleClose}>Profile</MenuItem> */}
               </Box>
-              <Box>
-                <MenuItem onClick={handleClose}>Profile dsfdsfdsfdsfdsfdsfsdf</MenuItem>
-                <MenuItem onClick={handleClose}>My account</MenuItem>
-                <MenuItem onClick={handleClose}>Logout</MenuItem>
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
-                <MenuItem onClick={handleClose}>My account</MenuItem>
-                <MenuItem onClick={handleClose}>Logout</MenuItem>
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
-                <MenuItem onClick={handleClose}>My account</MenuItem>
-                <MenuItem onClick={handleClose}>Logout</MenuItem>
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
-                <MenuItem onClick={handleClose}>My account</MenuItem>
-                <MenuItem onClick={handleClose}>Logout</MenuItem>
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
-              </Box>
+           
+          
             </Box>
 
           </Menu>
@@ -772,7 +920,7 @@ const Navbar = () => {
           <span style={{ display: 'flex', alignItems: 'center', gap: "10px", padding: '10px 15px', backgroundColor: '#cf6c4d', color: 'white' }}><LocalOfferIcon /> OFFERS</span>
         </Box>
       </Box>
-    </NavbarContainer >
+    </NavbarContainer>
   );
 }
 
@@ -797,6 +945,9 @@ width:100%;
         font-size:18px;
         font-weight:500;
 
+    }
+    .cate{
+      color:black;
     }
 `;
 

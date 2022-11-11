@@ -4,7 +4,7 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import PinterestIcon from '@mui/icons-material/Pinterest';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import InstagramIcon from '@mui/icons-material/Instagram';
-import footer from "./assets/footer.png"
+import payment from "./assets/payment.png"
 import styled from 'styled-components';
 
 const Footer = () => {
@@ -52,8 +52,36 @@ const Footer = () => {
       </Box>
 
       <Box sx={{ width: { md: "100%", xs: "50%", overflow: 'hidden' } }}>
-        <img src={footer} alt="footer" className='heelo'/>
+        {/* <img src={footer} alt="footer" className='heelo'/> */}
       </Box>
+
+      {/* , flexDirection: 'column', alignItems: 'flex-start', fontSize: 'small',color:'red' */}
+     <hr />
+    
+     <Box sx={{ display: "flex",flexDirection:"row" ,fontSize:"13px",gap:"30px", width:"80%",margin:"auto", padding:"10px"}}>
+      <Box sx={{color:"#cf6c4d"}}>POPULAR CATEGORIES:</Box>
+      <Box sx={{width:"80%",textAlign:"left"}}>
+        Sunflower Oils, Wheat Atta, Ghee, Milk, Health Drinks, Flakes, Organic F&V, Namkeen, Eggs, Floor Cleaners, Other Juices, Leafy Vegetables, Frozen Veg Food, Diapers & Wipes,</Box>
+     </Box>
+
+     <Box sx={{ display: "flex",flexDirection:"row" ,fontSize:"13px",gap:"50px", width:"80%",margin:"auto",padding:"10px" }}>
+      <Box sx={{color:"#cf6c4d"}}>POPULAR BRANDS:</Box>
+      <Box sx={{width:"80%",textAlign:"left"}}>Amul, Nescafe , MTR, RED BULL , elite cake, Pediasure, Yummiez, Yera, Yakult, Britannia, Wow Momo, Fortune , Haldirams , Ferrero, Lays, Patanjali, McCain, kwality walls, Cadbury Dairy Milk, Pedigree,</Box>
+     </Box>
+
+     <Box sx={{ display: "flex",flexDirection:"row" ,fontSize:"13px",gap:"55px", width:"80%",margin:"auto",padding:"10px" }}>
+      <Box sx={{color:"#cf6c4d"}}>CITIES WE SERVE:</Box>
+      <Box sx={{width:"80%",textAlign:"left"}}>
+       Bangalore, Hyderabad, Mumbai, Pune, Chennai, Delhi, Mysore, Madurai, Coimbatore, Vijayawada-Guntur, Kolkata, Ahmedabad-Gandhinagar, Nashik Business, Lucknow-Kanpur, Gurgaon, Vadodara, Visakhapatnam, Surat, Nagpur, Patna, Indore, Chandigarh Tricity, Jaipur, Bhopal, Noida-Ghaziabad, Kochi, Krishna District, Bhubaneshwar-Cuttack, Guwahati, Renigunta, Hubli, Davanagere, Trichy, Amravati, Raipur, Rajkot, Gwalior, Bareilly, Allahabad, Hyderabad Rural, Bangalore Rural, Chennai Rural, Vizag Rural, Lucknow Rural, Noida Rural, Ahmedabad Rural, Bhopal Rural, Bhubaneswar Rural, Coimbatore Rural, Chandigarh Rural, Gurugram Rural, Guwahati Rural, Indore Rural, Kochi Rural, Kolkata Rural, Mumbai Rural, Mysore Rural, Nagpur Rural, Patna Rural, Pune Rural, Surat Rural, Vadodara Rural, Jaipur Rural, Ranchi, Nashik, Agra, Kozhikode, </Box>
+     </Box>
+     {/* , flexDirection: 'column', alignItems: 'flex-start', fontSize: 'small' */}
+     <Box sx={{ display: "flex",flexDirection:"row" ,fontSize:"13px", width:"80%",margin:"auto",padding:"10px" }}>
+      <Box  sx={{color:"#cf6c4d"}}>PAYMENT OPTIONS:</Box>
+      <Box sx={{ width: { md: "70%", xs: "360px" } }}>
+        <img src={payment} alt="footer" className='payment'/>
+      </Box>
+     </Box>
+
     </Container>
 
   )
