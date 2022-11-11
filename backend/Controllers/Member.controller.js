@@ -15,9 +15,9 @@ const member = () => async (req, res) => {
                 if (result) {
                     const token = jwt.sign({ email: user.email }, process.env.SECRET_KEY);
                     if (user.role === 'admin') {
-                        res.send({ msg: "Login Successfull", status: true, token: token, isAdmin: true });
+                        res.send({ msg: "Login Successfull", status: true, token: token, isAdmin: true, user: user });
                     } else {
-                        res.send({ msg: "Login Successfull", status: true, token: token});
+                        res.send({ msg: "Login Successfull", status: true, token: token, user: user });
                     }
 
                 } else {
