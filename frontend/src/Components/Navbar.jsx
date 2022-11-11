@@ -492,7 +492,7 @@ const Navbar = () => {
 
   return (
     <NavbarContainer>
-      <AppBar elevation={0} position="static" sx={{ borderBottom: "1px solid #ddd", backgroundColor: "white", color: "black" }}>
+      <AppBar elevation={0} position="static" sx={{ width:'100%', borderBottom: "1px solid #ddd", backgroundColor: "white", color: "black" }}>
         <Container maxWidth="xl">
           <Toolbar disableGutters>
             <Link to='/'>
@@ -504,7 +504,7 @@ const Navbar = () => {
                   p: 0,
                   mr: 1,
                   height: 80,
-                  width: 130,
+                  width: 120,
                 }}
                 alt="The house from the offer."
                 src={logo}
@@ -666,7 +666,7 @@ const Navbar = () => {
           </Toolbar>
         </Container>
       </AppBar>
-      <Box sx={{ boxShadow: 'rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px', width: '100%', display: { xs: 'none', md: 'flex' }, alignItems: 'center', padding: '0px 50px' }}>
+      <Box sx={{ boxShadow: 'rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px', display: { xs: 'none', md: 'flex' }, alignItems: 'center', padding: '0px 50px' }}>
         <Box>
           <Button
             id="fade-button"

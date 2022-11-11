@@ -51,9 +51,9 @@ const Footer = () => {
         </Box>
       </Box>
 
-      <Box sx={{ width: { md: "100%", xs: "50%", overflow: 'hidden' } }}>
+      {/* <Box sx={{ width: { md: "100%", xs: "50%", overflow: 'hidden' } }}>
         <img src={footer} alt="footer" className='heelo'/>
-      </Box>
+      </Box> */}
     </Container>
 
   )

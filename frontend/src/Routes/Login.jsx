@@ -149,6 +149,9 @@ const Login = () => {
                                 />
                             </FormBox>
                             <Button disabled={values.email !== '' && values.password !== '' ? false : true} variant="contained" sx={{
+                                '&:hover': {
+                                    backgroundColor: '#cf6c4d',
+                                },
                                 ":disabled": {
                                     backgroundColor: '#b56767',
                                     color: "white"
