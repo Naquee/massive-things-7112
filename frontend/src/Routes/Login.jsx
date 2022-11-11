@@ -149,13 +149,10 @@ const Login = () => {
                                 />
                             </FormBox>
                             <Button disabled={values.email !== '' && values.password !== '' ? false : true} variant="contained" sx={{
-                                '&:hover': {
-                                    backgroundColor: '#cf6c4d',
-                                },
                                 ":disabled": {
-                                    backgroundColor: '#bfe08e',
+                                    backgroundColor: '#b67979',
                                     color: "white"
-                                }, width: '80%', backgroundColor: '#dd9882', padding: '12px 0px', marginTop: "140px"
+                                }, width: '80%', backgroundColor: '#cf6c4d', padding: '12px 0px', marginTop: "140px"
                             }}
                                 onClick={() => handleSubmit()}
                             >
