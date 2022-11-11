@@ -26,7 +26,6 @@ const Filter = () => {
         if(category){
             let params = {};
             category && (params.category = category);
-            console.log(params);
 
             setSearchParams(params);
         }
