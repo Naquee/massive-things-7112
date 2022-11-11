@@ -4,6 +4,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Button from '@mui/material/Button';
+import { sizing } from '@mui/system'
 
 export default function ControlledOpenSelect() {
   const [price, setPrcie] = React.useState('popularity');
@@ -23,7 +24,7 @@ export default function ControlledOpenSelect() {
 
   return (
     <div>
-      <FormControl sx={{ m: 1, minWidth: 150,border:'black' }}>
+      <FormControl sx={{ m: 1, minWidth: 200,border:'black',height: '20%' }}>
         <Select
           labelId="demo-controlled-open-select-label"
           id="demo-controlled-open-select"
@@ -32,7 +33,6 @@ export default function ControlledOpenSelect() {
           onOpen={handleOpen}
           value={price}
           onChange={handleChange}
-          sx={{border:'1px solid black'}}
         >
           <MenuItem value={'popularity'}>Popularity</MenuItem>
           <MenuItem value={'low'}>Price - Low to High</MenuItem>

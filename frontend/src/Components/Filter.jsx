@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-
+import '../App.css';
 
 const Filter = () => {
 
@@ -34,6 +34,16 @@ const Filter = () => {
 
     return (
         <div>
+          <p style={{fontSize:"12px"}}><a  href="/">HOME →</a> FRUITS & VEGETABLES</p>
+          <div style={{display:"grid",fontSize:"1rem", width:"13rem",marginTop:"3rem"}}>
+          <a href="">Cuts & Sprouts (2867)</a>
+          <a href="">Exotic Fruits & Veggies (4966)</a>
+          <a href="">Flower Bouquets, Bunches (1280)</a>
+          <a href="">Fresh Fruits (6577)</a>
+          <a href="">Fresh Vegetables (12283)</a>
+          <a href="">Herbs & Seasonings (2595)</a>
+          <a href="">Organic Fruits & Vegetables (2687)</a>
+          </div>
              <h3>Country of Origin</h3>
       <div >
         <div>
@@ -70,7 +80,7 @@ const Filter = () => {
         </div>
       </div>
       <hr />
-         <h4>Price</h4>
+         <h3>Price</h3>
           <div>
           <div>
           <input type="checkbox" value="Less than Rs 20 (2009)" checked={category.includes('Less than Rs 20 (2009)')} onChange={handleFilterCheckbox}  />
@@ -100,7 +110,7 @@ const Filter = () => {
       </div>
 
       <hr />
-         <h4>Discounts</h4>
+         <h3>Discounts</h3>
           <div>
           <div>
           <input type="checkbox" value="Upto 5% (61)" checked={category.includes('Upto 5% (61)')} onChange={handleFilterCheckbox}  />
