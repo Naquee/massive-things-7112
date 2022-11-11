@@ -30,7 +30,7 @@ const AddProducts = ({ colorScheme }) => {
         if(!inputFile.current.files[0]){
             setStatus({ ...show, status: true, msg: "Please Choose Image First", type: "error" });
         }else{
-            if (!data.name !== '' && !inputFile.current.files[0]) {
+            if (data.name !== '' && inputFile.current.files[0]) {
                 const formData = new FormData();
                 formData.append("category", data.category);
                 formData.append("name", data.name);
