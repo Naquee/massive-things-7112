@@ -7,8 +7,8 @@ const initialState = {
     isLoading: false,
     isError: false,
     message: '',
-    userDetails: [],
-    data: []
+    user: [],
+    users: [],
 }
 
 const reducer = (oldstate = initialState, action) => {
@@ -48,9 +48,9 @@ const reducer = (oldstate = initialState, action) => {
 
         case types.USER_DATA_REQUEST: return { ...oldstate, isLoading: true };
 
-        case types.USER_DATA_SUCCESS: return { ...oldstate, isLoading: false, data: payload.data, isAdmin: payload.status, userDetails: payload.userDetails };
+        case types.USER_DATA_SUCCESS: return { ...oldstate, isLoading: false, isAdmin: payload.status, users: payload.users, user: payload.user };
 
-        case types.USER_DATA_FAILURE: return { ...oldstate, isLoading: false, isError: true, data: [], isAdmin: false, isAuth: false };
+        case types.USER_DATA_FAILURE: return { ...oldstate, isLoading: false, isError: true, users: [], user: [] , isAdmin: false, isAuth: false };
 
         case types.USER_SIGNOUT_SUCCESS: return { isAuth: false, isLoading: false, isError: false };
 

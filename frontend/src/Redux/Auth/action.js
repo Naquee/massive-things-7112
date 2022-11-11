@@ -12,18 +12,18 @@ const userAuthentication = (payload) => (dispatch) => {
     })
 }
 
-const userDelete = (payload) => (dispatch) => {
+const dashUserDelete = (payload, headers) => (dispatch) => {
     dispatch({ type: types.USER_DELETE_REQUEST });
-    return axios.delete(`${REACT_APP_API_URL}/delete/user/${payload.id}`).then((res) => {
+    return axios.delete(`${REACT_APP_API_URL}/dashboard/delete/user/${payload.id}`, headers).then((res) => {
         return dispatch({ type: types.USER_DELETE_SUCCESS, payload: res.data });
     }).catch((err) => {
         return dispatch({ type: types.USER_DELETE_FAILURE, payload: err });
     })
 }
 
-const userData = (payload) => (dispatch) => {
+const dashUserData = (payload) => (dispatch) => {
     dispatch({ type: types.USER_DATA_REQUEST });
-    return axios.get(`${REACT_APP_API_URL}/dashboard/usersdata`, payload).then((res) => {
+    return axios.get(`${REACT_APP_API_URL}/dashboard/users`, payload).then((res) => {
         if (!res.data.status) {
             return dispatch({ type: types.USER_DATA_FAILURE, payload: res.data });
         } else {
@@ -34,5 +34,5 @@ const userData = (payload) => (dispatch) => {
     })
 }
 
-export { userAuthentication, userDelete, userData }
+export { userAuthentication, dashUserDelete, dashUserData }
 

@@ -10,7 +10,7 @@ import CheckIcon from '@mui/icons-material/Check';
 import { useDispatch, useSelector } from 'react-redux';
 import AlertMessage from './AlertMessage';
 import { useNavigate } from 'react-router-dom';
-import { getProducts, productData, productDelete } from '../Redux/App/action';
+import { productData, productDelete } from '../Redux/App/action';
 
 const style = {
     position: 'absolute',
@@ -29,9 +29,9 @@ const AllProductsData = ({ colorScheme }) => {
     const [open, setOpen] = useState(false);
     const [product_id, setproduct_id] = useState('');
     const navigate = useNavigate();
-    const { token } = useSelector((store) => (store.AuthReducer))
-    const { products, allProducts } = useSelector((store) => (store.AppReducer))
     const dispatch = useDispatch();
+    const { token } = useSelector((store) => (store.AuthReducer))
+    const { dashProducts } = useSelector((store) => (store.AppReducer))
 
     const [show, setStatus] = useState({
         status: false,
@@ -104,7 +104,7 @@ const AllProductsData = ({ colorScheme }) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {products?.map((ele, index) => (
+                    {dashProducts?.map((ele, index) => (
                         <tr className={index % 2 === 0 ? 'userDetailsb' : 'userDetailsw'} key={index}>
                             <td><img src={`${REACT_APP_API_URL}${ele.img_path}`} alt={ele.name} width='150px' height='150px'/></td>
                             <td>{ele.name}</td>
@@ -140,8 +140,7 @@ const ProductContainer = styledComp.div`
     position:relative;
     width:100%;
     margin:auto;
-    overflow:hidden;
-    margin-top:30px;
+    padding-top:30px;
 
     table {
         width: 100%;
