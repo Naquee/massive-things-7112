@@ -14,7 +14,12 @@ const member = () => async (req, res) => {
             bcrypt.compare(password, hashedPassword, function (err, result) {
                 if (result) {
                     const token = jwt.sign({ email: user.email }, process.env.SECRET_KEY);
-                    res.send({ msg: "Login Successfull", status: true, token: token });
+                    if (user.role === 'admin') {
+                        res.send({ msg: "Login Successfull", status: true, token: token, isAdmin: true });
+                    } else {
+                        res.send({ msg: "Login Successfull", status: true, token: token});
+                    }
+
                 } else {
                     res.send({ msg: "Invalid Credentials", status: false });
                 }
@@ -39,6 +44,6 @@ const member = () => async (req, res) => {
     }
 }
 
-module.exports={
+module.exports = {
     member
 }

@@ -30,7 +30,7 @@ const Container = styled.div`
     width: 280px;
     font-size:small;
     position:absolute;
-    top:-15%;
+    top:-10%;
     left:46%;
     transform: translate(-50%, -50%);
     -webkit-animation: slide-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;

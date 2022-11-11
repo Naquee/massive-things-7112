@@ -7,28 +7,25 @@ import ControlledOpenSelect from "../Components/priceFilter";
 import VegCard from "../Components/vegCard";
 import { getVeg } from "../Redux/App/action";
 
-
-
-const Vegs = () => {
+const VegsAndFruits = () => {
 
     const vegs = useSelector(state => state.AppReducer.veg);
     const [searchParams] = useSearchParams();
-
     const dispatch = useDispatch();
     const location = useLocation();
 
     useEffect(() => {
-        if(location || vegs.length === 0){
+        if (location || vegs.length === 0) {
             let getVegsParams = {
-                params : {
-                    category : searchParams.getAll('category'),
+                params: {
+                    category: searchParams.getAll('category'),
                 }
             }
 
             dispatch(getVeg(getVegsParams))
         }
     }, [location.search])
-   
+
     console.log(vegs)
 
     return (
@@ -72,5 +69,4 @@ const Vegs = () => {
     );
 }
 
-
-export default Vegs;
+export default VegsAndFruits;

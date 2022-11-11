@@ -1,13 +1,17 @@
+import { useLocation } from 'react-router-dom';
 import './App.css';
 import Footer from './Components/Footer';
+import Navbar from './Components/Navbar';
 import AllRoutes from './Routes/AllRoutes';
 
 
 function App() {
+  const location = useLocation();
   return (
     <div className="App">
-      <AllRoutes/>
-      <Footer/>
+      {location.pathname === "/admin/dashboard" ? null : <Navbar />}
+      <AllRoutes />
+      {location.pathname === "/admin/dashboard" ? null : <Footer />}
     </div>
   );
 }
