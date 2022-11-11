@@ -6,12 +6,14 @@ const { authentication } = require("./Middleware/Authentication");
 const { authorization } = require("./Middleware/Authorization");
 const { Dashboard } = require("./Routes/Dashboard.Routes");
 const { Data } = require("./Routes/Data.Routes");
+const { User } = require("./Routes/User.Routes");
 const app = express();
 require("dotenv").config();
 app.use(express.json());
 app.use(cors());
 
 app.use('/member', Member);
+app.use('/user', authentication, User);
 app.use('/dashboard',authentication, authorization('admin'), Dashboard);
 app.use('/data', Data);
 app.use('/resources/images', express.static('images'));
