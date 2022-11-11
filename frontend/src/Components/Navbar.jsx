@@ -1,323 +1,3 @@
-// import React from "react";
-// import styled from "styled-components";
-// import AppBar from "@mui/material/AppBar";
-// import Box from "@mui/material/Box";
-// import Toolbar from "@mui/material/Toolbar";
-// import IconButton from "@mui/material/IconButton";
-// import Typography from "@mui/material/Typography";
-// import Menu from "@mui/material/Menu";
-// import MenuIcon from "@mui/icons-material/Menu";
-// import Container from "@mui/material/Container";
-
-
-// import Tooltip from "@mui/material/Tooltip";
-// import MenuItem from "@mui/material/MenuItem";
-// import AdbIcon from "@mui/icons-material/Adb";
-// import SearchIcon from '@mui/icons-material/Search';
-
-
-// import { useTheme } from '@mui/material/styles';
-// import OutlinedInput from '@mui/material/OutlinedInput';
-
-// import FormControl from '@mui/material/FormControl';
-// import Select from '@mui/material/Select';
-
-// import Paper from '@mui/material/Paper';
-// import InputBase from '@mui/material/InputBase';
-// import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
-
-
-
-
-// export { default as image1 } from "assets/images/1.png";
-// import { default as logo } from "./assets/logo.png"
-// import { width } from "@mui/system";
-
-
-
-
-
-
-// const pages = ["Products", "Pricing", "Blog"];
-// const settings = ["Profile", "Account", "Dashboard", "Logout"];
-
-
-// const ITEM_HEIGHT = 48;
-// const ITEM_PADDING_TOP = 8;
-// const MenuProps = {
-//   PaperProps: {
-//     style: {
-//       maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-//       width: 250,
-//     },
-//   },
-// };
-
-// const names = [
-//   'Frouits & Vegitables',
-//   'Food Grands & Masala',
-//   'Backery Cakes & Daily ',
-//   'Saneks & Branded Food',
-//   'Beauty & hyegene',
-//   'Cleaning and Household',
-//   'Kitchen , Garden & Pets',
-//   'Eggs , Meat & Fish',
-//   'Gourmet and & World Food',
-//   'Baby Care',
-//   "view all"
-// ];
-
-// function getStyles(name, personName, theme) {
-//   return {
-//     fontWeight:
-//       personName.indexOf(name) === -1
-//         ? theme.typography.fontWeightRegular
-//         : theme.typography.fontWeightMedium,
-
-//   };
-// }
-
-// const Navbar = () => {
-//   const [anchorElNav, setAnchorElNav] = React.useState(null);
-//   const [anchorElUser, setAnchorElUser] = React.useState(null);
-
-//   const handleOpenNavMenu = (event) => {
-//     setAnchorElNav(event.currentTarget);
-//   };
-//   const handleOpenUserMenu = (event) => {
-//     setAnchorElUser(event.currentTarget);
-//   };
-
-//   const handleCloseNavMenu = () => {
-//     setAnchorElNav(null);
-//   };
-
-//   const handleCloseUserMenu = () => {
-//     setAnchorElUser(null);
-//   };
-
-//   // OfferBox------------------
-
-//   const theme = useTheme();
-//   const [personName, setPersonName] = React.useState([]);
-
-//   const handleChange = (event) => {
-//     const {
-//       target: { value },
-//     } = event;
-//     setPersonName(
-//       // On autofill we get a stringified value.
-//       typeof value === 'string' ? value.split(',') : value,
-//     );
-//   };
-
-
-
-
-//   return (
-//     <NavbarContainer>
-//       <AppBar position="static" sx={{ backgroundColor: 'white', color: "black" }}>
-//         <Container maxWidth="xl">
-//           <Toolbar disableGutters>
-//             <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
-//             <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
-//               <IconButton
-//                 size="large"
-//                 aria-label="account of current user"
-//                 aria-controls="menu-appbar"
-//                 aria-haspopup="true"
-//                 onClick={handleOpenNavMenu}
-//                 color="inherit"
-//               >
-//                 <MenuIcon />
-//               </IconButton>
-//               <Menu
-//                 id="menu-appbar"
-//                 anchorEl={anchorElNav}
-//                 anchorOrigin={{
-//                   vertical: "bottom",
-//                   horizontal: "left",
-//                 }}
-//                 keepMounted
-//                 transformOrigin={{
-//                   vertical: "top",
-//                   horizontal: "left",
-//                 }}
-//                 open={Boolean(anchorElNav)}
-//                 onClose={handleCloseNavMenu}
-//                 sx={{
-//                   display: { xs: "block", md: "none" },
-//                 }}
-//               >
-//                 {pages.map((page) => (
-//                   <MenuItem key={page} onClick={handleCloseNavMenu}>
-//                     <Typography textAlign="center">{page}</Typography>
-//                   </MenuItem>
-//                 ))}
-//               </Menu>
-//             </Box>
-//             <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
-//             <Typography
-//               variant="h5"
-//               noWrap
-//               component="a"
-//               href=""
-//               sx={{
-//                 mr: 2,
-//                 display: { xs: "flex", md: "none" },
-//                 flexGrow: 1,
-//                 fontFamily: "monospace",
-//                 fontWeight: 700,
-//                 letterSpacing: ".3rem",
-//                 color: "inherit",
-//                 textDecoration: "none",
-//               }}
-//             >
-//               {/* LOGO */}
-//               <img src={logo} alt="logo" />
-//             </Typography>
-//             <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" }, alignItems: 'center', justifyContent: 'center' }}>
-//               {/* <Input>
-//                 <input style={{width:"10rem"}} type="text" />
-//               </Input>
-//               <button sx = {{backgroundColor:'blue', color:"black"}}> <SearchIcon/> </button> */}
-
-//               <Paper
-//                 component="form"
-//                 sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: 600 }}
-//               >
-//                 <IconButton sx={{ p: '10px' }} aria-label="menu">
-//                   {/* <MenuIcon /> */}
-//                 </IconButton>
-//                 <InputBase
-//                   sx={{ ml: 1, flex: 1 }}
-//                   placeholder="search for products"
-//                   inputProps={{ 'aria-label': 'search for products' }}
-//                 />
-//                 <IconButton type="button" sx={{ p: '10px', backgroundColor: "#5aa02c" }} >
-//                   <SearchIcon />
-//                 </IconButton>
-
-
-//               </Paper>
-//             </Box>
-
-
-//             <Box >
-//               <Tooltip title="Open settings">
-//                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-//                   {/* <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" /> */}
-//                   <div style={{ display: "flex", gap: "5px" }}>
-//                     <div style={{ color: 'red', fontSize: "30px" }}><ShoppingBasketIcon /></div>
-//                     <div style={{ fontSize: "16px" }}>My basket</div>
-
-//                   </div>
-//                 </IconButton>
-//               </Tooltip>
-//               <Menu
-//                 sx={{ mt: "45px" }}
-//                 id="menu-appbar"
-//                 anchorEl={anchorElUser}
-//                 anchorOrigin={{
-//                   vertical: "top",
-//                   horizontal: "right",
-//                 }}
-//                 keepMounted
-//                 transformOrigin={{
-//                   vertical: "top",
-//                   horizontal: "right",
-//                 }}
-//                 open={Boolean(anchorElUser)}
-//                 onClose={handleCloseUserMenu}
-//               >
-//                 {settings.map((setting) => (
-//                   <MenuItem key={setting} onClick={handleCloseUserMenu}>
-//                     <Typography textAlign="center">{setting}</Typography>
-//                   </MenuItem>
-//                 ))}
-//               </Menu>
-//             </Box>
-//           </Toolbar>
-//         </Container>
-//       </AppBar>
-
-
-//       <OfferBox sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
-
-//         <ShopBy>
-//           <FormControl sx={{ m: 0, height: '70px', width: 400, backgroundColor: '#84c225', "& fieldset": { border: 'none' }, }}>
-
-//             <div style={{ display: "flex", gap: "11rem" }}>
-//               <div>
-//                 <Select
-//                   multiple
-//                   displayEmpty
-//                   value={personName}
-//                   onChange={handleChange}
-//                   input={<OutlinedInput />}
-//                   renderValue={(selected) => {
-//                     if (selected.length === 0) {
-//                       return <p style={{ color: "white", border: "none" }}>SHOAP BY CATEGORY</p>;
-//                     }
-
-//                     return selected.join(', ');
-//                   }}
-//                   MenuProps={MenuProps}
-//                   inputProps={{ 'aria-label': 'Without label' }}
-//                 // sx={{width:800}}
-//                 >
-//                   <MenuItem disabled value="">
-//                     <em>SHOAP BY CATEGORY</em>
-//                   </MenuItem>
-//                   {names.map((name) => (
-//                     <MenuItem
-//                       key={name}
-//                       value={name}
-//                       style={getStyles(name, personName, theme)}
-
-//                     >
-//                       {name}
-//                     </MenuItem>
-//                   ))}
-//                 </Select>
-//               </div>
-//               <div >
-//                 <button style={{ width: '150%', height: 69, backgroundColor: "white" }}>OFFERS</button>
-//               </div>
-//             </div>
-
-//           </FormControl>
-//         </ShopBy>
-
-
-
-//       </OfferBox>
-//     </NavbarContainer>
-
-
-//   );
-// };
-
-// const NavbarContainer = styled.div`
-
-// `;
-
-
-// const OfferBox = styled.div`
-// width:100%;
-// height: 69px ;
-// border : 1px solid #cccccc;
-
-// `
-
-// const ShopBy = styled.div`
-// float:left;
-// border:"none";
-
-// `
-
-// export default Navbar;
-
 import React, { useState } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -339,107 +19,109 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import { BiChevronRight, BiChevronLeft } from "react-icons/bi";
 import { VscChromeClose } from "react-icons/vsc";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import logo from "./assets/logo.png";
 import SearchIcon from '@mui/icons-material/Search';
-import { InputBase, Paper } from '@mui/material';
+import { InputBase, Paper, Tooltip } from '@mui/material';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import Fade from '@mui/material/Fade';
 import LocalOfferIcon from '@mui/icons-material/LocalOffer';
 import Login from '../Routes/Login';
-import { Search } from '@mui/icons-material';
+import { useDispatch, useSelector } from 'react-redux';
+import userDummy from '../Resources/Images/userDummy.png'
+import { userSignout } from '../Redux/Auth/action';
 
 const pages = ['Gifts', 'New', 'Women', 'Men', 'Kids', 'Cashmere', 'Home', 'Stories', 'Sale'];
-// const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
-const aalu =[
+const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const aalu = [
   {
-    id:1,
-    title:"Potato, Onion & Tomato",
-    path:"/patato"
+    id: 1,
+    title: "Potato, Onion & Tomato",
+    path: "/patato"
   },
   {
-    id:2,
-    title:"Cucumber & Capsicum",
-    path:"/cucumber"
+    id: 2,
+    title: "Cucumber & Capsicum",
+    path: "/cucumber"
   },
   {
-    id:3,
-    title:"Leafy Vegetables",
-    path:"/leafy"
+    id: 3,
+    title: "Leafy Vegetables",
+    path: "/leafy"
   },
   {
-    id:4,
-    title:"Root Vegetables",
-    path:"/root"
+    id: 4,
+    title: "Root Vegetables",
+    path: "/root"
   },
   {
-    id:5,
-    title:"Beans, Brinjals & Okra",
-    path:"/beans"
-  },
-    {
-    id:6,
-    title:"Potato, Onion & Tomato",
-    path:"/patato"
+    id: 5,
+    title: "Beans, Brinjals & Okra",
+    path: "/beans"
   },
   {
-    id:7,
-    title:"Cabbage & Cauliflower",
-    path:"/cabbage"
+    id: 6,
+    title: "Potato, Onion & Tomato",
+    path: "/patato"
   },
   {
-    id:8,
-    title:"Gourd, Pumpkin, Drumstick",
-    path:"/rourd"
+    id: 7,
+    title: "Cabbage & Cauliflower",
+    path: "/cabbage"
   },
   {
-    id:9,
-    title:"Specialty",
-    path:"/specialty"
+    id: 8,
+    title: "Gourd, Pumpkin, Drumstick",
+    path: "/rourd"
+  },
+  {
+    id: 9,
+    title: "Specialty",
+    path: "/specialty"
   },
 
 ]
 
 const fresh = [
   {
-    id:1,
-    title:"Herbs & Seasonings",
-    path:"/herbs"
+    id: 1,
+    title: "Herbs & Seasonings",
+    path: "/herbs"
   },
   {
-    id:2,
-    title:"Fresh Fruits",
-    path:"/freshfruits"
+    id: 2,
+    title: "Fresh Fruits",
+    path: "/freshfruits"
   },
   {
-    id:3,
-    title:"Organic Fruits & Vegitables",
-    path:"/organicfruits"
+    id: 3,
+    title: "Organic Fruits & Vegitables",
+    path: "/organicfruits"
   },
   {
-    id:4,
-    title:"Veg",
-    path:"/Veg"
+    id: 4,
+    title: "Veg",
+    path: "/Veg"
   },
   {
-    id:1,
-    title:"Cuts & Sprouts",
-    path:"/cuts"
+    id: 1,
+    title: "Cuts & Sprouts",
+    path: "/cuts"
   },
   {
-    id:2,
-    title:"Exotic Fruits & Veggies",
-    path:"/exotic"
+    id: 2,
+    title: "Exotic Fruits & Veggies",
+    path: "/exotic"
   },
   {
-    id:3,
-    title:"Vegetables",
-    path:"/Vegetables"
+    id: 3,
+    title: "Vegetables",
+    path: "/Vegetables"
   },
   {
-    id:4,
-    title:"Flower Bouquets Buncheses",
-    path:"/bouquets"
+    id: 4,
+    title: "Flower Bouquets Buncheses",
+    path: "/bouquets"
   },
 ]
 
@@ -447,83 +129,81 @@ const fresh = [
 
 
 
-const serach=[
+const serach = [
   {
-    id:1,
-    title:"Popular Searches",
-    path:"/PopularSearches"
+    id: 1,
+    title: "Popular Searches",
+    path: "/PopularSearches"
   },
   {
-    id:2,
-    title:"Ash Gourd",
-    path:"/AshGourd"
+    id: 2,
+    title: "Ash Gourd",
+    path: "/AshGourd"
   },
   {
-    id:3,
-    title:"Vegetables",
-    path:"/Vegetables"
+    id: 3,
+    title: "Vegetables",
+    path: "/Vegetables"
   },
   {
-    id:4,
-    title:"Veg",
-    path:"/Veg"
+    id: 4,
+    title: "Veg",
+    path: "/Veg"
   },
-  
+
 ]
-// {['Frouits & Vegitables','Food Grands & Masala','Backery Cakes & Daily ', 'Beauty & hyegene','Saneks & Branded Food',  'Cleaning and Household',
-// 'Kitchen , Garden & Pets','Eggs , Meat & Fish','Gourmet and & World Food',  'Baby Care']
 const phal = [
   {
-    id:1,
-    title:"Frouits & Vegitables",
-    path:"/fruitsandvegitables"
+    id: 1,
+    title: "Frouits & Vegitables",
+    path: "/fruitsandvegitables"
   },
   {
-    id:2,
-    title:"Food Grands & Masala",
-    path:"/foodgrands"
+    id: 2,
+    title: "Food Grands & Masala",
+    path: "/foodgrands"
   },
   {
-    id:3,
-    title:"Backery Cakes & Daily",
-    path:"/backerycakes"
+    id: 3,
+    title: "Backery Cakes & Daily",
+    path: "/backerycakes"
   },
   {
-    id:4,
-    title:"Beauty & hyegene",
-    path:"/beautyhyegene"
-  },
-    {
-    id:5,
-    title:"Saneks & Branded Food",
-    path:"/saneksbranded"
-  },
-    {
-    id:6,
-    title:"Cleaning and Household",
-    path:"/cleaninghousehold"
-  },
-    {
-    id:7,
-    title:"Kitchen , Garden & Pets",
-    path:"/kitchenpets"
+    id: 4,
+    title: "Beauty & hyegene",
+    path: "/beautyhyegene"
   },
   {
-    id:8,
-    title:"Meat & Fish",
-    path:"/meatfish"
+    id: 5,
+    title: "Saneks & Branded Food",
+    path: "/saneksbranded"
   },
   {
-    id:9,
-    title:"Gourmet and & World Food",
-    path:"/gourmetworld"
+    id: 6,
+    title: "Cleaning and Household",
+    path: "/cleaninghousehold"
   },
   {
-    id:10,
-    title:"Baby Care",
-    path:"/babycare"
-  }  
- 
+    id: 7,
+    title: "Kitchen , Garden & Pets",
+    path: "/kitchenpets"
+  },
+  {
+    id: 8,
+    title: "Meat & Fish",
+    path: "/meatfish"
+  },
+  {
+    id: 9,
+    title: "Gourmet and & World Food",
+    path: "/gourmetworld"
+  },
+  {
+    id: 10,
+    title: "Baby Care",
+    path: "/babycare"
+  }
+
 
 ]
 
@@ -601,7 +281,7 @@ const Navbar = () => {
         { title: 'Eggs , Meat & Fish', path: '/eggs' },
         { title: 'Gourmet and & World Food', path: '/gourmet' },
         { title: 'Baby Care', path: '/baby' },
-      
+
         ].map((ele, index) => (
           <Link to={ele.path} >
             <ListItem key={index} disablePadding>
@@ -627,7 +307,7 @@ const Navbar = () => {
         { title: 'Organic Fruits nad Vegitables', path: '/organicfrouts' },
         { title: 'Ecxotic Frouits', path: '/exotic' },
         { title: 'Flower Bouquets Buncheses', path: '/flower' },
-        
+
         ].map((ele, index) => (
           <Link to={ele.path} >
             <ListItem key={index} disablePadding>
@@ -650,7 +330,7 @@ const Navbar = () => {
         {[{ title: 'Ash Grand', path: '/ashgrand' },
         { title: 'Vegitables', path: '/vegitables' },
         { title: 'Veg', path: '/veg' },
-       
+
         ].map((ele, index) => (
           <Link to={ele.path} >
             <ListItem key={index} disablePadding>
@@ -676,10 +356,22 @@ const Navbar = () => {
   };
 
 
+  //Authentication
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { isAuth, isAdmin } = useSelector((store) => (store.AuthReducer));
+  const handleSignout = () => {
+    dispatch(userSignout()).then((res) => {
+      navigate("/", { replace: true })
+    }).catch((err) => {
+      console.log(err)
+    })
+    handleCloseUserMenu()
+  }
 
   return (
     <NavbarContainer>
-      <AppBar elevation={0} position="static" sx={{ width:'100%', borderBottom: "1px solid #ddd", backgroundColor: "white", color: "black" }}>
+      <AppBar elevation={0} position="static" sx={{ width: '100%', borderBottom: "1px solid #ddd", backgroundColor: "white", color: "black" }}>
         <Container maxWidth="xl">
           <Toolbar disableGutters>
             <Link to='/'>
@@ -812,10 +504,10 @@ const Navbar = () => {
               <Login />
             </Box>
 
-            {/* <Box sx={{ flexGrow: 0, mr: '5px', display: { lg: 'flex' } }}>
+            {isAuth && <Box sx={{ flexGrow: 0, mr: '5px', display: { lg: 'flex' } }}>
               <Tooltip title="Open settings">
                 <IconButton onClick={handleOpenUserMenu} sx={{ padding: '0px 8px' }}>
-                  <p className="signIn">SignIn</p>
+                  <img src='https://img.icons8.com/clouds/100/null/user.png' alt="" width='60px' height='60px' />
                 </IconButton>
               </Tooltip>
               <Menu
@@ -834,13 +526,17 @@ const Navbar = () => {
                 open={Boolean(anchorElUser)}
                 onClose={handleCloseUserMenu}
               >
-                {settings.map((setting) => (
-                  <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                    <Typography textAlign="center">{setting}</Typography>
+                <Link to={isAdmin?'/admin/dashboard':'/'}>
+                  <MenuItem onClick={handleCloseUserMenu}>
+                    <Typography textAlign="center" >Dashboard</Typography>
                   </MenuItem>
-                ))}
+                </Link>
+
+                <MenuItem onClick={handleSignout}>
+                  <Typography textAlign="center" >Logout</Typography>
+                </MenuItem>
               </Menu>
-            </Box> */}
+            </Box>}
 
             <Box sx={{ display: { xs: 'none', lg: 'flex', md: 'flex' }, mr: 1, }}
               marginLeft="20px"
@@ -877,111 +573,58 @@ const Navbar = () => {
           >
             <Box sx={{ ml: 1, display: 'flex' }}>
               <Box>
-                {/* {['Frouits & Vegitables','Food Grands & Masala','Backery Cakes & Daily ', 'Beauty & hyegene','Saneks & Branded Food',  'Cleaning and Household',
-                'Kitchen , Garden & Pets','Eggs , Meat & Fish','Gourmet and & World Food',  'Baby Care'].map((ele)=>(
-                  <MenuItem onClick={handleClose}>{ele}</MenuItem>
-                ))} */}
-
+                {phal.map((el, index) => (
+                  <Link to={el.path} >
+                    <ListItem key={index} disablePadding>
+                      <ListItemButton>
+                        <ListItemText sx={{ color: "black", root: { textDecoration: 'none', }, }}
+                          primary={el.title} />
+                      </ListItemButton>
+                    </ListItem>
+                  </Link>
+                ))}
+              </Box>
+              <Box>
                 {
-            phal.map((el, index) => (
-          <Link to={el.path} >
-            <ListItem key={index} disablePadding>
-              <ListItemButton>
-                <ListItemText sx={{color:"black", root: {textDecoration: 'none',},}}  
-                primary={el.title} />
-              </ListItemButton>
-            </ListItem>
-          </Link>
-        ))}
+                  fresh.map((el, index) => (
+                    <Link to={el.path} >
+                      <ListItem key={index} disablePadding>
+                        <ListItemButton>
+                          <ListItemText sx={{ padding: "-10px", color: "black", root: { textDecoration: 'none', }, }}
+                            primary={el.title} />
+                        </ListItemButton>
+                      </ListItem>
+                    </Link>
+                  ))}
               </Box>
               <Box>
-              {
-            fresh.map((el, index) => (
-          <Link to={el.path} >
-            <ListItem key={index} disablePadding>
-              <ListItemButton>
-                <ListItemText sx={{padding:"-10px",color:"black", root: {textDecoration: 'none',},}}  
-                primary={el.title} />
-              </ListItemButton>
-            </ListItem>
-          </Link>
-        ))}
-            
-                
-          
-                
-              
-                {/* <MenuItem onClick={handleClose}>Logout</MenuItem>
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
-                <MenuItem onClick={handleClose}>My account</MenuItem>
-                <MenuItem onClick={handleClose}>Logout</MenuItem>
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
-                <MenuItem onClick={handleClose}>My account</MenuItem>
-                <MenuItem onClick={handleClose}>Logout</MenuItem>
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
-                <MenuItem onClick={handleClose}>My account</MenuItem>
-                <MenuItem onClick={handleClose}>Logout</MenuItem>
-                <MenuItem onClick={handleClose}>Profile</MenuItem> */}
-              </Box>
-              <Box>
-          {
-            aalu.map((el, index) => (
-          <Link to={el.path} >
-            <ListItem key={index} disablePadding>
-              <ListItemButton>
-                <ListItemText sx={{padding:"-10px",color:"black", root: {textDecoration: 'none',},}}  
-                primary={el.title} />
-              </ListItemButton>
-            </ListItem>
-          </Link>
-        ))}
-
-          
-                {/* <MenuItem onClick={handleClose}>Profile dsfdsfdsfdsfdsfdsfsdf</MenuItem>
-                <MenuItem onClick={handleClose}>My account</MenuItem>
-                <MenuItem onClick={handleClose}>Logout</MenuItem>
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
-                <MenuItem onClick={handleClose}>My account</MenuItem>
-                <MenuItem onClick={handleClose}>Logout</MenuItem>
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
-                <MenuItem onClick={handleClose}>My account</MenuItem>
-                <MenuItem onClick={handleClose}>Logout</MenuItem>
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
-                <MenuItem onClick={handleClose}>My account</MenuItem>
-                <MenuItem onClick={handleClose}>Logout</MenuItem>
-                <MenuItem onClick={handleClose}>Profile</MenuItem> */}
+                {
+                  aalu.map((el, index) => (
+                    <Link to={el.path} >
+                      <ListItem key={index} disablePadding>
+                        <ListItemButton>
+                          <ListItemText sx={{ padding: "-10px", color: "black", root: { textDecoration: 'none', }, }}
+                            primary={el.title} />
+                        </ListItemButton>
+                      </ListItem>
+                    </Link>
+                  ))}
               </Box>
 
               <Box>
-              {
-                serach.map((el, index) => (
-          <Link to={el.path} >
-            <ListItem key={index} disablePadding>
-              <ListItemButton>
-                <ListItemText sx={{padding:"-10px",color:"black", root: {textDecoration: 'none',},}} 
-                primary={el.title} />
-              </ListItemButton>
-            </ListItem>
-          </Link>
-        ))}
-                {/* <MenuItem onClick={handleClose}>Profile dsfdsfdsfdsfdsfdsfsdf</MenuItem>
-                <MenuItem onClick={handleClose}>My account</MenuItem>
-                <MenuItem onClick={handleClose}>Logout</MenuItem>
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
-                <MenuItem onClick={handleClose}>My account</MenuItem>
-                <MenuItem onClick={handleClose}>Logout</MenuItem>
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
-                <MenuItem onClick={handleClose}>My account</MenuItem>
-                <MenuItem onClick={handleClose}>Logout</MenuItem>
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
-                <MenuItem onClick={handleClose}>My account</MenuItem>
-                <MenuItem onClick={handleClose}>Logout</MenuItem>
-                <MenuItem onClick={handleClose}>Profile</MenuItem> */}
+                {
+                  serach.map((el, index) => (
+                    <Link to={el.path} >
+                      <ListItem key={index} disablePadding>
+                        <ListItemButton>
+                          <ListItemText sx={{ padding: "-10px", color: "black", root: { textDecoration: 'none', }, }}
+                            primary={el.title} />
+                        </ListItemButton>
+                      </ListItem>
+                    </Link>
+                  ))}
               </Box>
-           
-          
             </Box>
-
           </Menu>
         </Box>
         <Box>
