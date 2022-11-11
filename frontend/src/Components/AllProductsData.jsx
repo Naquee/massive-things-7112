@@ -8,10 +8,9 @@ import Modal from '@mui/material/Modal';
 import ClearIcon from '@mui/icons-material/Clear';
 import CheckIcon from '@mui/icons-material/Check';
 import { useDispatch, useSelector } from 'react-redux';
-import { userData, userDelete } from '../Redux/Auth/action';
 import AlertMessage from './AlertMessage';
 import { useNavigate } from 'react-router-dom';
-import { productData, productDelete } from '../Redux/App/action';
+import { getProducts, productData, productDelete } from '../Redux/App/action';
 
 const style = {
     position: 'absolute',
@@ -31,7 +30,7 @@ const AllProductsData = ({ colorScheme }) => {
     const [product_id, setproduct_id] = useState('');
     const navigate = useNavigate();
     const { token } = useSelector((store) => (store.AuthReducer))
-    const { products } = useSelector((store) => (store.AppReducer))
+    const { products, allProducts } = useSelector((store) => (store.AppReducer))
     const dispatch = useDispatch();
 
     const [show, setStatus] = useState({
@@ -61,7 +60,7 @@ const AllProductsData = ({ colorScheme }) => {
             console.log(err)
         });
     }
-
+    
     const handleDelete = () => {
         if (product_id) {
             const payload = {
@@ -86,10 +85,11 @@ const AllProductsData = ({ colorScheme }) => {
         }
     }
 
+    
+
     useEffect(() => {
         getProductData();
     }, []);
-
 
 
     return (
