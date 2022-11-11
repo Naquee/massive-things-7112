@@ -54,7 +54,7 @@ const AddProducts = ({ colorScheme }) => {
                 })
             }
             else {
-                setStatus({ ...show, status: true, msg: "Please fill all details", type: "error" });
+                setStatus({ ...show, status: true, msg: "Please fill all Mandatory details ", type: "error" });
             }
         }
     }
@@ -62,6 +62,7 @@ const AddProducts = ({ colorScheme }) => {
         <Container colorScheme={colorScheme}>
             <div className='dashImageContainer'>
                 <div className='dashImageBox'>
+                    <p style={{position:"absolute", top:'20px', fontWeight:'bold' }}>Note: Image is Mandatory</p>
                     <h1>Add Data</h1>
                     <form onSubmit={(e) => handleSubmit(e)}>
                         <div className='imageFileBox'>
@@ -86,7 +87,7 @@ const AddProducts = ({ colorScheme }) => {
                             </div>
 
                             <div>
-                                <h3>Name:</h3>
+                                <h3>Name*</h3>
                                 <input type="text" placeholder='Enter Name' onChange={(e) => setData({ ...data, name: e.target.value })} />
                             </div>
 
