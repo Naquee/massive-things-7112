@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -9,8 +9,26 @@ import "swiper/css/navigation";
 
 // import required modules
 import { Autoplay } from "swiper";
+import { useDispatch, useSelector } from "react-redux";
+import { getProducts } from "../Redux/App/action";
+const { REACT_APP_API_URL } = process.env;
 
 const HomePage = () => {
+  const dispatch = useDispatch();
+  const { products } = useSelector((store) => store.AppReducer);
+  // console.log(products);
+  const getProductData = () => {
+    dispatch(getProducts())
+      .then((res) => {})
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  useEffect(() => {
+    getProductData();
+  }, []);
+
   return (
     <>
       <Swiper
@@ -23,18 +41,17 @@ const HomePage = () => {
         modules={[Autoplay]}
         className="mySwiper"
       >
-        <SwiperSlide>
-          <img
-            src="https://www.bigbasket.com/media/uploads/banner_images/2211651-bbpl-staples_460_Bangalore.jpg"
-            alt=""
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img
-            src="https://www.bigbasket.com/media/uploads/banner_images/HP_EMF_M_T1-1600x460_220812.jpg"
-            alt=""
-          />
-        </SwiperSlide>
+        {products?.map(
+          (ele, index) =>
+            ele.name === "carouselhome1" && (
+              <SwiperSlide>
+                <img
+                  src={`${REACT_APP_API_URL}${ele.img_path}`}
+                  alt={ele.name}
+                />
+              </SwiperSlide>
+            )
+        )}
       </Swiper>
     </>
   );

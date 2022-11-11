@@ -5,12 +5,14 @@ import Dashboard from "./Dashboard";
 import Login from "./Login";
 import Vegs from "./VegAndFruits";
 import { ChakraProvider } from "@chakra-ui/react";
+import HomePage from "../Components/HomePage";
 
 const AllRoutes = () => {
   return (
     <Routes>
       <Route path="/login" element={<Login />} />
       <Route path="/veg" element={<Vegs />} />
+      <Route path="/" element={<HomePage />} />
       <Route path="/admin/dashboard" element={<Dashboard />} />
 
       <Route
