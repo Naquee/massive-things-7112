@@ -58,7 +58,13 @@ const reducer = (oldstate = initialState, action) => {
 
         case types.USER_DATA_FAILURE: return { ...oldstate, isLoading: false, isError: true, users: [], user: [], isAdmin: false, isAuth: false };
 
-        case types.USER_SIGNOUT_SUCCESS: return { isAuth: false, isLoading: false, isError: false };
+        case types.USER_SIGNOUT_SUCCESS:
+            saveData('isAuth', false);
+            saveData('user', []);
+            saveData('isUserAdmin', false);
+            saveData('token', '')
+
+            return { isAuth: false, isLoading: false, isError: false, isAdmin: false, user: [], token: '' };
 
         default: return oldstate;
     }
