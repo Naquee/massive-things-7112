@@ -44,7 +44,6 @@ const Login = () => {
     });
 
     const handleSubmit = () => {
-        console.log(values)
         if (values.email !== '' && values.password !== '') {
             const payload = {
                 email: values.email,

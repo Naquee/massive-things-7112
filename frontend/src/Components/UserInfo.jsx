@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {  useState } from 'react';
 import styledComp from 'styled-components';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Box from '@mui/material/Box';
@@ -8,8 +8,9 @@ import Modal from '@mui/material/Modal';
 import ClearIcon from '@mui/icons-material/Clear';
 import CheckIcon from '@mui/icons-material/Check';
 import { useDispatch, useSelector } from 'react-redux';
-import { userData, userDelete } from '../Redux/Auth/action';
+import { dashUserData, dashUserDelete } from '../Redux/Auth/action';
 import AlertMessage from './AlertMessage';
+import { useNavigate } from 'react-router-dom';
 
 const style = {
     position: 'absolute',
@@ -27,7 +28,8 @@ const style = {
 const UserInfo = ({ colorScheme }) => {
     const [open, setOpen] = useState(false);
     const [user_id, setUser_id] = useState('');
-    const { token, userDetails, data } = useSelector((store) => (store.AuthReducer))
+    const { token, users } = useSelector((store) => (store.AuthReducer))
+    const navigate = useNavigate();
     const dispatch = useDispatch();
 
     const [show, setStatus] = useState({
@@ -44,17 +46,17 @@ const UserInfo = ({ colorScheme }) => {
     const handleClose = () => setOpen(false);
 
     const handleDelete = () => {
-        if (user_id && userDetails) {
+        if (user_id) {
             const payload = {
                 id: user_id
             }
-            dispatch(userDelete(payload)).then((res)=>{
-                const payload = {
-                    headers: {
-                        Authorization: `Bearer ${token}`
-                    }
+            const headers = {
+                headers: {
+                    Authorization: `Bearer ${token}`
                 }
-                dispatch(userData(payload))
+            }
+            dispatch(dashUserDelete(payload,headers)).then((res)=>{
+                dispatch(dashUserData(headers))
                 handleClose();
                 if(res.payload.status){
                     setStatus({ ...show, status: true, msg: res.payload.msg, type: "success" });
@@ -80,13 +82,13 @@ const UserInfo = ({ colorScheme }) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {data?.map((ele, index) => (
-                        <tr className={index % 2 === 0 ? 'userDetailsb' : 'userDetailsw'} key={index}>
+                    {users?.map((ele, index) => (
+                        <tr className={index % 2 === 0 ? 'userb' : 'userw'} key={index}>
                             <td>{ele.name}</td>
                             <td>{ele.email}</td>
                             <td style={{ textTransform: 'capitalize' }}>{ele.role}</td>
                             <td>{ele.phone}</td>
-                            <td ><span onClick={() => handleOpen(ele._id)}><DeleteIcon /></span></td>
+                            {ele.role !== 'admin' && <td ><span onClick={() => handleOpen(ele._id)}><DeleteIcon /></span></td>}
                         </tr>
                     ))}
                 </tbody>
@@ -117,14 +119,12 @@ const UserContainer = styledComp.div`
     position:relative;
     width:100%;
     margin:auto;
-    // box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
-    // border-radius:8px;
-    overflow:hidden;
+    padding-top:30px;
+
     table {
         width: 100%;
         border-collapse: collapse;
         cursor:pointer;
-        
     }
 
     thead{
@@ -141,7 +141,7 @@ const UserContainer = styledComp.div`
     }
 
     .userDetailsw td{
-        background: #FFFFFF;;
+        background: #FFFFFF;
     }
 
     td svg{
@@ -150,4 +150,4 @@ const UserContainer = styledComp.div`
     
 `
 
-export default UserInfo;
+export default UserInfo

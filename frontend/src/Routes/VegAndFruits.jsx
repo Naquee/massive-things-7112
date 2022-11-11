@@ -26,8 +26,6 @@ const VegsAndFruits = () => {
         }
     }, [location.search])
 
-    console.log(vegs)
-
     return (
         <div style={{display:"flex",
        gap:"2rem",
