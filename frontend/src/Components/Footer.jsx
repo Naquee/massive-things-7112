@@ -81,7 +81,7 @@ const Footer = () => {
         <img src={payment} alt="footer" className='payment'/>
       </Box>
      </Box>
-
+     
     </Container>
 
   )
