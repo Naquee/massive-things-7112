@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import styledComp from 'styled-components'
-import { userData } from '../Redux/Auth/action';
 import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import MuiDrawer from '@mui/material/Drawer';
@@ -28,6 +27,7 @@ import { saveData } from '../Utils/appLocalStorage';
 import UserInfo from '../Components/UserInfo';
 import AddProducts from '../Components/AddProducts';
 import AllProductsData from '../Components/AllProductsData';
+import { dashUserData } from '../Redux/Auth/action';
 
 const drawerWidth = 240;
 
@@ -103,10 +103,10 @@ const colorScheme = {
 
 const Dashboard = () => {
     const theme = useTheme();
-    const dispatch = useDispatch();
     const navigate = useNavigate();
+    const dispatch = useDispatch();
     const [open, setOpen] = useState(false);
-    const { token, data, isAdmin } = useSelector((store) => (store.AuthReducer));
+    const { users, isAdmin, token} = useSelector((store) => (store.AuthReducer));
     const [type, setType] = useState('Company Information');
     const handleDrawerOpen = () => {
         setOpen(true);
@@ -115,32 +115,35 @@ const Dashboard = () => {
         setOpen(false);
     };
 
-    const getUserData = () => {
-        const payload = {
-            headers: {
-                Authorization: `Bearer ${token}`
-            }
-        }
-        dispatch(userData(payload)).then((res) => {
-            if (!res.payload.status) {
-                navigate("/", { replace: true })
-            }
-        });
-    }
-
     const handleSignout = () => {
         saveData('token', '');
         saveData('isAuth', false);
         navigate("/login", { replace: true })
     }
 
+    const getUserData = () => {
+        const payload = {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }
+        dispatch(dashUserData(payload)).then((res) => {
+            if (!res.payload.status) {
+                navigate("/", { replace: true });
+            }
+        }).catch((err) => {
+            console.log(err);
+        });
+    }
+
+
     useEffect(() => {
-        // getUserData();
+        getUserData();
     }, []);
 
     return (
         isAdmin &&
-        <Container data={data}>
+        <Container users={users}>
             <Box sx={{ display: 'flex', }} >
                 <CssBaseline />
                 <AppBar position="fixed" open={open} >
@@ -184,7 +187,7 @@ const Dashboard = () => {
                                     }}
                                     onClick={() => setType(ele.text)}
                                 >
-                                    {ele.text === "Users" && data?.length > 0 && <span className={open ? 'openFloat' : "closeFloat"}>{data?.length}</span>}
+                                    {ele.text === "Users" && users?.length > 0 && <span className={open ? 'openFloat' : "closeFloat"}>{users?.length}</span>}
                                     <ListItemIcon
                                         sx={{
                                             minWidth: 0,
@@ -266,7 +269,7 @@ const Dashboard = () => {
 const Container = styledComp.div`
     
     .openFloat{
-        width: ${props => props.data.length > 10 ? '25px' : "20px"};
+        width: ${props => props.users?.length > 10 ? '25px' : "20px"};
         height: 20px;
         background-color: #e5322d;
         color: white;
@@ -283,7 +286,7 @@ const Container = styledComp.div`
     }
 
     .closeFloat{
-        width: ${props => props.data.length > 9 ? '25px' : "20px"};
+        width: ${props => props.users?.length > 9 ? '25px' : "20px"};
         height: 20px;
         background-color: #e5322d;
         color: white;

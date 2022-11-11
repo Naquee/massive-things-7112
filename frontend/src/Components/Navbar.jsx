@@ -470,6 +470,62 @@ const serach=[
   },
   
 ]
+// {['Frouits & Vegitables','Food Grands & Masala','Backery Cakes & Daily ', 'Beauty & hyegene','Saneks & Branded Food',  'Cleaning and Household',
+// 'Kitchen , Garden & Pets','Eggs , Meat & Fish','Gourmet and & World Food',  'Baby Care']
+const phal = [
+  {
+    id:1,
+    title:"Frouits & Vegitables",
+    path:"/fruitsandvegitables"
+  },
+  {
+    id:2,
+    title:"Food Grands & Masala",
+    path:"/foodgrands"
+  },
+  {
+    id:3,
+    title:"Backery Cakes & Daily",
+    path:"/backerycakes"
+  },
+  {
+    id:4,
+    title:"Beauty & hyegene",
+    path:"/beautyhyegene"
+  },
+    {
+    id:5,
+    title:"Saneks & Branded Food",
+    path:"/saneksbranded"
+  },
+    {
+    id:6,
+    title:"Cleaning and Household",
+    path:"/cleaninghousehold"
+  },
+    {
+    id:7,
+    title:"Kitchen , Garden & Pets",
+    path:"/kitchenpets"
+  },
+  {
+    id:8,
+    title:"Meat & Fish",
+    path:"/meatfish"
+  },
+  {
+    id:9,
+    title:"Gourmet and & World Food",
+    path:"/gourmetworld"
+  },
+  {
+    id:10,
+    title:"Baby Care",
+    path:"/babycare"
+  }  
+ 
+
+]
 
 
 const Navbar = () => {
@@ -821,10 +877,22 @@ const Navbar = () => {
           >
             <Box sx={{ ml: 1, display: 'flex' }}>
               <Box>
-                {['Frouits & Vegitables','Food Grands & Masala','Backery Cakes & Daily ', 'Beauty & hyegene','Saneks & Branded Food',  'Cleaning and Household',
+                {/* {['Frouits & Vegitables','Food Grands & Masala','Backery Cakes & Daily ', 'Beauty & hyegene','Saneks & Branded Food',  'Cleaning and Household',
                 'Kitchen , Garden & Pets','Eggs , Meat & Fish','Gourmet and & World Food',  'Baby Care'].map((ele)=>(
                   <MenuItem onClick={handleClose}>{ele}</MenuItem>
-                ))}
+                ))} */}
+
+                {
+            phal.map((el, index) => (
+          <Link to={el.path} >
+            <ListItem key={index} disablePadding>
+              <ListItemButton>
+                <ListItemText sx={{color:"black", root: {textDecoration: 'none',},}}  
+                primary={el.title} />
+              </ListItemButton>
+            </ListItem>
+          </Link>
+        ))}
               </Box>
               <Box>
               {

@@ -1,6 +1,5 @@
 import { useLocation } from "react-router-dom";
 import "./App.css";
-import { Checkout } from "./Components/Checkout";
 import Footer from "./Components/Footer";
 import Navbar from "./Components/Navbar";
 import AllRoutes from "./Routes/AllRoutes";

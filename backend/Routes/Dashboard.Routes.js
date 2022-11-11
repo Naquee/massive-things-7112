@@ -15,7 +15,7 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage: storage });
 
-Dashboard.get("/usersdata", async (req, res) => {
+Dashboard.get("/users", async (req, res) => {
     const { email } = req.body
     const data = await UserModel.find();
     const userData = await UserModel.findOne({ email: email });
@@ -23,7 +23,7 @@ Dashboard.get("/usersdata", async (req, res) => {
         email: userData.email,
         role: userData.role,
     }
-    res.send({ status: true, data: data, userDetails: userDetails })
+    res.send({ status: true, users: data, user: userDetails })
 })
 
 Dashboard.get("/products", async (req, res) => {
@@ -65,7 +65,15 @@ Dashboard.delete("/product/delete/:id", async (req, res) => {
     }
 });
 
-
+Dashboard.delete("/delete/user/:id", async (req, res) => {
+    const { id } = req.params
+    try {
+        const check = await UserModel.deleteOne({ _id: id });
+        res.send({ msg: 'User Deleted Successfully', status: true })
+    } catch (err) {
+        res.send({ msg: 'User Not Find', status: false })
+    }
+});
 
 
 module.exports = {

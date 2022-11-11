@@ -30,12 +30,13 @@ const Container = styled.div`
     width: 280px;
     font-size:small;
     position:absolute;
-    top:-10%;
+    top:-5%;
     left:46%;
     transform: translate(-50%, -50%);
     -webkit-animation: slide-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
     animation: slide-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
     z-index:1300;
+    
   }
 
   @media only screen and (min-width:481px) and (max-width:767px){
