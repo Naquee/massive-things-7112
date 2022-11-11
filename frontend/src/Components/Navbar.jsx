@@ -686,11 +686,11 @@ const Navbar = () => {
             open={open}
             onClose={handleClose}
             TransitionComponent={Fade}
-            sx={{ ml: 1}}
+            sx={{ ml: 1 }}
           >
             <Box sx={{ ml: 1, display: 'flex' }}>
               <Box>
-                {['Profile dsfdsfdsfdsfdsfdsfsdf','My account','Logout'].map((ele)=>(
+                {['Profile dsfdsfdsfdsfdsfdsfsdf', 'My account', 'Logout'].map((ele) => (
                   <MenuItem onClick={handleClose}>{ele}</MenuItem>
                 ))}
                 <MenuItem onClick={handleClose}>Profile</MenuItem>
