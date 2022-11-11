@@ -50,7 +50,25 @@ const getProducts = () => (dispatch) => {
     })
 }
 
-export { getVeg, addProducts, productData, productDelete, getProducts }
+const addAddress = (payload, headers) => (dispatch) => {
+    dispatch({ type: types.POST_DATA_REQUEST });
+    return axios.post(`${REACT_APP_API_URL}/user/address/add`, payload, headers).then((res) => {
+        return dispatch({ type: types.POST_DATA_SUCCESS, payload: res.data });
+    }).catch((err) => {
+        return dispatch({ type: types.POST_DATA_FAILURE, payload: err });
+    })
+}
+
+const getAddress = (headers) => (dispatch) => {
+    dispatch({ type: types.GET_DATA_REQUEST });
+    return axios.get(`${REACT_APP_API_URL}/user/address/get`, headers).then((res) => {
+        return dispatch({ type: types.GET_DATA_SUCCESS, payload: res.data });
+    }).catch((err) => {
+        return dispatch({ type: types.GET_DATA_FAILURE, payload: err });
+    })
+}
+
+export { getVeg, addProducts, productData, productDelete, getProducts, addAddress, getAddress }
 
 
 

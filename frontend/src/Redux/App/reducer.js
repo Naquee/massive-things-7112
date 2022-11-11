@@ -4,6 +4,7 @@ import * as types from "./actionTypes";
 const initialState = {
     dashProducts: [],
     products:[],
+    address:[],
     isLoading: false,
     isError: false,
     message: ''
@@ -14,7 +15,7 @@ const reducer = (oldstate = initialState, action) => {
     switch (type) {
         case types.GET_DATA_REQUEST: return { ...oldstate, isLoading: true };
 
-        case types.GET_DATA_SUCCESS: return { ...oldstate, isLoading: false, dashProducts: payload.productsData};
+        case types.GET_DATA_SUCCESS: return { ...oldstate, isLoading: false, dashProducts: payload.productsData, address: payload.address};
 
         case types.GET_DATA_FAILURE: return { ...oldstate, isLoading: false, isError: true, dashProducts: [] };
 
