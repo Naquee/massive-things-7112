@@ -25,23 +25,12 @@ const AddProducts = ({ colorScheme }) => {
         type: 'error'
     });
 
-    function checkProperties(obj) {
-        let flag = false;
-        for (var key in obj) {
-            if (obj[key] === null || obj[key] === "") {
-                flag = true
-            }
-        }
-        return flag
-    }
-
     const handleSubmit = (e) => {
         e.preventDefault();
         if(!inputFile.current.files[0]){
             setStatus({ ...show, status: true, msg: "Please Choose Image First", type: "error" });
         }else{
-            const isEmpty = checkProperties(data)
-            if (!isEmpty) {
+            if (!data.name !== '' && !inputFile.current.files[0]) {
                 const formData = new FormData();
                 formData.append("category", data.category);
                 formData.append("name", data.name);
