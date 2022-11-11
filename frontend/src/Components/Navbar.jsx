@@ -817,7 +817,7 @@ const Navbar = () => {
             open={open}
             onClose={handleClose}
             TransitionComponent={Fade}
-            sx={{ ml: 1}}
+            sx={{ ml: 1 }}
           >
             <Box sx={{ ml: 1, display: 'flex' }}>
               <Box>
