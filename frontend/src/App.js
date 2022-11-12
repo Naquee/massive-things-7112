@@ -1,6 +1,8 @@
+
 import { useLocation } from "react-router-dom";
 import "./App.css";
 import Footer from "./Components/Footer";
+import Hello from "./Components/Hello";
 import Navbar from "./Components/Navbar";
 import AllRoutes from "./Routes/AllRoutes";
 
@@ -12,6 +14,8 @@ function App() {
       {location.pathname === "/admin/dashboard" ? null : <Navbar />}
       <AllRoutes />
       {location.pathname === "/admin/dashboard" || location.pathname === "/checkout" ? null : <Footer />}
+   {/* <Hello/> */}
+      
     </div>
   );
 }

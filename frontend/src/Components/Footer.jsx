@@ -77,7 +77,7 @@ const Footer = () => {
      {/* , flexDirection: 'column', alignItems: 'flex-start', fontSize: 'small' */}
      <Box sx={{ display: "flex",flexDirection:"row" ,fontSize:"13px", width:"80%",margin:"auto",padding:"10px" }}>
       <Box  sx={{color:"#cf6c4d"}}>PAYMENT OPTIONS:</Box>
-      <Box sx={{ width: { md: "70%", xs: "360px" } }}>
+      <Box sx={{ width: { md: "70%", xs: "150px" },overflow:'hidden' }}>
         <img src={payment} alt="footer" className='payment'/>
       </Box>
      </Box>
