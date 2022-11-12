@@ -17,7 +17,7 @@ export default function ControlledOpenSelect() {
   
   const initialSortBy = searchParams.getAll("sortBy");
   
-  const [sortBy, setSortBy] = React.useState(initialSortBy[0] || "");
+  const [sortBy, setSortBy] = React.useState(initialSortBy[0] || "popularity");
      
   const handleChange = (e) => {
     setSortBy(e.target.value);

@@ -42,7 +42,7 @@ const Filter = () => {
             let params = {};
             category && (params.country = country);
             category && (params.category = category);
-
+            
             setSearchParams(params);
         }
     }, [country, setSearchParams]);
@@ -83,7 +83,7 @@ const Filter = () => {
           <label>USA</label>
         </div>
       </div>
-      <hr />
+      {/* <hr />
          <h3>Price</h3>
           <div>
           <div>
@@ -133,10 +133,10 @@ const Filter = () => {
           <label>15% - 25% (11807)</label>
         </div>
         <div>
-          <input type="checkbox" value="More than 25% (1362)" checked={category.includes('More than 25% (1362)')} onChange={handleFilterCheckbox}  />
+          <input type="checkbox" value="More than 25% (1362)" checked={category.includes('More than 25% (1362)')} onChange={handleFilterCheckbox1}  />
           <label>More than 25% (1362)</label>
         </div>
-      </div>
+      </div> */}
 
 
         </div>

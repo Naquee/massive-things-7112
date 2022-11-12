@@ -1,3 +1,4 @@
+
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation, useSearchParams } from "react-router-dom";
@@ -5,44 +6,31 @@ import Filter from "../Components/Filter";
 import ControlledOpenSelect from "../Components/priceFilter";
 
 import VegCard from "../Components/vegCard";
-import { getVeg } from "../Redux/App/action";
+
 import { getProducts } from "../Redux/App/action";
 const { REACT_APP_API_URL } = process.env;
 
 
-const VegsAndFruits = () => {
+
+
+const FoodgrainsAndOil = () => {
     const [searchParams] = useSearchParams();
     const dispatch = useDispatch();
     const location = useLocation();
     const { products } = useSelector((store) => store.AppReducer);
-    // const getProductData = () => {
-    //     dispatch(getProducts())
-    //         .then((res) => { })
-    //         .catch((err) => {
-    //             console.log(err);
-    //         });
-    // };
+   
+     const getProductData = () => {
+        dispatch(getProducts())
+            .then((res) => { })
+            .catch((err) => {
+                console.log(err);
+            });
+    };
 
-    // console.log(products)
-    // useEffect(() => {
-    //     getProductData();
-    // }, []);
-
-     useEffect(() => {
-     if(location || products.length === 0){
-        const sortBy = searchParams.get("sortBy");
-       
-              
-        let getProductsParams = {
-                params: {
-                  _sort: sortBy && "price",
-                  _order: sortBy,
-                },
-        }
-
-        dispatch(getProducts(getProductsParams));
-     }
-}, [location.search]);
+    console.log(products)
+    useEffect(() => {
+        getProductData();
+    }, []);
 
     return (
         <div style={{ width: "95%", marginLeft: "3rem" }}>
@@ -76,7 +64,7 @@ const VegsAndFruits = () => {
                         {products.length > 0 && products?.map((product) => (
                             
                             product.category[1] === 'Fruit & Vegetables' && <div key={product._id}>
-                                <Link to={`/product/${product._id}/${product.name.replace(/\s+/g, '')}` }>
+                                <Link to={`/singlepage/${product._id}` }>
                                 <VegCard productId={product} />
                                 </Link>
                                 
@@ -112,7 +100,8 @@ const VegsAndFruits = () => {
 
 
         </div>
-    );
+    )
 }
 
-export default VegsAndFruits;
+
+export default FoodgrainsAndOil;
