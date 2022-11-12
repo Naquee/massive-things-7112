@@ -41,9 +41,9 @@ const productDelete = (payload, headers) => (dispatch) => {
     })
 }
 
-const getProducts = () => (dispatch) => {
+const getProducts = (payload) => (dispatch) => {
     dispatch({ type: types.GET_PRODUCTS_REQUEST });
-    return axios.get(`${REACT_APP_API_URL}/data/products`).then((res) => {
+    return axios.get(`${REACT_APP_API_URL}/data/products`, payload).then((res) => {
         return dispatch({ type: types.GET_PRODUCTS_SUCCESS, payload: res.data });
     }).catch((err) => {
         return dispatch({ type: types.GET_PRODUCTS_FAILURE, payload: err });
