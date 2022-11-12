@@ -11,7 +11,6 @@ import { Shipment } from "../Components/Shipment";
 const AllRoutes = () => {
   return (
     <Routes>
-      <Route path="/login" element={<Login />} />
       <Route path="/fruitsandvegitables" element={<Vegs />} />
       <Route path="/" element={<HomePage />} />
       <Route path="/admin/dashboard" element={<Dashboard />} />

@@ -266,7 +266,6 @@ const Dashboard = () => {
     )
 }
 const Container = styledComp.div`
-    
     .openFloat{
         width: ${props => props.users?.length > 10 ? '25px' : "20px"};
         height: 20px;
