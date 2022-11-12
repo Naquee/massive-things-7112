@@ -137,7 +137,6 @@ const AddProducts = ({ colorScheme }) => {
 }
 
 const Container = styled.div`
-    position: relative;
     width:90%;
     margin:auto;
     padding:20px;

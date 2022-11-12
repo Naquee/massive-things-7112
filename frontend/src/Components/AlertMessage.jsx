@@ -1,7 +1,10 @@
 import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { Alert, Grow } from '@mui/material';
+import { useLocation } from 'react-router-dom';
 const AlertMessage = ({ show, setStatus }) => {
+  const location = useLocation();
+  const path = location?.pathname;
   useEffect(() => {
     let id = setTimeout(() => {
       setStatus({ ...show, status: false, msg: '' })
@@ -12,7 +15,7 @@ const AlertMessage = ({ show, setStatus }) => {
     };
   }, [show.status]);
   return (
-    <Container>
+    <Container location={path}>
       {<Grow
         in={show.status}
         style={{ transformOrigin: '0 0 0' }}
@@ -25,18 +28,16 @@ const AlertMessage = ({ show, setStatus }) => {
 }
 
 const Container = styled.div`
-  
   .alertBoxTop{
+    position:absolute;
     width: 280px;
     font-size:small;
-    position:absolute;
-    top:-5%;
-    left:46%;
+    top: ${props=> props.location === '/admin/dashboard' ? '5%':'15%'};
     transform: translate(-50%, -50%);
+    left:46%;
     -webkit-animation: slide-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
     animation: slide-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
     z-index:1300;
-    
   }
 
   @media only screen and (min-width:481px) and (max-width:767px){
