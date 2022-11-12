@@ -15,6 +15,8 @@ const VegsAndFruits = () => {
     const dispatch = useDispatch();
     const location = useLocation();
     const { products } = useSelector((store) => store.AppReducer);
+    const sortBy = searchParams.get("sortBy");
+    const country = searchParams.getAll("country")
     // const getProductData = () => {
     //     dispatch(getProducts())
     //         .then((res) => { })
@@ -28,21 +30,19 @@ const VegsAndFruits = () => {
     //     getProductData();
     // }, []);
 
-     useEffect(() => {
-     if(location || products.length === 0){
-        const sortBy = searchParams.get("sortBy");
-       
-              
-        let getProductsParams = {
-                params: {
-                  _sort: sortBy && "price",
-                  _order: sortBy,
-                },
-        }
 
-        dispatch(getProducts(getProductsParams));
-     }
-}, [location.search]);
+    useEffect(() => {
+        if (location) {
+            let getProductsParams = {
+                params: {
+                    _sort: sortBy && "price",
+                    _order: sortBy,
+                    country: country
+                },
+            }
+            dispatch(getProducts(getProductsParams));
+        }
+    }, [location.search]);
 
     return (
         <div style={{ width: "95%", marginLeft: "3rem" }}>
@@ -52,43 +52,28 @@ const VegsAndFruits = () => {
                 textAlign: "left",
                 backgroundColor: "#ffffff",
                 marginTop: "2rem"
-
-
-
             }}>
                 <div style={{ width: "200px", paddingLeft: "1rem", width: '15rem', boxShadow: "rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px" }}>
                     <Filter />
                 </div>
-
-                <div style={{
-
-                }}>
+                
+                <div>
                     <div style={{ display: "flex", gap: "32rem", marginTop: "3.2rem " }}>
                         <h2 style={{ fontWeight: "100", color: '#58595b' }}>Fruits & Vegetables({products.length})</h2>
                         <ControlledOpenSelect />
                     </div>
-                    <div style={{display:"grid", gridTemplateColumns:"repeat(auto-fit,minmax(200px,max-content))",gridGap:"2rem"}} >
-                        {/* product.category[1] === 'Fruit & Vegetables' && <div key={product._id}>
-                                <VegCard productId={product} />
-                            </div> */}
-                            
-
+                    <div style={{ display: "grid", gridTemplateColumns: 'repeat(auto-fit,minmax(250px,max-content))', gridGap: "2rem", justifyContent: 'center' }} >
                         {products.length > 0 && products?.map((product) => (
-                            
                             product.category[1] === 'Fruit & Vegetables' && <div key={product._id}>
                                 <Link to={`/product/${product._id}/${product.name.replace(/\s+/g, '')}` }>
-                                <VegCard productId={product} />
+                                  <VegCard productId={product} />
                                 </Link>
-                                
                             </div>
-                          
                         ))}
-                        
                     </div>
-                   
                 </div>
-                
             </div>
+
             <div style={{ textAlign: "left", paddingLeft: "3rem", color: "#818285", boxShadow: "rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset" }}>
                 <h3>Related Searches</h3>
 
@@ -109,8 +94,6 @@ const VegsAndFruits = () => {
                 <h3>bigbasket bbnow</h3>
                 <p>Introducing bbnow: Get your groceries delivered in 15 to 30 minutes. Choose from 3000 essential items. bigbasket bbnow service is currently available in select cities. Download the bigbasket app to check whether your location is eligible for bbnow.</p>
             </div>
-
-
         </div>
     );
 }
