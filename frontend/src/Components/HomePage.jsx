@@ -11,6 +11,7 @@ import "swiper/css/navigation";
 import { Autoplay } from "swiper";
 import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "../Redux/App/action";
+import HomeHead from "./HomeHead";
 const { REACT_APP_API_URL } = process.env;
 
 const HomePage = () => {
