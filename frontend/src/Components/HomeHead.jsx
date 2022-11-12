@@ -15,6 +15,8 @@ const Container = styled.div`
     width:85%;
     margin:auto;
     line-height:10px;
+    margin-top:50px;
+    color:"#e3dadb";
 `
 
 export default HomeHead
