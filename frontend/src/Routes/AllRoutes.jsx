@@ -6,6 +6,7 @@ import Login from "./Login";
 import Vegs from "./VegAndFruits";
 import { ChakraProvider } from "@chakra-ui/react";
 import HomePage from "../Components/HomePage";
+import { Shipment } from "../Components/Shipment";
 
 const AllRoutes = () => {
   return (
@@ -14,6 +15,7 @@ const AllRoutes = () => {
       <Route path="/fruitsandvegitables" element={<Vegs />} />
       <Route path="/" element={<HomePage />} />
       <Route path="/admin/dashboard" element={<Dashboard />} />
+      <Route path="/shipment" element={<Shipment />} />
 
       <Route
         path="/checkout"

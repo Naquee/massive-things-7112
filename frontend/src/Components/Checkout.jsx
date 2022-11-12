@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Center } from '@chakra-ui/react'
 import {
   Box,
   FormLabel,
@@ -28,8 +29,11 @@ import {
 import { Navbarcheck } from "./Checkoutnav";
 import { useDispatch, useSelector } from "react-redux";
 import { addAddress, getAddress } from "../Redux/App/action";
+import { Ordersummery } from "./Ordersummery";
+import { useNavigate } from "react-router-dom";
 
 export const Checkout = () => {
+  const navigate=useNavigate()
   const dispatch = useDispatch();
   const { token } = useSelector((store) => (store.AuthReducer));
   const [formData, setFormData] = useState({
@@ -55,6 +59,7 @@ export const Checkout = () => {
       headers: {
         Authorization: `Bearer ${token}`
       }
+      
     }
     dispatch(addAddress(payload, headers)).then((res) => {
       console.log(res);
@@ -78,15 +83,14 @@ export const Checkout = () => {
   //       console.log(err);
   //     });
   // };
- 
-
   // useEffect(() => {
   //   getUserAddress();
   // }, []);
 
   return (
     <Box>
-      <Flex
+      <Flex 
+       flexDirection={{base:"column",md:"row"}}
         bg="#edf3f8"
         _dark={{
           bg: "#111",
@@ -401,6 +405,7 @@ export const Checkout = () => {
                 >
                   <Button
                     type="submit"
+                    onClick={()=>navigate("/shipment")}
                     colorScheme="brand"
                     _focus={{
                       shadow: "",
@@ -414,8 +419,9 @@ export const Checkout = () => {
             </GridItem>
           </SimpleGrid>
         </Box>
-        <Box bg="gray" w="30%" p={4} ml={20} color="black">
-          <Heading>This is the Box</Heading>
+        <Box bg="white" w={{base:"100%", md:"35%"}} p={4} ml={{base:"1rem",md:"5rem"}} color="black">
+        <Center>  <Heading fontSize={{base:"1rem", md:"1.5rem"}}>This is the summery</Heading></Center>
+          <Ordersummery/>
         </Box>
       </Flex>
     </Box>
