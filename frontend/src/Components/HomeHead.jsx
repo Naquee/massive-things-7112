@@ -16,6 +16,7 @@ const Container = styled.div`
     margin:auto;
     line-height:10px;
     margin-top:50px;
+    margin-bottom:30px;
     color:"#e3dadb";
 `
 

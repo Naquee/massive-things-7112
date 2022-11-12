@@ -451,9 +451,10 @@ const HomePage = () => {
      
       <HomeHead heading={"Beverages"}/>
       <Box
+      sx={{flexDirection:{xs:'column', md:'row'}}}
         className='boxes'
       >
-        <Box sx={{border:"1px solid black",gridTemplateColumns: "repeat(auto-fit,minmax(280px,max-content))",}}>
+        <Box sx={{ width:{xs:"100%", md:"40%"}, overflow:'hidden'}} className='beverage'>
           {products?.map(
             (ele, index) =>
               ele.name === "bgiLeft1" && (
@@ -461,8 +462,8 @@ const HomePage = () => {
                   <img
                     src={`${REACT_APP_API_URL}${ele.img_path}`}
                     alt={ele.name}
-                    width="580px"
-                    height="320px"
+                    width="435px"
+                    height="330px"
                   />
                 </Box>
               )
@@ -472,13 +473,13 @@ const HomePage = () => {
         <Box
           sx={{
             display: "grid",
-            // gridTemplateColumns: "repeat(auto-fit,minmax(220px,max-content))",
-            gridTemplateColumns: "auto auto",
-            justifyContent: "center",
-            gap: "10px",
+            gridTemplateColumns: "repeat(auto-fit,minmax(200px,max-content))",
             overflow: "hidden",
-            border:"1px solid red"
+            width:{xs:"85%", md:"50%"},
+            justifyContent:'center',
+            gap:'20px'
           }}
+          className='beverage'
         >
           {products?.map(
             (ele, index) =>
@@ -487,8 +488,7 @@ const HomePage = () => {
                   <img
                     src={`${REACT_APP_API_URL}${ele.img_path}`}
                     alt={ele.name}
-                    width="250px"
-                    height="160px"
+                    height="150px"
                   />
                 </Box>
               )
@@ -577,21 +577,10 @@ const HomePage = () => {
      
       <HomeHead heading={"Beauty & Hygiene"} />
       <Box
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          width:"85%",
-          gap: "10px",
-          
-          overflow: "hidden",
-          // border:"1px solid black",
-          margin:"auto",
-          paddingTop:"20px"
-          
-          
-        }}
+      sx={{flexDirection:{xs:'column', md:'row'}}}
+        className='boxes'
       >
-        <Box sx={{border:"1px solid black",gridTemplateColumns: "repeat(auto-fit,minmax(280px,max-content))",}}>
+        <Box sx={{ width:{xs:"100%", md:"40%"}, overflow:'hidden'}} className='beverage'>
           {products?.map(
             (ele, index) =>
               ele.name === "bigLeft2" && (
@@ -599,8 +588,8 @@ const HomePage = () => {
                   <img
                     src={`${REACT_APP_API_URL}${ele.img_path}`}
                     alt={ele.name}
-                    width="580px"
-                    height="320px"
+                    width="435px"
+                    height="330px"
                   />
                 </Box>
               )
@@ -610,13 +599,13 @@ const HomePage = () => {
         <Box
           sx={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit,minmax(220px,max-content))",
-            gridTemplateColumns: "auto auto",
-            justifyContent: "center",
-            gap: "10px",
+            gridTemplateColumns: "repeat(auto-fit,minmax(200px,max-content))",
             overflow: "hidden",
-            border:"1px solid red"
+            width:{xs:"85%", md:"50%"},
+            justifyContent:'center',
+            gap:'20px'
           }}
+          className='beverage'
         >
           {products?.map(
             (ele, index) =>
@@ -625,14 +614,14 @@ const HomePage = () => {
                   <img
                     src={`${REACT_APP_API_URL}${ele.img_path}`}
                     alt={ele.name}
-                    width="250px"
-                    height="160px"
+                    height="150px"
                   />
                 </Box>
               )
           )}
         </Box>
       </Box>
+
 
       <HomeHead heading={"Home & Kitchen Essentials"} />
       <Box
@@ -748,16 +737,20 @@ const HomePage = () => {
 
 const Container = styled.div`
   .boxes{
-    border:1px solid red;
-    display: "flex",
-      justifyContent: "center",
-          width:"85%",
-          gap: "10px",
-          marginTop: "30px",
-          overflow: "hidden",
-          ${'' /* border:"1px solid black", */}
-          margin:"auto",
-          paddingTop:"20px"
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    width:85%;
+    gap: 10px;
+    overflow: hidden;
+    margin:auto;
+    flex-wrap: wrap;
+  }
+
+  .boxes img{
+    border:1px solid #ddd;
+    overflow:hidden;
+
   }
 `
 
