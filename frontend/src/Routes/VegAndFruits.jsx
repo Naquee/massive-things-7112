@@ -1,3 +1,4 @@
+import { Typography } from "@mui/material";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation, useSearchParams } from "react-router-dom";
@@ -53,20 +54,28 @@ const VegsAndFruits = () => {
                 backgroundColor: "#ffffff",
                 marginTop: "2rem"
             }}>
-                <div style={{ width: "200px", paddingLeft: "1rem", width: '15rem', boxShadow: "rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px" }}>
+                <div style={{ width: "250px", paddingLeft: "1rem", boxShadow: "rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px" }}>
                     <Filter />
                 </div>
-                
-                <div>
-                    <div style={{ display: "flex", gap: "32rem", marginTop: "3.2rem " }}>
-                        <h2 style={{ fontWeight: "100", color: '#58595b' }}>Fruits & Vegetables({products.length})</h2>
+
+                <div style={{ 
+                    width:'90%',
+                    display: "flex",
+                    flexDirection:'column',
+                    gap: "2rem",
+                    textAlign: "left",
+                    backgroundColor: "#ffffff",
+                    marginTop: "2rem"
+                }}>
+                    <div style={{ width: "100%", margin:'auto',display: "flex", alignItems:"center", justifyContent: 'space-between', marginTop: "3.2rem" }}>
+                        <Typography sx={{fontSize:{xs:'small', md:'x-large'}}}>Fruits & Vegetables({products.length})</Typography>
                         <ControlledOpenSelect />
                     </div>
                     <div style={{ display: "grid", gridTemplateColumns: 'repeat(auto-fit,minmax(250px,max-content))', gridGap: "2rem", justifyContent: 'center' }} >
                         {products.length > 0 && products?.map((product) => (
                             product.category[1] === 'Fruit & Vegetables' && <div key={product._id}>
-                                <Link to={`/product/${product._id}/${product.name.replace(/\s+/g, '')}` }>
-                                  <VegCard productId={product} />
+                                <Link to={`/product/${product._id}/${product.name.replace(/\s+/g, '')}`}>
+                                    <VegCard productId={product} />
                                 </Link>
                             </div>
                         ))}
