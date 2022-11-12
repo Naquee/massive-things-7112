@@ -31,22 +31,15 @@ const Filter = () => {
   };
 
   useEffect(() => {
-    if (category || country) {
-      const params = {};
-      params.category = category;
-      params.country = country;
-      setSearchParams(params);
-    };
+    if (country || category) {
+      let params = {};
+      category && (params.country = country);
+      category && (params.category = category);
 
-    useEffect(() => {
-        if(country || category){
-            let params = {};
-            category && (params.country = country);
-            category && (params.category = category);
-            
-            setSearchParams(params);
-        }
-    }, [category, country, setSearchParams]);
+      setSearchParams(params);
+    }
+  }, [category, country, setSearchParams]);
+
 
   return (
     <div>
@@ -139,13 +132,8 @@ const Filter = () => {
           <input type="checkbox" value="More than 25% (1362)" checked={category.includes('More than 25% (1362)')} onChange={handleFilterCheckbox1} />
           <label>More than 25% (1362)</label>
         </div>
-      </div> */}
-
-
+      </div>
     </div>
   )
 }
-
-
-
 export default Filter;
