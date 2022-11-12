@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -28,7 +28,6 @@ import Fade from '@mui/material/Fade';
 import LocalOfferIcon from '@mui/icons-material/LocalOffer';
 import Login from '../Routes/Login';
 import { useDispatch, useSelector } from 'react-redux';
-import userDummy from '../Resources/Images/userDummy.png'
 import { userSignout } from '../Redux/Auth/action';
 
 const pages = ['Gifts', 'New', 'Women', 'Men', 'Kids', 'Cashmere', 'Home', 'Stories', 'Sale'];
@@ -361,13 +360,14 @@ const Navbar = () => {
   const navigate = useNavigate();
   const { isAuth, isAdmin } = useSelector((store) => (store.AuthReducer));
   const handleSignout = () => {
-    dispatch(userSignout()).then((res) => {
-      navigate("/", { replace: true })
-    }).catch((err) => {
-      console.log(err)
-    })
-    handleCloseUserMenu()
+    dispatch(userSignout())
   }
+
+  useEffect(()=>{
+    if(isAuth){
+      handleCloseUserMenu()
+    }
+  }, [isAuth])
 
   return (
     <NavbarContainer>
@@ -501,7 +501,7 @@ const Navbar = () => {
               </Paper>
             </Box>
             <Box sx={{ mt: '4px' }}>
-              <Login />
+              <Login isAuth={isAuth}/>
             </Box>
 
             {isAuth && <Box sx={{ flexGrow: 0, mr: '5px', display: { lg: 'flex' } }}>
