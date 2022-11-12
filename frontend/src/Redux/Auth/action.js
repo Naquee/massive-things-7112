@@ -34,5 +34,9 @@ const dashUserData = (payload) => (dispatch) => {
     })
 }
 
-export { userAuthentication, dashUserDelete, dashUserData }
+const userSignout = () => (dispatch) => {
+    return dispatch({ type: types.USER_SIGNOUT_SUCCESS });
+}
+
+export { userAuthentication, dashUserDelete, dashUserData, userSignout}
 

@@ -27,7 +27,7 @@ import { saveData } from '../Utils/appLocalStorage';
 import UserInfo from '../Components/UserInfo';
 import AddProducts from '../Components/AddProducts';
 import AllProductsData from '../Components/AllProductsData';
-import { dashUserData } from '../Redux/Auth/action';
+import { dashUserData, userSignout } from '../Redux/Auth/action';
 
 const drawerWidth = 240;
 
@@ -116,9 +116,8 @@ const Dashboard = () => {
     };
 
     const handleSignout = () => {
-        saveData('token', '');
-        saveData('isAuth', false);
-        navigate("/login", { replace: true })
+        dispatch(userSignout())
+        navigate("/", { replace: true })
     }
 
     const getUserData = () => {

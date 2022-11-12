@@ -1,0 +1,213 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+.container{
+    margin: 10px;
+    display: flex;
+    justify-content: space-between;
+    height: fit-content;
+}
+.buttondiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+}
+.buttondiv button{
+    background: linear-gradient(180deg,#fff 0,#ebedea 99%);
+    border: 1px solid #e4e4e4;
+    border-radius: 5px;
+    height: 2.125rem;
+    width: 10rem;
+    font-family: 'Roboto', sans-serif;
+    color: #555;
+    display: inline-block;
+    font-size: .85rem;
+    box-shadow: 2px 2px 2px #ccc;
+    margin: 5px 15px;
+}
+.buttondiv button:hover{
+    background: linear-gradient(0deg,#fff 0,#ebedea 99%);
+}
+.emptybutton{
+    margin: 2px;
+    color: #777;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    padding: 8px;
+    font-size: 11px;
+    border: 1px solid #70b961;
+    border-radius: 5px;
+}
+.checkoutcard{
+    width: 500px;
+    height: fit-content;
+    float: left;
+    background: linear-gradient(180deg,#fff 60%,#f0f0f0 99%);
+    border: 1px solid #a2a2a2;
+    box-shadow: 2px 2px 4px #ccc;
+    border-radius: 5px;
+    position: relative;
+    z-index: 2;
+    padding: 0;
+}
+.checkoutcard{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+.checkoutcard p{
+    margin: 0%;
+}
+.checkoutButton{
+    background: linear-gradient(180deg,#fee77c 0,#f2ca76 99%);
+    border-radius: 5px;
+    border: none;
+    float: right;
+    box-shadow: 3px 2px 5px #ccc;
+    padding: 13px 27px;
+    margin: 3px 8px 20px 0;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+.checkoutButton span{
+    width: 33px;
+    height: 24px;
+    float: right;
+    background-position: 14px -1799px;
+    display: inline-block;
+}
+.checkoutButton:hover{
+    background: linear-gradient(0deg,#fee77c 0,#f2ca76 99%);
+}
+.buttonSection .checkoutButton p{
+    font: 400 19px Roboto Slab,serif;
+    color: #555;
+    float: left;
+    margin: 0;
+    padding: 0;
+}
+.buttonSection{
+    border-top: 1px solid #ccc;
+    margin: 2px 9px;
+    padding: 10px 0 5px 5px;
+    color: #444;
+    font: 400 14px/16px Lato,sans-serif;
+}
+
+.chargesDiv{
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.chargesSection1{
+    float: left;
+    width: 326px;
+    border-right: 1px solid #ccc;
+    padding: 15px 8px 18px;
+}
+
+.chargesSection1 p{
+    margin: 0%;
+}
+
+.chargesSection1 div{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 13px 6px;
+}
+
+.savingDiv{
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.savingDiv span{
+    font: 700 16px Roboto Slab,serif;
+    color: #e7685d;
+    display: block;
+}
+
+.savingDiv img{
+    width: 2.5rem;
+}
+
+.totalDiv p{
+    display: inline;
+}
+
+.chargesSection1 .totalDiv{
+    font: 400 22px/22px Roboto Slab,serif;
+    color: #444;
+    display: flex;
+    border-top: 1px solid #ccc;
+    margin: 10px 0 0;
+    padding: 10px 23px 0 13px;
+}
+
+.coupondiv{
+    font: 400 14px/16px Lato,sans-serif;
+    color: #444;
+    float: left;
+    margin: 0;
+    padding: 9px 0 2px 5px;
+}
+
+.warning p{
+    margin: 2px 9px;
+}
+.modelDiv{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+.modelDiv .okButton{
+    background: linear-gradient(to bottom,#fee67c 0,#f2cb76 100%);
+    padding: 10px 15px;
+    box-shadow: 2px 2px 0 #eaeaea;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    margin-top: 1rem;
+    margin-right: 30px;
+    color: #666;
+    font: 600 12px/12px 'Roboto Slab',serif;
+}
+.modelDiv .cancelButton{
+    border-radius: 4px;
+    margin-top: 1rem;
+    box-shadow: 2px 2px 2px #ccc;
+    background: linear-gradient(180deg,#fff 0,#ebedea 99%) repeat scroll 0 0 transparent;
+    border: 1px solid #e4e4e4;
+    color: #555;
+    font: 400 12px Roboto Slab,serif;
+    padding: 10px 15px;
+    margin-left: -10px;
+}
+.modelDiv .cancelButton:hover{
+    background: linear-gradient(0deg,#fff 0,#ebedea 99%) repeat scroll 0 0 transparent;
+}
+.modelDiv .okButton:hover{
+    background: linear-gradient(to top,#fee67c 0,#f2cb76 100%);
+}
+@media screen and (max-width: 800px) {
+    .container{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .buttondiv{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .checkoutcardDiv{
+        display: flex;
+        align-self: center;
+        margin-top: 1rem;
+    }
+}

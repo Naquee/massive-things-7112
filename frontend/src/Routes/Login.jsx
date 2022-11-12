@@ -11,7 +11,7 @@ import FormControl from '@mui/material/FormControl';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import CloseIcon from '@mui/icons-material/Close';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { userAuthentication } from '../Redux/Auth/action';
 import AlertMessage from '../Components/AlertMessage';
@@ -32,6 +32,7 @@ const Login = () => {
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
+    const { isAuth } = useSelector((store) => (store.AuthReducer));
     const [values, setValues] = useState({
         email: '',
         password: '',
@@ -52,12 +53,12 @@ const Login = () => {
             dispatch(userAuthentication(payload)).then((res) => {
                 if (res.payload.msg === 'Signup Successfull') {
                     dispatch(userAuthentication(payload)).then((res) => {
-                        if (res.payload.msg === 'Login Successfull' ) {
+                        if (res.payload.msg === 'Login Successfull') {
                             setStatus({ ...show, status: true, msg: res.payload.msg, type: "success" });
                             setTimeout(() => {
-                                navigate("/admin/dashboard");
+                                navigate("/");
                             }, 2000)
-                        }else{
+                        }else {
                             setStatus({ ...show, status: true, msg: res.payload.msg, type: "error" });
                         }
                     }).catch((err) => {
@@ -66,9 +67,9 @@ const Login = () => {
                 } else if (res.payload.msg === 'Login Successfull') {
                     setStatus({ ...show, status: true, msg: res.payload.msg, type: "success" });
                     setTimeout(() => {
-                        navigate("/admin/dashboard");
+                        navigate("/");
                     }, 2000)
-                }else {
+                } else {
                     setStatus({ ...show, status: true, msg: res.payload.msg, type: "error" });
                 }
             }).catch((err) => {
@@ -95,7 +96,7 @@ const Login = () => {
     };
 
     return (
-        <LoginContainer>
+        !isAuth && <LoginContainer>
             <Button onClick={handleOpen} variant="outlined" sx={{
                 color: '#b9583c', borderColor: '#b9583c',
                 '&:hover': {
