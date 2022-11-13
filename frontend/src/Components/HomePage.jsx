@@ -619,20 +619,25 @@ text-align:start
       
 
 
-      .yourswipper{
+      .yourSwipper{
         width:100%;
         height:100%;
-        border:2px solid red
+        ${'' /* border:2px solid red; */}
+        overflow:hidden
 
       }
 
 
 
       @media only screen and (min-width:768px) and (max-width:1100px){
-  .mySwipper{
+  .yourSwipper{
   
-      width:70%;
-    height:100%
+    img{
+      width:100%;
+    height:100%;
+    overflow:hidden;
+    margin-top:20px;
+    }
     
   
   }
@@ -640,10 +645,15 @@ text-align:start
       }
       
       @media only screen and (min-width:481px) and (max-width:767px){
-        .mySwipper{
+        .yourSwipper{
        
-            widt:50%;
-          height:100%
+          img{
+            width:100%;
+          height:300px;
+          margin-top:50px;
+          overflow:hidden;
+         
+          }
        
    
   }
@@ -651,20 +661,31 @@ text-align:start
       }
             
       @media only screen and (min-width:320px) and (max-width:480px){
-        .mySwipper{
+        .yourSwipper{
    
-          width:30%;
-         height:100%;
+          img{
+            width:100%;
+         height:200px;
+         margin-top:50px;
+         overflow:hidden;
+        
+          }
+    
     
   }
       }
 
 
   @media only screen and (max-width: 320px){
-    .mySwipper{
+    .yourSwipper{
    
-        width:20%;
-    height:100%;
+      img{
+        width:100%;
+    height:150px;
+    margin-top:50px;
+    overflow:hidden;
+    
+      }
 
        
       }
