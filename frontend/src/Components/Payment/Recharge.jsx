@@ -36,7 +36,7 @@ export const Recharge = () => {
   }, []);
 
   return (
-    <div>
+    <div style={{position:'relative'}}>
        <div
           style={{
             border: "1px solid black",

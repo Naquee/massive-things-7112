@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
+import AlertMessage from '../AlertMessage';
 import styles from './NetBanking.module.css'
 
 export const NetBanking = () => {
+  
   return (
     <div>
       <h3>Frequently Used Banks</h3>
@@ -23,4 +25,5 @@ export const NetBanking = () => {
         </div>
       </div>
     </div>
-  )}
+  )
+}
