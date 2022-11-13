@@ -45,13 +45,13 @@ const Filter = () => {
     <div>
       <p style={{ fontSize: "12px" }}><a href="/">HOME →</a> FRUITS & VEGETABLES</p>
       <div style={{ display: "grid", fontSize: "1rem", width: "13rem", marginTop: "3rem" }}>
-        <a href="">Cuts & Sprouts (2867)</a>
-        <a href="">Exotic Fruits & Veggies (4966)</a>
-        <a href="">Flower Bouquets, Bunches (1280)</a>
-        <a href="">Fresh Fruits (6577)</a>
-        <a href="">Fresh Vegetables (12283)</a>
-        <a href="">Herbs & Seasonings (2595)</a>
-        <a href="">Organic Fruits & Vegetables (2687)</a>
+        <a href="">Bakery, Cakes & Dairy</a>
+        <a href="">EBakery Snacks (7)</a>
+        <a href=""> Bread Sticks & Lavash (5)</a>
+        <a href="">Breadcrumbs & Croutons (2)</a>
+        <a href="">Cheese & Garlic Bread (2)</a>
+        <a href="">Cakes & Pastries (14)</a>
+        <a href="">Muffins & Cup Cakes (1)</a>
       </div>
       <h3>Country of Origin</h3>
 

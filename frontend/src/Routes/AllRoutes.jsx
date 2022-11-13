@@ -7,18 +7,21 @@ import Vegs from "./VegAndFruits";
 import { ChakraProvider } from "@chakra-ui/react";
 import HomePage from "../Components/HomePage";
 import SinglePage from "../Components/SinglePage";
-import FoodgrainsAndOil from "./FoodgrainAndOil";
-import { Shipment } from "../Components/Shipment";
+
+import BakeryDairy from "./BakeryDairy";
+import Beverage from "./Beverage";
 
 const AllRoutes = () => {
   return (
     <Routes>
+      <Route path="/login" element={<Login />} />
       <Route path="/fruitsandvegitables" element={<Vegs />} />
       <Route path="/" element={<HomePage />} />
       <Route path="/admin/dashboard" element={<Dashboard />} />
-       <Route path="/product/:id/name" element={<SinglePage/>}/>
-       <Route path="/foodandoil" element={<FoodgrainsAndOil/>}/>
-      <Route path="/shipment" element={<Shipment />} />
+       <Route path="/product/:id/:name" element={<SinglePage/>}/>
+       <Route path="/backerycakes" element={<BakeryDairy/>}/>
+       <Route path="/saneksbranded" element={<Beverage/>}/>
+
       <Route
         path="/checkout"
         element={
