@@ -1,0 +1,92 @@
+.circle{
+    width: 20px;
+    height: 20px;
+    border-radius:50%;
+    border:4px solid green;
+    display:grid;
+    place-items: center;
+}
+.circle>div{
+    width: 5px;
+    height:5px;
+    background-color: black;
+    border-radius:50%;
+}
+.circleTitle{
+    display:flex;
+    gap:10px;
+}
+.circleTitle>h5{
+    font-size:20px;
+    margin-top: 0px;
+    font-weight:700;
+    color:#323649;
+}
+.formDiv input{
+    width:500px;
+    border:none;
+    border-bottom: 2px solid #84c225;
+    
+    outline:none;
+    caret-color: #84c225;
+}
+.formDiv label{
+    display:block;
+    margin-left: 20px;
+    /* margin-top: 20px; */
+    margin-bottom: 20px;
+    text-align: start;
+    font-weight: 600;
+    font-family: sans-serif;
+}
+.validity {
+    display:flex;
+    gap:30px;
+}
+.validity>div>input{
+    width:156px;
+    border:none;
+    border-bottom: 1px solid #84c225;
+    padding:5px;
+    outline:none;
+    caret-color: #84c225;
+}
+.checkBox{
+    display:flex;
+    justify-content:left;
+    align-items:center;
+    margin-top:10px;
+}
+.checkBox>input{
+    width:30px;
+    height:15px;
+    margin-top:-16px;
+    
+}
+.checkBox>input:checked{
+    color:green;
+    background-color: red;
+}
+.checkBox+button{
+    background-color:#84c225;
+    width:300px;
+    height:40px;
+    display:block;
+    border:none;
+    padding:5px;
+    color:#ffff;
+    font-weight:800;
+    letter-spacing:1px;
+    margin: 20px;
+}
+.CardMain{
+    width:fit-content;
+    padding:20px;
+    border: 1px solid rgb(0,0,0,0.2);
+    height: fit-content;
+    width:100%;
+    background-color:white;
+}
+.formDiv div{
+    margin-top: 10px;
+}
