@@ -48,7 +48,8 @@ const HomePage = () => {
           disableOnInteraction: false,
         }}
         modules={[Autoplay]}
-        className="mySwiper"
+       className="yourSwipper"
+      
       >
         {products?.map(
           (ele, index) =>
@@ -602,6 +603,7 @@ text-align:start
           }
     
   }
+      }
   @media only screen and (max-width: 320px){
     .lastSwiper{
       img{
@@ -611,20 +613,31 @@ text-align:start
     
        
       }
+  }
 
-      ${'' /* top Slider */}
-      .mySwiper{
-        width:100%
+      ${'' /* top Slider   .mySwipper*/}
+      
+
+
+      .yourSwipper{
+        width:100%;
+        height:100%;
+        ${'' /* border:2px solid red; */}
+        overflow:hidden
 
       }
 
 
 
       @media only screen and (min-width:768px) and (max-width:1100px){
-  .mySwiper{
+  .yourSwipper{
   
+    img{
       width:100%;
-    ${'' /* height:100% */}
+    height:100%;
+    overflow:hidden;
+    margin-top:20px;
+    }
     
   
   }
@@ -632,10 +645,15 @@ text-align:start
       }
       
       @media only screen and (min-width:481px) and (max-width:767px){
-        .mySwiper{
+        .yourSwipper{
        
-            widt:100%;
-          ${'' /* height:100% */}
+          img{
+            width:100%;
+          height:300px;
+          margin-top:50px;
+          overflow:hidden;
+         
+          }
        
    
   }
@@ -643,20 +661,31 @@ text-align:start
       }
             
       @media only screen and (min-width:320px) and (max-width:480px){
-        .mySwiper{
+        .yourSwipper{
    
-          width:100%;
-         ${'' /* height:100%; */}
+          img{
+            width:100%;
+         height:200px;
+         margin-top:50px;
+         overflow:hidden;
+        
+          }
+    
     
   }
       }
 
 
   @media only screen and (max-width: 320px){
-    .mySwiper{
+    .yourSwipper{
    
+      img{
         width:100%;
-    ${'' /* height:100%; */}
+    height:150px;
+    margin-top:50px;
+    overflow:hidden;
+    
+      }
 
        
       }
