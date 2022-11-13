@@ -31,13 +31,15 @@ const Filter = () => {
   };
 
   useEffect(() => {
-    if (category || country) {
-      const params = {};
-      params.category = category;
-      params.country = country;
+    if (country || category) {
+      let params = {};
+      category && (params.country = country);
+      category && (params.category = category);
+
       setSearchParams(params);
-    };
+    }
   }, [category, country, setSearchParams]);
+
 
   return (
     <div>
@@ -52,6 +54,7 @@ const Filter = () => {
         <a href="">Organic Fruits & Vegetables (2687)</a>
       </div>
       <h3>Country of Origin</h3>
+
       <div >
         <div>
           <input type="checkbox" value="Australia" checked={country.includes('Australia')} onChange={handleFilterCheckbox} />
@@ -74,6 +77,8 @@ const Filter = () => {
           <label>USA</label>
         </div>
       </div>
+
+
       <hr />
       <h3>Price</h3>
       <div>
@@ -128,12 +133,7 @@ const Filter = () => {
           <label>More than 25% (1362)</label>
         </div>
       </div>
-
-
     </div>
   )
 }
-
-
-
 export default Filter;

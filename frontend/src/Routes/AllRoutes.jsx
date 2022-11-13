@@ -6,6 +6,8 @@ import Login from "./Login";
 import Vegs from "./VegAndFruits";
 import { ChakraProvider } from "@chakra-ui/react";
 import HomePage from "../Components/HomePage";
+import SinglePage from "../Components/SinglePage";
+import FoodgrainsAndOil from "./FoodgrainAndOil";
 import { Shipment } from "../Components/Shipment";
 
 const AllRoutes = () => {
@@ -14,8 +16,9 @@ const AllRoutes = () => {
       <Route path="/fruitsandvegetables" element={<Vegs />} />
       <Route path="/" element={<HomePage />} />
       <Route path="/admin/dashboard" element={<Dashboard />} />
+       <Route path="/product/:id/name" element={<SinglePage/>}/>
+       <Route path="/foodandoil" element={<FoodgrainsAndOil/>}/>
       <Route path="/shipment" element={<Shipment />} />
-
       <Route
         path="/checkout"
         element={
