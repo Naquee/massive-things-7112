@@ -621,10 +621,10 @@ text-align:start
 
       @media only screen and (min-width:768px) and (max-width:1100px){
   .mySwiper{
-    img{
-      width:90%;
-    height:100%
-    }
+  
+      width:100%;
+    ${'' /* height:100% */}
+    
   
   }
        
@@ -632,10 +632,10 @@ text-align:start
       
       @media only screen and (min-width:481px) and (max-width:767px){
         .mySwiper{
-          img{
-            width:70%;
-          height:100%
-          }
+       
+            widt:100%;
+          ${'' /* height:100% */}
+       
    
   }
               
@@ -643,21 +643,23 @@ text-align:start
             
       @media only screen and (min-width:320px) and (max-width:480px){
         .mySwiper{
-          img{
-            width:40%;
-         height:100%;
-          }
+   
+          width:100%;
+         ${'' /* height:100%; */}
     
   }
+      }
+
+
   @media only screen and (max-width: 320px){
     .mySwiper{
-      img{
-        width:20%;
-    height:100%;
-      }
-    
+   
+        width:100%;
+    ${'' /* height:100%; */}
+
        
       }
+  }
 
       
 `
