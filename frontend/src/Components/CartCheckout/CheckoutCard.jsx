@@ -19,6 +19,7 @@ export const CheckoutCards = () => {
     });
     console.log(price, "price");
     setPrice(price);
+    saveData('totalprice', price)
   };
   const savings = () => {
     let saving = 0;
@@ -26,7 +27,7 @@ export const CheckoutCards = () => {
       saving = ele.purchaseQuantity * (ele.discount - ele.price) + saving;
     });
     setSaving(saving);
-    saveData('totalprice', saving)
+    
   };
   useEffect(() => {
     savings(price);

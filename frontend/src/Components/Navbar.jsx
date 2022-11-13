@@ -171,7 +171,7 @@ const phal = [
   {
     id: 4,
     title: "Beverages",
-    path: "/bevrages"
+    path: "/beverages"
   },
   {
     id: 5,
@@ -372,6 +372,7 @@ const Navbar = () => {
 
   const { token } = useSelector((store) => (store.AuthReducer));
   const { cart } = useSelector((store) => (store.AppReducer));
+ 
   const getCartData = () => {
     const headers = {
       headers: {
@@ -385,18 +386,21 @@ const Navbar = () => {
     })
   }
 
-  console.log(cart)
+  useEffect(() => {
+    if(isAuth){
+      getCartData()
+    }
+  }, [cart, isAuth])
 
   useEffect(() => {
     if (isAuth) {
       handleCloseUserMenu()
-      getCartData()
     } 
   }, [isAuth])
 
   return (
     <NavbarContainer>
-      <AppBar elevation={0} position="static" sx={{ width: '100%', borderBottom: "1px solid #ddd", backgroundColor: "white", color: "black" }}>
+      <AppBar elevation={0} position="fixed" sx={{ width: '100%', borderBottom: "1px solid #ddd", backgroundColor: "white", color: "black" }}>
         <Container maxWidth="xl">
           <Toolbar disableGutters>
             <Link to='/'>
@@ -571,13 +575,13 @@ const Navbar = () => {
               fontSize="25px">
               <Link to='/cart'>
                 <HiOutlineShoppingBag fontSize={'40px'} color={'#cf6c4d'} />
-                <span style={{ position: 'absolute', left: cart?.length > 9 ? "34%" : "43%", fontSize: '11px', top: '27%', fontWeight: 'bold' }}>{cart?.length !== 0 || cart === undefined ? cart?.length : 0}</span>
+                <span style={{ position: 'absolute', left: cart?.length > 9 ? "34%" : "43%", fontSize: '11px', top: '27%', fontWeight: 'bold' }}>{cart?.length || 0}</span>
               </Link>
             </Box>
           </Toolbar>
         </Container>
       </AppBar>
-      <Box sx={{ boxShadow: 'rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px', display: { xs: 'none', md: 'flex' }, alignItems: 'center', padding: '0px 50px' }}>
+      <Box sx={{ boxShadow: 'rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px', display: { xs: 'none', md: 'flex' }, alignItems: 'center', padding: '0px 50px', marginTop:'82px'}}>
         <Box>
           <Button
             id="fade-button"

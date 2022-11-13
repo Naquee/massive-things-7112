@@ -23,7 +23,6 @@ export const UPI = () => {
         Authorization: `Bearer ${token}`
       }
     }
-    console.log(payload)
     dispatch(deleteAllCartProduct(payload, headers)).then((res) => {
       setStatus({ ...show, status: true, msg: 'Order Placed Successfully', type: "success" });
       setTimeout(() => {
