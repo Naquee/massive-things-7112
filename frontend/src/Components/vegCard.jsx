@@ -37,7 +37,7 @@ const VegCard = ({ productId }) => {
         }
     }
     return (
-        <div style={{ marginTop: "4rem", lineHeight: ".2rem", boxShadow: "rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px" }}>
+        <div style={{ marginTop: "2rem", lineHeight: ".2rem", boxShadow: "rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px" }}>
 
             <div style={{ display: "flex", justifyContent: "center" }}>
                 <img src={`${REACT_APP_API_URL}${productId.img_path}`} alt="vegetables" />
