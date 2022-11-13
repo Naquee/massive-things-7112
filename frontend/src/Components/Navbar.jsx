@@ -29,6 +29,7 @@ import LocalOfferIcon from '@mui/icons-material/LocalOffer';
 import Login from '../Routes/Login';
 import { useDispatch, useSelector } from 'react-redux';
 import { userSignout } from '../Redux/Auth/action';
+import { getCartProduct } from '../Redux/App/action';
 
 const pages = ['Gifts', 'New', 'Women', 'Men', 'Kids', 'Cashmere', 'Home', 'Stories', 'Sale'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -154,51 +155,57 @@ const serach = [
 const phal = [
   {
     id: 1,
-    title: "Frouits & Vegitables",
-    path: "/fruitsandvegitables"
+    title: "Fruits & Vegetables",
+    path: "/fruitsandvegetables"
   },
   {
     id: 2,
-    title: "Food Grands & Masala",
-    path: "/foodgrands"
+    title: "Foodgrains,Oil & Masala",
+    path: "/foodgrains"
   },
   {
     id: 3,
-    title: "Backery Cakes & Daily",
+    title: "Bakery Cakes & Dairy",
     path: "/backerycakes"
   },
   {
     id: 4,
-    title: "Beauty & hyegene",
-    path: "/beautyhyegene"
+    title: "Beverages",
+    path: "/beverages"
   },
   {
     id: 5,
-    title: "Saneks & Branded Food",
+    title: "Snacks & Branded Food",
     path: "/saneksbranded"
   },
   {
     id: 6,
+    title: "Beauty & hygine",
+    path: "/beautyhyegene"
+  },
+
+  {
+    id: 7,
     title: "Cleaning and Household",
     path: "/cleaninghousehold"
   },
   {
-    id: 7,
+    id: 8,
     title: "Kitchen , Garden & Pets",
     path: "/kitchenpets"
   },
   {
-    id: 8,
-    title: "Meat & Fish",
+    id: 9,
+    title: "Eggs, Meat & Fish",
     path: "/meatfish"
   },
   {
-    id: 9,
+    id: 10,
     title: "Gourmet and & World Food",
     path: "/gourmetworld"
   },
   {
-    id: 10,
+    id: 11,
     title: "Baby Care",
     path: "/babycare"
   }
@@ -363,9 +370,29 @@ const Navbar = () => {
     dispatch(userSignout())
   }
 
-  useEffect(()=>{
-    if(isAuth){
+  const { token } = useSelector((store) => (store.AuthReducer));
+  const { cart } = useSelector((store) => (store.AppReducer));
+  const getCartData = () => {
+    const headers = {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    }
+    dispatch(getCartProduct(headers)).then((res) => {
+      console.log(res);
+    }).catch((err) => {
+      console.log(err);
+    })
+  }
+
+  console.log(cart)
+
+  useEffect(() => {
+    if (isAuth) {
       handleCloseUserMenu()
+      getCartData()
+    }else{
+      cart.length = 0;
     }
   }, [isAuth])
 
@@ -501,7 +528,7 @@ const Navbar = () => {
               </Paper>
             </Box>
             <Box sx={{ mt: '4px' }}>
-              <Login isAuth={isAuth}/>
+              <Login isAuth={isAuth} />
             </Box>
 
             {isAuth && <Box sx={{ flexGrow: 0, mr: '5px', display: { lg: 'flex' } }}>
@@ -526,7 +553,7 @@ const Navbar = () => {
                 open={Boolean(anchorElUser)}
                 onClose={handleCloseUserMenu}
               >
-                <Link to={isAdmin?'/admin/dashboard':'/'}>
+                <Link to={isAdmin ? '/admin/dashboard' : '/'}>
                   <MenuItem onClick={handleCloseUserMenu}>
                     <Typography textAlign="center" >Dashboard</Typography>
                   </MenuItem>
@@ -538,13 +565,16 @@ const Navbar = () => {
               </Menu>
             </Box>}
 
-            <Box sx={{ display: { xs: 'none', lg: 'flex', md: 'flex' }, mr: 1, }}
+            <Box sx={{ display: { xs: 'none', lg: 'flex', md: 'flex' }, mr: 1,position: 'relative' }}
               marginLeft="20px"
               display="flex"
               alignItems="center"
               height="30px"
               fontSize="25px">
-              <HiOutlineShoppingBag fontSize={'40px'} color={'#cf6c4d'} />
+              <Link to='/cart'>
+                <HiOutlineShoppingBag fontSize={'40px'} color={'#cf6c4d'}/>
+                <span style={{ position: 'absolute', left: cart?.length > 9 ? "34%" : "43%", fontSize: '11px', top: '27%', fontWeight: 'bold' }}>{cart?.length !== 0 || cart === undefined ? cart?.length : 0}</span>
+              </Link>
             </Box>
           </Toolbar>
         </Container>

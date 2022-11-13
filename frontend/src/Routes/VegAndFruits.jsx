@@ -58,10 +58,10 @@ const VegsAndFruits = () => {
                     <Filter />
                 </div>
 
-                <div style={{ 
-                    width:'90%',
+                <div style={{
+                    width: '90%',
                     display: "flex",
-                    flexDirection:'column',
+                    flexDirection: 'column',
                     gap: "2rem",
                     textAlign: "left",
                     backgroundColor: "#ffffff",
@@ -69,14 +69,12 @@ const VegsAndFruits = () => {
                 }}>
                     <div style={{ width: "100%",display: "flex",  justifyContent: 'space-between', marginTop: "3.2rem" }}>
                         <Typography sx={{fontSize:{xs:'small', md:'x-large'}}}>Fruits & Vegetables({products.length})</Typography>
-                        <ControlledOpenSelect />
+                         <ControlledOpenSelect />
                     </div>
                     <div style={{ display: "grid", gridTemplateColumns: 'repeat(auto-fit,minmax(250px,max-content))', gridGap: "2rem", justifyContent: 'center'}} >
                         {products.length > 0 && products?.map((product) => (
                             product.category[1] === 'Fruit & Vegetables' && <div key={product._id}>
-                                <Link to={`/product/${product._id}/${product.name.replace(/\s+/g, '')}`}>
-                                    <VegCard productId={product} />
-                                </Link>
+                                <VegCard productId={product} />
                             </div>
                         ))}
                     </div>

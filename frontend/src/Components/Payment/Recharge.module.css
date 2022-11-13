@@ -1,0 +1,72 @@
+.paymentDiv > div:first-child > svg {
+    margin: 0px;
+    margin-bottom: 5px;
+    /* margin-top: 20px; */
+  }
+  .paymentDiv {
+    border: 2px solid rgba(84, 226, 28, 0.2);
+    width: 855px;
+    height: 65px;
+    margin-top: 50px;
+  }
+  .paymentMethods > div:first-child {
+    width: 164px;
+    place-items: center;
+    display: grid;
+    grid-template-rows: repeat(10, 1fr);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+  }
+  .paymentMethods {
+    display: flex;
+    width: 860px;
+    height: 480px;
+  }
+  .paymentMethods > div:nth-child(2) {
+    border: 20px solid rgba(143, 255, 30, 0.2);
+    width: 100% !important;
+    display: flex;
+    padding: 10px 30px;
+    background-color: #f6f6f6;
+  }
+  .paymentMethods > div:first-child > div {
+    width: 100%;
+    text-align: left;
+    border-bottom: 5px solid rgba(141, 220, 22, 0.3);
+    padding: 12px;
+    width: 164px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+  }
+  .paymentMethods > div:first-child > div:hover {
+    background-color: #eeeeee;
+    /* color: white; */
+    font-weight: 800;
+    font-family: sans-serif;
+    cursor: pointer;
+  }
+  .paymentMethods > div:first-child > div > h6 {
+    width: 126px;
+    height: 15.2px;
+    font-size: 15px;
+    font-family: ProximaNova, Arial;
+  }
+  .mainDiv {
+    margin: 10px 0px;
+  }
+  .mainDiv input {
+    font-size: 18px;
+  }
+  .mainDiv > .Order {
+    position: absolute;
+    right: 150px;
+    top: 150px;
+  }
+  .mainDiv > .otpcont {
+    position: absolute;
+    right: 150px;
+    top: 700px;
+  }
+  .amount > div {
+    cursor: pointer;
+  }
