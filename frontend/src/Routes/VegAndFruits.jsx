@@ -46,7 +46,7 @@ const VegsAndFruits = () => {
     }, [location.search]);
 
     return (
-        <div style={{ width: "95%", marginLeft: "3rem" }}>
+        <div style={{ width: "95%", marginLeft: "3rem", marginTop:'10px' }}>
             <div style={{
                 display: "flex",
                 gap: "2rem",
@@ -71,7 +71,7 @@ const VegsAndFruits = () => {
                         <Typography sx={{fontSize:{xs:'small', md:'x-large'}}}>Fruits & Vegetables({products.length})</Typography>
                          <ControlledOpenSelect />
                     </div>
-                    <div style={{ display: "grid", gridTemplateColumns: 'repeat(auto-fit,minmax(250px,max-content))', gridGap: "2rem", justifyContent: 'center'}} >
+                    <div style={{ display: "grid", gridTemplateColumns: 'repeat(auto-fit,minmax(260px,max-content))', gridGap: "2rem", justifyContent: 'center'}} >
                         {products.length > 0 && products?.map((product) => (
                             product.category[1] === 'Fruit & Vegetables' && <div key={product._id}>
                                 <VegCard productId={product} />

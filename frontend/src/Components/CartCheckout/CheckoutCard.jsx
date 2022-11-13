@@ -3,6 +3,7 @@ import { EmptyBasketModel } from "./EmptyBasketModel";
 import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import styles from "./CheckoutCard.module.css";
+import { saveData } from "../../Utils/appLocalStorage";
 
 export const CheckoutCards = () => {
   const navigate = useNavigate();
@@ -13,7 +14,7 @@ export const CheckoutCards = () => {
   const [price, setPrice] = useState([]);
   const subtotal = () => {
     let price = 0;
-    getdata.forEach((ele, k) => {
+    getdata?.forEach((ele, k) => {
       price = ele.price * ele.purchaseQuantity + price;
     });
     console.log(price, "price");
@@ -21,10 +22,11 @@ export const CheckoutCards = () => {
   };
   const savings = () => {
     let saving = 0;
-    getdata.forEach((ele, k) => {
+    getdata?.forEach((ele, k) => {
       saving = ele.purchaseQuantity * (ele.discount - ele.price) + saving;
     });
     setSaving(saving);
+    saveData('totalprice', saving)
   };
   useEffect(() => {
     savings(price);

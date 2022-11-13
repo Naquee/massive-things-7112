@@ -15,28 +15,26 @@ import { Link, useLocation } from "react-router-dom";
 import { getProducts } from "../Redux/App/action";
 import VegCard from "./vegCard";
 import styled from "styled-components";
+import { Autoplay } from 'swiper';
+import 'swiper/css/autoplay';
 
 
+export default function MySmartSlider({title}) {
+  const dispatch = useDispatch();
+  const location = useLocation();
+  const { products } = useSelector((store) => store.AppReducer);
 
 
-export default function MySmartSlider() {
-    const dispatch = useDispatch();
-    const location = useLocation();
-    const { products } = useSelector((store) => store.AppReducer);
-  
-
-    const getProductData = () => {
-        dispatch(getProducts())
-            .then((res) => { })
-            .catch((err) => {
-                console.log(err);
-            });
-    };
-
-    console.log(products)
-    useEffect(() => {
-        getProductData();
-    }, []);
+  const getProductData = () => {
+    dispatch(getProducts())
+      .then((res) => { })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  useEffect(() => {
+    getProductData();
+  }, []);
   return (
     <MysmartSlider>
       <Swiper
@@ -45,35 +43,25 @@ export default function MySmartSlider() {
         slidesPerGroup={5}
         loop={true}
         loopFillGroupWithBlank={true}
-        pagination={{
-          clickable: true,
-        }}
-        navigation={true}
-        modules={[Pagination, Navigation]}
         className="mySwiper"
-        // sx={{width:"80%"}}
+        modules={[Autoplay]}
+        autoplay={true}
+      // sx={{width:"80%"}}
       >
-      
-
-
-     
-        <div style={{width:"80%", display: "grid", gridTemplateColumns: 'repeat(auto-fit,minmax(250px,max-content))', gridGap: "2rem", justifyContent: 'center' }} >
-                        {products.length > 0 && products?.map((product) => (
-                            product.category[1] === 'Fruit & Vegetables' && <SwiperSlide key={product._id}>
-                                <Link to={`/product/${product._id}/${product.name.replace(/\s+/g, '')}`}>
-                                    <VegCard productId={product} />
-                                </Link>
-                                </SwiperSlide>
-                        ))}
-                    </div>
-
+        <div style={{ width: "80%", display: "grid", gridTemplateColumns: 'repeat(auto-fit,minmax(250px,max-content))', gridGap: "2rem", justifyContent: 'center' }} >
+          {products.length > 0 && products?.map((product) => (
+            product.category[1] === title && <SwiperSlide key={product._id}>
+              <VegCard productId={product} />
+            </SwiperSlide>
+          ))}
+        </div>
       </Swiper>
     </MysmartSlider>
   );
-  
+
 }
 
-const MysmartSlider =styled.div`
+const MysmartSlider = styled.div`
 width:85%;
 margin:auto
 

@@ -37,42 +37,42 @@ const aalu = [
   {
     id: 1,
     title: "Potato, Onion & Tomato",
-    path: "/patato"
+    path: "/fruitsandvegetables"
   },
   {
     id: 2,
     title: "Cucumber & Capsicum",
-    path: "/cucumber"
+    path: "/fruitsandvegetables"
   },
   {
     id: 3,
     title: "Leafy Vegetables",
-    path: "/leafy"
+    path: "/fruitsandvegetables"
   },
   {
     id: 4,
     title: "Root Vegetables",
-    path: "/root"
+    path: "/fruitsandvegetables"
   },
   {
     id: 5,
     title: "Beans, Brinjals & Okra",
-    path: "/beans"
+    path: "/fruitsandvegetables"
   },
   {
     id: 6,
     title: "Potato, Onion & Tomato",
-    path: "/patato"
+    path: "/fruitsandvegetables"
   },
   {
     id: 7,
     title: "Cabbage & Cauliflower",
-    path: "/cabbage"
+    path: "/fruitsandvegetables"
   },
   {
     id: 8,
     title: "Gourd, Pumpkin, Drumstick",
-    path: "/rourd"
+    path: "/fruitsandvegetables"
   },
   {
     id: 9,
@@ -86,42 +86,42 @@ const fresh = [
   {
     id: 1,
     title: "Herbs & Seasonings",
-    path: "/herbs"
+    path: "/fruitsandvegetables"
   },
   {
     id: 2,
     title: "Fresh Fruits",
-    path: "/freshfruits"
+    path: "/fruitsandvegetables"
   },
   {
     id: 3,
     title: "Organic Fruits & Vegitables",
-    path: "/organicfruits"
+    path: "/fruitsandvegetables"
   },
   {
     id: 4,
     title: "Veg",
-    path: "/Veg"
+    path: "/fruitsandvegetables"
   },
   {
     id: 1,
     title: "Cuts & Sprouts",
-    path: "/cuts"
+    path: "/fruitsandvegetables"
   },
   {
     id: 2,
     title: "Exotic Fruits & Veggies",
-    path: "/exotic"
+    path: "/fruitsandvegetables"
   },
   {
     id: 3,
     title: "Vegetables",
-    path: "/Vegetables"
+    path: "/fruitsandvegetables"
   },
   {
     id: 4,
     title: "Flower Bouquets Buncheses",
-    path: "/bouquets"
+    path: "/fruitsandvegetables"
   },
 ]
 
@@ -133,22 +133,22 @@ const serach = [
   {
     id: 1,
     title: "Popular Searches",
-    path: "/PopularSearches"
+    path: "/fruitsandvegetables"
   },
   {
     id: 2,
     title: "Ash Gourd",
-    path: "/AshGourd"
+    path: "/fruitsandvegetables"
   },
   {
     id: 3,
     title: "Vegetables",
-    path: "/Vegetables"
+    path: "/fruitsandvegetables"
   },
   {
     id: 4,
     title: "Veg",
-    path: "/Veg"
+    path: "/fruitsandvegetables"
   },
 
 ]
@@ -161,7 +161,7 @@ const phal = [
   {
     id: 2,
     title: "Foodgrains,Oil & Masala",
-    path: "/foodgrains"
+    path: "/fruitsandvegetables"
   },
   {
     id: 3,
@@ -171,43 +171,43 @@ const phal = [
   {
     id: 4,
     title: "Beverages",
-    path: "/beverages"
+    path: "/bevrages"
   },
   {
     id: 5,
     title: "Snacks & Branded Food",
-    path: "/saneksbranded"
+    path: "/bevrages"
   },
   {
     id: 6,
     title: "Beauty & hygine",
-    path: "/beautyhyegene"
+    path: "/fruitsandvegetables"
   },
 
   {
     id: 7,
     title: "Cleaning and Household",
-    path: "/cleaninghousehold"
+    path: "/fruitsandvegetables"
   },
   {
     id: 8,
     title: "Kitchen , Garden & Pets",
-    path: "/kitchenpets"
+    path: "/fruitsandvegetables"
   },
   {
     id: 9,
     title: "Eggs, Meat & Fish",
-    path: "/meatfish"
+    path: "/fruitsandvegetables"
   },
   {
     id: 10,
     title: "Gourmet and & World Food",
-    path: "/gourmetworld"
+    path: "/fruitsandvegetables"
   },
   {
     id: 11,
     title: "Baby Care",
-    path: "/babycare"
+    path: "/fruitsandvegetables"
   }
 
 
@@ -236,7 +236,7 @@ const Navbar = () => {
       // onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
-      <Button size="large" href="https://www.google.com" sx={{ ml: 10 }}>SignIN</Button>
+      <Button size="large" sx={{ ml: 10 }}></Button>
       <List>
         {['Fruits & Vegetables', 'Fresh Vegitables', 'Popular Search'].map((text, index) => (
           <ListItem key={text} disablePadding onClick={() => setMenu(text)}>
@@ -316,7 +316,7 @@ const Navbar = () => {
 
         ].map((ele, index) => (
           <Link to={ele.path} >
-            <ListItem key={index} disablePadding>
+            <ListItem key={index} disablePadding >
               <ListItemButton>
                 <ListItemText primary={ele.title} />
               </ListItemButton>
@@ -391,9 +391,7 @@ const Navbar = () => {
     if (isAuth) {
       handleCloseUserMenu()
       getCartData()
-    }else{
-      cart.length = 0;
-    }
+    } 
   }, [isAuth])
 
   return (
@@ -553,11 +551,11 @@ const Navbar = () => {
                 open={Boolean(anchorElUser)}
                 onClose={handleCloseUserMenu}
               >
-                <Link to={isAdmin ? '/admin/dashboard' : '/'}>
+                {isAdmin && <Link to={'/admin/dashboard'}>
                   <MenuItem onClick={handleCloseUserMenu}>
                     <Typography textAlign="center" >Dashboard</Typography>
                   </MenuItem>
-                </Link>
+                </Link>}
 
                 <MenuItem onClick={handleSignout}>
                   <Typography textAlign="center" >Logout</Typography>
@@ -565,14 +563,14 @@ const Navbar = () => {
               </Menu>
             </Box>}
 
-            <Box sx={{ display: { xs: 'none', lg: 'flex', md: 'flex' }, mr: 1,position: 'relative' }}
+            <Box sx={{ display: { xs: 'none', lg: 'flex', md: 'flex' }, mr: 1, position: 'relative' }}
               marginLeft="20px"
               display="flex"
               alignItems="center"
               height="30px"
               fontSize="25px">
               <Link to='/cart'>
-                <HiOutlineShoppingBag fontSize={'40px'} color={'#cf6c4d'}/>
+                <HiOutlineShoppingBag fontSize={'40px'} color={'#cf6c4d'} />
                 <span style={{ position: 'absolute', left: cart?.length > 9 ? "34%" : "43%", fontSize: '11px', top: '27%', fontWeight: 'bold' }}>{cart?.length !== 0 || cart === undefined ? cart?.length : 0}</span>
               </Link>
             </Box>
@@ -601,11 +599,11 @@ const Navbar = () => {
             TransitionComponent={Fade}
             sx={{ ml: 1 }}
           >
-            <Box sx={{ ml: 1, display: 'flex' }}>
+            <Box sx={{ ml: 1, display: 'flex' }} >
               <Box>
                 {phal.map((el, index) => (
                   <Link to={el.path} >
-                    <ListItem key={index} disablePadding>
+                    <ListItem key={index} onClick={()=> handleClose()} disablePadding >
                       <ListItemButton>
                         <ListItemText sx={{ color: "black", root: { textDecoration: 'none', }, }}
                           primary={el.title} />
@@ -618,7 +616,7 @@ const Navbar = () => {
                 {
                   fresh.map((el, index) => (
                     <Link to={el.path} >
-                      <ListItem key={index} disablePadding>
+                      <ListItem key={index} onClick={()=> handleClose()} disablePadding>
                         <ListItemButton>
                           <ListItemText sx={{ padding: "-10px", color: "black", root: { textDecoration: 'none', }, }}
                             primary={el.title} />
@@ -631,7 +629,7 @@ const Navbar = () => {
                 {
                   aalu.map((el, index) => (
                     <Link to={el.path} >
-                      <ListItem key={index} disablePadding>
+                      <ListItem key={index} onClick={()=> handleClose()} disablePadding>
                         <ListItemButton>
                           <ListItemText sx={{ padding: "-10px", color: "black", root: { textDecoration: 'none', }, }}
                             primary={el.title} />
@@ -645,7 +643,7 @@ const Navbar = () => {
                 {
                   serach.map((el, index) => (
                     <Link to={el.path} >
-                      <ListItem key={index} disablePadding>
+                      <ListItem key={index} onClick={()=> handleClose()} disablePadding>
                         <ListItemButton>
                           <ListItemText sx={{ padding: "-10px", color: "black", root: { textDecoration: 'none', }, }}
                             primary={el.title} />

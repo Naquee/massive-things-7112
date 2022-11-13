@@ -1,9 +1,39 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+import { deleteAllCartProduct } from '../../Redux/App/action'
+import AlertMessage from '../AlertMessage'
 import styles from './UPI.module.css'
 
 export const UPI = () => {
+  const dispatch = useDispatch();
+  const { token, user } = useSelector((store) => (store.AuthReducer))
+  const [show, setStatus] = useState({
+    status: false,
+    msg: '',
+    type: 'error'
+  });
+  const navigate = useNavigate()
+  const handleChange = () => {
+    const payload = {
+      name: user.email
+    }
+    const headers = {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    }
+    console.log(payload)
+    dispatch(deleteAllCartProduct(payload, headers)).then((res) => {
+      setStatus({ ...show, status: true, msg: 'Order Placed Successfully', type: "success" });
+      setTimeout(() => {
+        navigate("/")
+      }, 2000)
+    })
+  }
+
   return (
-    <div>
+    <div >
       <div>
         <div className={styles.firstName}>
           <p>Pay Using UPI</p>
@@ -17,12 +47,13 @@ export const UPI = () => {
           </div>
           <div>
             <p>UPI ID</p>
-            <input placeholder="user@bankname" />
+            <input placeholder="user@bankname" required />
             <p>A payment request will be sent to this UPI ID</p>
           </div>
-          <button>Verify</button>
+          <button onClick={handleChange} >Verify</button>
         </div>
       </div>
+      <AlertMessage show={show} setStatus={setStatus} />
     </div>
   )
 }

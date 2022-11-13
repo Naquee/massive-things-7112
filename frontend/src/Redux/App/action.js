@@ -96,6 +96,16 @@ const deleteCartProduct = (payload, headers) => (dispatch) => {
     })
 }
 
+const deleteAllCartProduct = (payload,headers) => (dispatch) => {
+    dispatch({ type: types.DELETE_CART_REQUEST });
+    return axios.delete(`${REACT_APP_API_URL}/user/cart/delete/all/${payload.name}`, headers).then((res) => {
+        console.log(res)
+        return dispatch({ type: types.DELETE_CART_SUCCESS });
+    }).catch((err) => {
+        return dispatch({ type: types.DELETE_CART_FAILURE });
+    })
+}
+
 export {
     getVeg,
     addProducts,
@@ -106,7 +116,8 @@ export {
     getAddress,
     addProductToCart,
     getCartProduct,
-    deleteCartProduct
+    deleteCartProduct,
+    deleteAllCartProduct
 }
 
 

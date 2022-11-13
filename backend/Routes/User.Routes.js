@@ -71,6 +71,17 @@ User.delete("/cart/delete/:name", async (req, res) => {
     }
 })
 
+User.delete("/cart/delete/all/:name", async (req, res) => {
+    const { name } = req.params;
+    const cartData = await CartModel.find({email: name })
+    if (cartData.length !== 0) {
+        await CartModel.deleteMany({ email: name })
+        res.send({ msg: 'Product Deleted From Cart', status: true })
+    } else {
+        res.send({ msg: 'Product Not Found', status: false })
+    }
+})
+
 
 
 module.exports = {
