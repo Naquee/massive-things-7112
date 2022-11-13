@@ -5,7 +5,8 @@ const authorization = (permittedRole) => {
         const { email } = req.body;
         const user = await UserModel.findOne({ email: email })
         const role = user.role
-        if(permittedRole === role){
+        if(permittedRole.includes(role)){
+            console.log(role)
             next();
         }else{
             res.send({msg: "You Are Not Authorized", status:false});
