@@ -59,7 +59,7 @@ User.get("/cart/get", async (req, res) => {
     }
 })
 
-User.get("/cart/delete", async (req, res) => {
+User.delete("/cart/delete/:name", async (req, res) => {
     const { name } = req.params;
     const { email } = req.body;
     const cartData = await CartModel.find({ name: name, email: email })
