@@ -1,8 +1,9 @@
-
 import { useLocation } from "react-router-dom";
 import "./App.css";
 import Footer from "./Components/Footer";
 import Navbar from "./Components/Navbar";
+
+// import Slider from "./Components/Slider";
 import AllRoutes from "./Routes/AllRoutes";
 
 function App() {
