@@ -1,0 +1,32 @@
+.BankOptions>div{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:20px;
+    border:1px solid rgb(0,0,0,0.1);
+    padding:10px 1px;
+    background-color:white;
+    
+    justify-content:left;
+    padding:5px 50px;
+    margin-top: 20px;
+    width:600px;
+}
+.BankOptions{
+    display:grid;
+    grid-template-columns:repeat(1,1fr)
+}
+.BankOptions>div>input{
+    width:20px;
+    height:20px;
+
+}
+.BankOptions>div>img{
+    width:30px;
+    height:30px;
+}
+.BankOptions>div>p{
+    margin-top:12px;
+    font-weight: 600;
+
+}

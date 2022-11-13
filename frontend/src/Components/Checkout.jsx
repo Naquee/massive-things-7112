@@ -7,26 +7,12 @@ import {
   GridItem,
   SimpleGrid,
   Heading,
-  Text,
-  Spacer,
-  chakra,
   Flex,
   Stack,
-  Checkbox,
-  Radio,
-  Icon,
-  Divider,
   Button,
-  InputGroup,
-  FormHelperText,
-  InputLeftAddon,
-  Textarea,
-  Avatar,
-  VisuallyHidden,
   Select,
-  RadioGroup,
+
 } from "@chakra-ui/react";
-import { Navbarcheck } from "./Checkoutnav";
 import { useDispatch, useSelector } from "react-redux";
 import { addAddress, getAddress } from "../Redux/App/action";
 import { Ordersummery } from "./Ordersummery";
@@ -62,30 +48,13 @@ export const Checkout = () => {
       
     }
     dispatch(addAddress(payload, headers)).then((res) => {
-      console.log(res);
+      if(res.payload.status){
+        navigate('/shipment')
+      }
     }).catch((err) => {
       console.log(err);
     })
   }
-
-
-  // const dispatch = useDispatch();
-  // const { address } = useSelector((store) => (store.AppReducer));
-  // const getUserAddress = () => {
-  //   const headers = {
-  //     headers: {
-  //       Authorization: `Bearer ${token}`
-  //     }
-  //   }
-  //   dispatch(getAddress(headers))
-  //     .then((res) => { })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // };
-  // useEffect(() => {
-  //   getUserAddress();
-  // }, []);
 
   return (
     <Box>
@@ -405,7 +374,6 @@ export const Checkout = () => {
                 >
                   <Button
                     type="submit"
-                    onClick={()=>navigate("/shipment")}
                     colorScheme="brand"
                     _focus={{
                       shadow: "",
