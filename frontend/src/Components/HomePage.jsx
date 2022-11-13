@@ -48,7 +48,8 @@ const HomePage = () => {
           disableOnInteraction: false,
         }}
         modules={[Autoplay]}
-        className="mySwiper"
+       className="yourSwipper"
+      
       >
         {products?.map(
           (ele, index) =>
@@ -601,6 +602,7 @@ text-align:start
           }
     
   }
+      }
   @media only screen and (max-width: 320px){
     .lastSwiper{
       img{
@@ -610,20 +612,26 @@ text-align:start
     
        
       }
+  }
 
-      ${'' /* top Slider */}
-      .mySwiper{
-        width:100%
+      ${'' /* top Slider   .mySwipper*/}
+      
+
+
+      .yourswipper{
+        width:100%;
+        height:100%;
+        border:2px solid red
 
       }
 
 
 
       @media only screen and (min-width:768px) and (max-width:1100px){
-  .mySwiper{
+  .mySwipper{
   
-      width:100%;
-    ${'' /* height:100% */}
+      width:70%;
+    height:100%
     
   
   }
@@ -631,10 +639,10 @@ text-align:start
       }
       
       @media only screen and (min-width:481px) and (max-width:767px){
-        .mySwiper{
+        .mySwipper{
        
-            widt:100%;
-          ${'' /* height:100% */}
+            widt:50%;
+          height:100%
        
    
   }
@@ -642,20 +650,20 @@ text-align:start
       }
             
       @media only screen and (min-width:320px) and (max-width:480px){
-        .mySwiper{
+        .mySwipper{
    
-          width:100%;
-         ${'' /* height:100%; */}
+          width:30%;
+         height:100%;
     
   }
       }
 
 
   @media only screen and (max-width: 320px){
-    .mySwiper{
+    .mySwipper{
    
-        width:100%;
-    ${'' /* height:100%; */}
+        width:20%;
+    height:100%;
 
        
       }
