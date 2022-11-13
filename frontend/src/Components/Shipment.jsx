@@ -59,7 +59,7 @@ export const Shipment = () => {
               <p> Delivery Address</p>{" "}
             </div>
             <div>
-              <p>{address.address}</p>
+              <p>{address?.address}</p>
             </div>
           </div>
 

@@ -11,6 +11,7 @@ const VegCard = ({ productId }) => {
     const dispatch = useDispatch();
     const [val, setVal] = useState(1)
     const { token } = useSelector((store) => (store.AuthReducer));
+    const { cart } = useSelector((store) => (store.AppReducer));
 
     const addCartData = (product) => {
         console.log(product)
@@ -36,39 +37,42 @@ const VegCard = ({ productId }) => {
         }
     }
 
-    const deleteCartData = (productName) => {
-        const payload = {
-            name: productName
-        }
-        const headers = {
-            headers: {
-                Authorization: `Bearer ${token}`
-            }
-        }
-        dispatch(addProductToCart(payload, headers)).then((res) => {
-            console.log(res);
-        }).catch((err) => {
-            console.log(err);
-        })
 
-    }
+    // const deleteCartData = (productName) => {
+    //     const payload = {
+    //         name: productName
+    //     }
+    //     const headers = {
+    //         headers: {
+    //             Authorization: `Bearer ${token}`
+    //         }
+    //     }
+    //     dispatch(addProductToCart(payload, headers)).then((res) => {
+    //         console.log(res);
+    //     }).catch((err) => {
+    //         console.log(err);
+    //     })
 
-    const getCartData = () => {
-        const headers = {
-            headers: {
-                Authorization: `Bearer ${token}`
-            }
-        }
-        dispatch(getCartProduct(headers)).then((res) => {
-            console.log(res);
-        }).catch((err) => {
-            console.log(err);
-        })
-    }
+    // }
 
-    useEffect(() => {
-        getCartData()
-    }, []);
+    // GetCartData
+    // const { cart } = useSelector((store) => (store.AppReducer));
+    // const getCartData = () => {
+    //     const headers = {
+    //         headers: {
+    //             Authorization: `Bearer ${token}`
+    //         }
+    //     }
+    //     dispatch(getCartProduct(headers)).then((res) => {
+    //         console.log(res);
+    //     }).catch((err) => {
+    //         console.log(err);
+    //     })
+    // }
+
+    // useEffect(() => {
+    //     getCartData()
+    // }, []);
 
     return (
         <div style={{ marginTop: "4rem", lineHeight: ".2rem", boxShadow: "rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px" }}>

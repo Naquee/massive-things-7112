@@ -18,7 +18,6 @@ export const Ordersummery = () => {
           console.log(err);
         });
     };
-    console.log(address);
     useEffect(() => {
       getUserAddress();
     }, []);
@@ -38,9 +37,9 @@ export const Ordersummery = () => {
             {/* rightdiv */}
             <div style={{ textAlign: "left",width:"50%",marginTop:"0%"}}>
                 {/* data from api */}
-                <h4 style={{marginBottom:"15px"}}>{address.fname || "Not"} {address.lname || "Mention"}</h4>
-                <h4 style={{marginBottom:"15px"}}>{address.contact || "Not mention"}</h4>
-                <h4 style={{marginBottom:"15px"}}>{address.state || "Not mention"}</h4>
+                <h4 style={{marginBottom:"15px"}}>{address?.fname || "Not"} {address?.lname || "Mention"}</h4>
+                <h4 style={{marginBottom:"15px"}}>{address?.contact || "Not mention"}</h4>
+                <h4 style={{marginBottom:"15px"}}>{address?.state || "Not mention"}</h4>
                 <h4 style={{marginBottom:"15px"}}>0 Rupees</h4>
             </div>
             

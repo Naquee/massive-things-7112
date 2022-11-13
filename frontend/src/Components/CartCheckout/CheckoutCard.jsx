@@ -8,21 +8,21 @@ export const CheckoutCards = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   console.log(id)
-  const getdata = useSelector((state) => state.carts.carts);
+  const getdata = useSelector((store) => (store.AppReducer.cart));
   const [saving, setSaving] = useState([]);
   const [price, setPrice] = useState([]);
   const subtotal = () => {
     let price = 0;
-    getdata.map((ele, k) => {
-      price = ele.productprice * ele.quantity + price;
+    getdata.forEach((ele, k) => {
+      price = ele.price * ele.purchaseQuantity + price;
     });
     console.log(price, "price");
     setPrice(price);
   };
   const savings = () => {
     let saving = 0;
-    getdata.map((ele, k) => {
-      saving = ele.quantity * (ele.StrikePrice - ele.productprice) + saving;
+    getdata.forEach((ele, k) => {
+      saving = ele.purchaseQuantity * (ele.discount - ele.price) + saving;
     });
     setSaving(saving);
   };
@@ -33,7 +33,7 @@ export const CheckoutCards = () => {
   return (
     <div className={styles.container}>
       <div className={styles.buttondiv}>
-        {getdata.length !== 0 ? <EmptyBasketModel /> : null}
+        {getdata?.length !== 0 ? <EmptyBasketModel /> : null}
         <button
           onClick={() => {
             navigate("/");
@@ -44,7 +44,7 @@ export const CheckoutCards = () => {
         </button>
       </div>
       <div className={styles.checkoutcardDiv}>
-        {getdata.length !== 0 ? (
+        {getdata?.length !== 0 ? (
           <div className={styles.checkoutcard}>
             <div className={styles.chargesDiv}>
               <div className={styles.chargesSection1}>

@@ -211,3 +211,50 @@
         margin-top: 1rem;
     }
 }
+
+@media only screen and (min-width:481px) and (max-width:767px) {
+    .container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+    }
+
+    .checkoutcard{
+        width: 500px;
+       
+    }
+}
+
+@media only screen and (min-width:320px) and (max-width:480px) {
+    .container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+        font-size: small;
+    }
+
+    .checkoutcard{
+        width: 350px;
+        font-size: small;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+        font-size: small;
+    }
+
+    .checkoutcard{
+        width: 300px;
+        font-size: small;
+    }
+}

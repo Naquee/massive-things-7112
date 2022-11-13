@@ -87,6 +87,7 @@ const getCartProduct = (headers) => (dispatch) => {
 }
 
 const deleteCartProduct = (payload, headers) => (dispatch) => {
+    console.log(payload, headers)
     dispatch({ type: types.DELETE_CART_REQUEST });
     return axios.delete(`${REACT_APP_API_URL}/user/cart/delete/${payload.name}`, headers).then((res) => {
         return dispatch({ type: types.DELETE_CART_SUCCESS });
