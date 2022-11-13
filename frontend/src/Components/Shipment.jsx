@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { getAddress } from "../Redux/App/action";
-import { Ordersummery } from "./Ordersummery";
+import { Ordersummary } from "./Ordersummary";
 import style from "./Shipment.module.css"
 
 export const Shipment = () => {
@@ -181,7 +181,7 @@ export const Shipment = () => {
         </div>
       </div>
       <div className={style.Order} >
-        <Ordersummery />
+        <Ordersummary />
       </div>
     </div>
   );

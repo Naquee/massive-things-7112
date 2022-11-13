@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getAddress } from '../Redux/App/action';
 import { accesData } from '../Utils/appLocalStorage';
 
-export const Ordersummery = () => {
+export const Ordersummary = () => {
   const dispatch = useDispatch();
   const { token } = useSelector((store) => store.AuthReducer);
   const { address } = useSelector((store) => store.AppReducer);

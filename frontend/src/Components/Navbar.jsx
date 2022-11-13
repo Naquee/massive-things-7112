@@ -582,7 +582,7 @@ const Navbar = () => {
               fontSize="25px">
               <Link to='/cart'>
                 <HiOutlineShoppingBag fontSize={'40px'} color={'#cf6c4d'} />
-                <span style={{ position: 'absolute', left: cart?.length > 9 ? "34%" : "43%", fontSize: '11px', top: '27%', fontWeight: 'bold' }}>{cart?.length || 0}</span>
+                <span style={{ position: 'absolute', left: cart?.length > 9 ? "34%" : "43%", fontSize: '11px', top: '27%', fontWeight: 'bold', color:"#43aa72" }}>{cart?.length || 0}</span>
               </Link>
             </Box>
           </Toolbar>

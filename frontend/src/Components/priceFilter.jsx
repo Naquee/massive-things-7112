@@ -52,8 +52,8 @@ export default function ControlledOpenSelect() {
           sx={{ p: 0 }}
         >
           <MenuItem value={'popularity'}>Popularity</MenuItem>
-          <MenuItem defaultChecked={sortBy === "desc"} value={'desc'}>Price - Low to High</MenuItem>
-          <MenuItem defaultChecked={sortBy === "asc"} value={'asc'}>Price - High to Low</MenuItem>
+          <MenuItem defaultChecked={sortBy === "desc"} value={'asc'}>Price - Low to High</MenuItem>
+          <MenuItem defaultChecked={sortBy === "asc"} value={'desc'}>Price - High to Low</MenuItem>
           <MenuItem value={'asc'}>Alphabetical</MenuItem>
           <MenuItem value={'offers'}>Offers</MenuItem>
         </Select>

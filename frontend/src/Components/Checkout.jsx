@@ -15,8 +15,8 @@ import {
 } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
 import { addAddress, getAddress } from "../Redux/App/action";
-import { Ordersummery } from "./Ordersummery";
 import { useNavigate } from "react-router-dom";
+import { Ordersummary } from "./Ordersummary";
 
 export const Checkout = () => {
   const navigate=useNavigate()
@@ -388,8 +388,8 @@ export const Checkout = () => {
           </SimpleGrid>
         </Box>
         <Box bg="white" w={{base:"100%", md:"35%"}} p={4} ml={{base:"1rem",md:"5rem"}} color="black">
-        <Center>  <Heading fontSize={{base:"1rem", md:"1.5rem"}}>This is the summery</Heading></Center>
-          <Ordersummery/>
+        <Center>  <Heading fontSize={{base:"1rem", md:"1.5rem"}}>This is the summary</Heading></Center>
+          <Ordersummary/>
         </Box>
       </Flex>
     </Box>

@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import { RiCalendar2Line } from 'react-icons/ri'
 import styles from './Recharge.module.css'
-import { Ordersummery } from '../Ordersummery'
 import { UPI } from './UPI'
 import { NetBanking } from './Netbanking'
 import { Debitcard } from './Debit'
@@ -10,6 +9,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getAddress } from '../../Redux/App/action'
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
+import { Ordersummary } from '../Ordersummary'
 // import { Ordersummery } from './Ordersummery'
 
 export const Recharge = () => {
@@ -110,7 +110,7 @@ export const Recharge = () => {
         </div>
       </div>
       <div className={styles.orderSummary} >
-        <Ordersummery />
+        <Ordersummary />
       </div>
     </div>
     </div>
