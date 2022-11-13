@@ -39,7 +39,7 @@ const HomePage = () => {
   }, []);
 
   return (
-    <Container>
+    <Container >
       <Swiper
         spaceBetween={3}
         centeredSlides={true}
@@ -540,6 +540,7 @@ const HomePage = () => {
 };
 
 const Container = styled.div`
+margin-top:2px;
   .boxes{
     display: flex;
     align-items:center;

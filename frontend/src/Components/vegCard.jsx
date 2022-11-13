@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { FaShoppingBasket } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
+import { useLocation } from "react-router-dom";
 import { addProductToCart, getCartProduct } from "../Redux/App/action";
 import AlertMessage from "./AlertMessage";
 
@@ -16,34 +17,39 @@ const VegCard = ({ productId }) => {
     });
     const dispatch = useDispatch();
     const [val, setVal] = useState(1)
-    const { token } = useSelector((store) => (store.AuthReducer));
+    const { token, isAuth } = useSelector((store) => (store.AuthReducer));
+    const location = useLocation()
     const { cart } = useSelector((store) => (store.AppReducer));
 
     const addCartData = (product) => {
-        console.log(product)
-        if (product) {
-            const payload = product;
-            if (val < 1) {
-                payload.purchaseQuantity = 1;
-            } else {
-                payload.purchaseQuantity = val;
-            }
-            const headers = {
-                headers: {
-                    Authorization: `Bearer ${token}`
+        if (isAuth) {
+
+            if (product) {
+                const payload = product;
+                if (val < 1) {
+                    payload.purchaseQuantity = 1;
+                } else {
+                    payload.purchaseQuantity = val;
                 }
+                const headers = {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                }
+                dispatch(addProductToCart(payload, headers)).then((res) => {
+                    setStatus({ ...show, status: true, msg: res.payload.msg, type: "success" });
+                }).catch((err) => {
+                    console.log(err);
+                })
+            } else {
+                setStatus({ ...show, status: true, msg: 'Product Not Added', type: "error" });
             }
-            dispatch(addProductToCart(payload, headers)).then((res) => {
-                setStatus({ ...show, status: true, msg: res.payload.msg, type: "success" });
-            }).catch((err) => {
-                console.log(err);
-            })
-        } else {
-            setStatus({ ...show, status: true, msg: 'Product Not Added', type: "error" });
+        }else{
+            setStatus({ ...show, status: true, msg: 'Please Login First', type: "error" });
         }
     }
     return (
-        <div style={{ marginTop: "2rem", lineHeight: ".2rem", boxShadow: "rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px", overflow:'hidden' }}>
+        <div style={{ marginTop: "2rem", lineHeight: ".2rem", boxShadow: "rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px", overflow: 'hidden' }}>
 
             <div style={{ display: "flex", justifyContent: "center" }}>
                 <img src={`${REACT_APP_API_URL}${productId.img_path}`} alt="vegetables" />
@@ -61,7 +67,7 @@ const VegCard = ({ productId }) => {
                     <button onClick={() => addCartData(productId)} style={{ display: "flex", gap: ".5rem", fontSize: ".8rem", backgroundColor: "#f5d177", borderRadius: ".3rem", border: "none", paddingTop: ".2rem" }}>ADD <span style={{ fontSize: ".9rem" }}><FaShoppingBasket /></span></button>
                 </div>
             </div>
-            <AlertMessage show={show} setStatus={setStatus} />
+            { location.pathname !== '/' &&<AlertMessage show={show} setStatus={setStatus} />}
         </div>
     )
 }

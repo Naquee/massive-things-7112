@@ -13,8 +13,7 @@ export const Debitcard = () => {
     type: 'error'
   });
   const navigate = useNavigate()
-  console.log(user)
-  const handleChange = () => {
+  const handlesubmit = () => {
     const payload = {
       name: user.email
     }
@@ -23,7 +22,6 @@ export const Debitcard = () => {
         Authorization: `Bearer ${token}`
       }
     }
-    console.log(payload)
     dispatch(deleteAllCartProduct(payload, headers)).then((res) => {
       setStatus({ ...show, status: true, msg: 'Order Placed Successfully', type: "success" });
       setTimeout(() => {
@@ -33,7 +31,7 @@ export const Debitcard = () => {
   }
   return (
     <div className={styles.CardMain}>
-      <form >
+      <form onSubmit={handlesubmit}>
         <div className={styles.circleTitle}>
           <div className={styles.circle}>
             <div></div>
@@ -44,7 +42,6 @@ export const Debitcard = () => {
           <div>
             <label>Card Number</label>
             <input
-              onChange={handleChange}
               name="Card Number"
               type="number"
               required
@@ -55,7 +52,6 @@ export const Debitcard = () => {
             <div>
               <label>Valid Date</label>
               <input
-                onChange={handleChange}
                 name="Expiry"
                 type="month"
                 required
@@ -66,7 +62,6 @@ export const Debitcard = () => {
               {' '}
               <label>Cvv</label>
               <input
-                onChange={handleChange}
                 name="cvv"
                 type="number"
                 required
@@ -76,7 +71,7 @@ export const Debitcard = () => {
           </div>
           <div className={styles.checkBox}>
             {' '}
-            <input onChange={handleChange} type="checkbox" name="Save" required />
+            <input type="checkbox" name="Save" required />
             <label>Use this card for payments</label>
           </div>
           <input type="submit" />

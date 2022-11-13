@@ -14,7 +14,6 @@ export const CashOnDelivery = () => {
     type: 'error'
   });
   const navigate = useNavigate()
-  console.log(user)
   const handleChange = () => {
     const payload = {
       name: user.email
@@ -24,7 +23,6 @@ export const CashOnDelivery = () => {
         Authorization: `Bearer ${token}`
       }
     }
-    console.log(payload)
     dispatch(deleteAllCartProduct(payload, headers)).then((res) => {
       setStatus({ ...show, status: true, msg: 'Order Placed Successfully', type: "success" });
       setTimeout(() => {
