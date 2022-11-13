@@ -1,16 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { EmptyBasketModel } from "./EmptyBasketModel";
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import styles from "./CheckoutCard.module.css";
+
 export const CheckoutCards = () => {
   const navigate = useNavigate();
+  const { id } = useParams();
+  console.log(id)
   const getdata = useSelector((state) => state.carts.carts);
   const [saving, setSaving] = useState([]);
   const [price, setPrice] = useState([]);
   const subtotal = () => {
     let price = 0;
-    getdata.map((ele,k) => {
+    getdata.map((ele, k) => {
       price = ele.productprice * ele.quantity + price;
     });
     console.log(price, "price");
@@ -18,7 +21,7 @@ export const CheckoutCards = () => {
   };
   const savings = () => {
     let saving = 0;
-    getdata.map((ele,k) => {
+    getdata.map((ele, k) => {
       saving = ele.quantity * (ele.StrikePrice - ele.productprice) + saving;
     });
     setSaving(saving);
@@ -26,7 +29,7 @@ export const CheckoutCards = () => {
   useEffect(() => {
     savings(price);
     subtotal(saving);
-    }, [savings, subtotal]);
+  }, [savings, subtotal]);
   return (
     <div className={styles.container}>
       <div className={styles.buttondiv}>
@@ -72,8 +75,8 @@ export const CheckoutCards = () => {
             </div>
             <div className={styles.buttonSection}>
               <div>
-                <button className={styles.checkoutButton} 
-                onClick ={()=>navigate("/checkout")}>
+                <button className={styles.checkoutButton}
+                  onClick={() => navigate("/checkout")}>
                   <p>CHECKOUT</p> <span></span>
                 </button>
               </div>

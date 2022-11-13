@@ -10,6 +10,7 @@ import SinglePage from "../Components/SinglePage";
 import FoodgrainsAndOil from "./FoodgrainAndOil";
 import { Shipment } from "../Components/Shipment";
 import { Recharge } from "../Components/Payment/Recharge";
+import { CheckoutCards } from "../Components/CartCheckout/CheckoutCard";
 
 const AllRoutes = () => {
   return (
@@ -17,7 +18,7 @@ const AllRoutes = () => {
       <Route path="/fruitsandvegetables" element={<Vegs />} />
       <Route path="/" element={<HomePage />} />
       <Route path="/admin/dashboard" element={<Dashboard />} />
-       <Route path="/product/:id/name" element={<SinglePage/>}/>
+       <Route path="/product/:id/:name" element={<CheckoutCards/>}/>
        <Route path="/foodandoil" element={<FoodgrainsAndOil/>}/>
       <Route path="/shipment" element={<Shipment />} />
       <Route path="/payment" element={<Recharge />} />
