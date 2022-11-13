@@ -391,9 +391,7 @@ const Navbar = () => {
     if (isAuth) {
       handleCloseUserMenu()
       getCartData()
-    } else {
-      cart.length = 0;
-    }
+    } 
   }, [isAuth])
 
   return (
