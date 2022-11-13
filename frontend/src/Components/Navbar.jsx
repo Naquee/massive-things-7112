@@ -387,7 +387,7 @@ const Navbar = () => {
   }
 
   useEffect(() => {
-    if(isAuth){
+    if(isAuth || !isAuth){
       getCartData()
     }
   }, [cart, isAuth])
