@@ -1,7 +1,12 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import styles from './UPI.module.css'
 
 export const UPI = () => {
+  const navigate=useNavigate()
+
+  const handleSubmit = ()=>{alert("Verified and Placed Order " ); navigate("/") }
+
   return (
     <div>
       <div>
@@ -17,10 +22,10 @@ export const UPI = () => {
           </div>
           <div>
             <p>UPI ID</p>
-            <input placeholder="user@bankname" />
+            <input placeholder="user@bankname" required />
             <p>A payment request will be sent to this UPI ID</p>
           </div>
-          <button>Verify</button>
+          <button onClick={handleSubmit} >Verify</button>
         </div>
       </div>
     </div>

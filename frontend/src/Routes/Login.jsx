@@ -12,7 +12,7 @@ import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import CloseIcon from '@mui/icons-material/Close';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { userAuthentication } from '../Redux/Auth/action';
 import AlertMessage from '../Components/AlertMessage';
 
@@ -27,11 +27,14 @@ const style = {
 };
 
 const Login = () => {
+    const location = useLocation();
+    const state = location?.state?.path;
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => {
+        navigate('/', { state: { path: '' } })
         setValues({ ...values, email: '', password: '' })
         setOpen(false)
     };
@@ -105,6 +108,14 @@ const Login = () => {
             setValues({ ...values, email: '', password: '' })
         }
     }, [isAuth]);
+
+    useEffect(() => {
+        if (state === 'login') {
+            handleOpen();
+        } else {
+            navigate("/")
+        }
+    }, [location.state]);
 
     return (
         <LoginContainer>
