@@ -11,22 +11,28 @@ const initialState = {
     users: [],
 }
 
+let isUserAuth = false;
+let userData = [];
+let isUserAdmin = false;
+let userToken = '';
+
 const reducer = (oldstate = initialState, action) => {
     const { type, payload } = action;
     switch (type) {
         case types.USER_LOGIN_REQUEST: return { ...oldstate, isLoading: true };
 
         case types.USER_LOGIN_SUCCESS:
-            let isUserAuth = true;
+
+            isUserAuth = payload.status;
             saveData('isAuth', isUserAuth);
 
-            let userData = payload.user;
+            userData = payload.user;
             saveData('user', userData);
 
-            let isUserAdmin = payload.isAdmin;
+            isUserAdmin = payload.isAdmin;
             saveData('isUserAdmin', isUserAdmin)
 
-            let userToken = payload.token;
+            userToken = payload.token;
             saveData('token', userToken)
 
             return { ...oldstate, isLoading: false, isAuth: isUserAuth, message: payload.msg, token: userToken, isAdmin: isUserAdmin, user: userData };

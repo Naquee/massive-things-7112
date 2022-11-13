@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -28,7 +28,6 @@ import Fade from '@mui/material/Fade';
 import LocalOfferIcon from '@mui/icons-material/LocalOffer';
 import Login from '../Routes/Login';
 import { useDispatch, useSelector } from 'react-redux';
-import userDummy from '../Resources/Images/userDummy.png'
 import { userSignout } from '../Redux/Auth/action';
 
 const pages = ['Gifts', 'New', 'Women', 'Men', 'Kids', 'Cashmere', 'Home', 'Stories', 'Sale'];
@@ -155,51 +154,57 @@ const serach = [
 const phal = [
   {
     id: 1,
-    title: "Frouits & Vegitables",
-    path: "/fruitsandvegitables"
+    title: "Fruits & Vegetables",
+    path: "/fruitsandvegetables"
   },
   {
     id: 2,
-    title: "Food Grands & Masala",
-    path: "/foodgrands"
+    title: "Foodgrains,Oil & Masala",
+    path: "/foodgrains"
   },
   {
     id: 3,
-    title: "Backery Cakes & Daily",
+    title: "Bakery Cakes & Dairy",
     path: "/backerycakes"
   },
   {
     id: 4,
-    title: "Beauty & hyegene",
-    path: "/beautyhyegene"
+    title: "Beverages",
+    path: "/beverages"
   },
   {
     id: 5,
-    title: "Saneks & Branded Food",
+    title: "Snacks & Branded Food",
     path: "/saneksbranded"
   },
   {
     id: 6,
+    title: "Beauty & hygine",
+    path: "/beautyhyegene"
+  },
+ 
+  {
+    id: 7,
     title: "Cleaning and Household",
     path: "/cleaninghousehold"
   },
   {
-    id: 7,
+    id: 8,
     title: "Kitchen , Garden & Pets",
     path: "/kitchenpets"
   },
   {
-    id: 8,
-    title: "Meat & Fish",
+    id: 9,
+    title: "Eggs, Meat & Fish",
     path: "/meatfish"
   },
   {
-    id: 9,
+    id: 10,
     title: "Gourmet and & World Food",
     path: "/gourmetworld"
   },
   {
-    id: 10,
+    id: 11,
     title: "Baby Care",
     path: "/babycare"
   }
@@ -361,13 +366,14 @@ const Navbar = () => {
   const navigate = useNavigate();
   const { isAuth, isAdmin } = useSelector((store) => (store.AuthReducer));
   const handleSignout = () => {
-    dispatch(userSignout()).then((res) => {
-      navigate("/", { replace: true })
-    }).catch((err) => {
-      console.log(err)
-    })
-    handleCloseUserMenu()
+    dispatch(userSignout())
   }
+
+  useEffect(()=>{
+    if(isAuth){
+      handleCloseUserMenu()
+    }
+  }, [isAuth])
 
   return (
     <NavbarContainer>
@@ -501,7 +507,7 @@ const Navbar = () => {
               </Paper>
             </Box>
             <Box sx={{ mt: '4px' }}>
-              <Login />
+              <Login isAuth={isAuth}/>
             </Box>
 
             {isAuth && <Box sx={{ flexGrow: 0, mr: '5px', display: { lg: 'flex' } }}>

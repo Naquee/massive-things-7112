@@ -1,3 +1,4 @@
+
 import { useLocation } from "react-router-dom";
 import "./App.css";
 import Footer from "./Components/Footer";
@@ -12,6 +13,7 @@ function App() {
       {location.pathname === "/admin/dashboard" ? null : <Navbar />}
       <AllRoutes />
       {location.pathname === "/admin/dashboard" || location.pathname === "/checkout" ? null : <Footer />}
+      
     </div>
   );
 }
