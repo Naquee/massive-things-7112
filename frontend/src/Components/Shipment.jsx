@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { Ordersummery } from './Ordersummery'
 
 export const Shipment = () => {
-    const navigate=useNavigate()
+    const navigate=useNavigate();
   return (
     <div style={{display:"flex",justifyContent:"space-around",marginTop:"50px",marginBottom:"100px"}}>
     <div style={{width:"60%"}}>
