@@ -277,9 +277,9 @@ const Navbar = () => {
         <Divider />
         <Typography textAlign="center" padding="10px" fontSize='small' fontWeight={'bold'} color='#cf6c4d'>{menu}</Typography>
         <Divider />
-        {[{ title: 'Fruits & Vegetables', path: '/fruitsvegetables' },
+        {[{ title: 'Fruits & Vegetables', path: '/fruitsandvegitables' },
         { title: 'Food Grands & Masala', path: '/foodgrand' },
-        { title: 'Backery Cakes & Daily', path: '/backerycake' },
+        { title: 'Backery Cakes & Daily', path: '/backerycakes' },
         { title: 'Saneks & Branded Food', path: '/sneksbranded' },
         { title: 'Beauty & hyegene', path: '/beauty' },
         { title: 'Cleaning and Household', path: '/cleaning' },
