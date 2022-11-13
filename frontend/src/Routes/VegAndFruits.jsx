@@ -46,7 +46,7 @@ const VegsAndFruits = () => {
     }, [location.search]);
 
     return (
-        <div style={{ width: "95%", marginLeft: "3rem" }}>
+        <div style={{ width: "95%", marginLeft: "3rem", marginTop:'10px' }}>
             <div style={{
                 display: "flex",
                 gap: "2rem",

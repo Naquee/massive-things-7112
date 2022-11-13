@@ -107,7 +107,7 @@ const Dashboard = () => {
     const dispatch = useDispatch();
     const [open, setOpen] = useState(false);
     const { users, isAdmin, token} = useSelector((store) => (store.AuthReducer));
-    const [type, setType] = useState('Company Information');
+    const [type, setType] = useState('Add Products');
     const handleDrawerOpen = () => {
         setOpen(true);
     };
@@ -205,7 +205,7 @@ const Dashboard = () => {
                     </List>
                     <Divider />
                     <List>
-                        {['Add User', 'Add Products', 'Edit Products'].map((text, index) => (
+                        {['Add Products'].map((text, index) => (
                             <ListItem key={text} disablePadding sx={{ display: 'block' }}>
                                 <ListItemButton
                                     sx={{
@@ -305,7 +305,7 @@ const Container = styledComp.div`
     }
 
     .signOutBox{
-        margin-top:25vh;
+        margin-top:40vh;
     }
 `
 
