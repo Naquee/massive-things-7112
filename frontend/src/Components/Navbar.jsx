@@ -171,7 +171,7 @@ const phal = [
   {
     id: 4,
     title: "Beverages",
-    path: "/bevrages"
+    path: "/beverages"
   },
   {
     id: 5,
