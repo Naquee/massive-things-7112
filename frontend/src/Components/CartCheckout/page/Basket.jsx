@@ -29,9 +29,9 @@ export const Basket = () => {
     <div className={styles.checkoutdiv}>
       <div className={styles.container}>
         <div className={styles.heading}>
-          {list.length !== 0 ? `Your Basket (${list.length} items)` : 'There are no items in your basket.'}
+          {list?.length !== 0 ? `Your Basket (${list?.length} items)` : 'There are no items in your basket.'}
         </div>
-        {list.length !== 0 && <CheckoutTable />}
+        {list?.length !== 0 && <CheckoutTable />}
         <CheckoutCards />
       </div>
     </div>

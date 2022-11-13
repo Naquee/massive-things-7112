@@ -32,7 +32,7 @@ const Container = styled.div`
     position:absolute;
     width: 280px;
     font-size:small;
-    top: ${props=> props.location === '/admin/dashboard' ? '5%':'15%'};
+    top: ${props=> props.location === '/admin/dashboard' ? '5%':props.location === '/payment'?'5%':'15%'};
     transform: translate(-50%, -50%);
     left:46%;
     -webkit-animation: slide-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
