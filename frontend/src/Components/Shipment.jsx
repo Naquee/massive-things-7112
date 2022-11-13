@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { getAddress } from "../Redux/App/action";
 import { Ordersummery } from "./Ordersummery";
+import style from "./Shipment.module.css"
 
 export const Shipment = () => {
   const navigate = useNavigate();
@@ -29,6 +30,7 @@ export const Shipment = () => {
 
   return (
     <div
+    className={style.main}
       style={{
         display: "flex",
         justifyContent: "space-around",
@@ -36,7 +38,7 @@ export const Shipment = () => {
         marginBottom: "100px",
       }}
     >
-      <div style={{ width: "60%" }}>
+      <div className={style.box} style={{ width: "60%" }}>
         <div
           style={{
             border: "1px solid black",
@@ -102,7 +104,7 @@ export const Shipment = () => {
 
         {/* delivery div */}
 
-        <div style={{ border: "1px solid black", height: "auto" }}>
+        <div className={style.upper} style={{ border: "3px solid black", height: "auto" }}>
           <div style={{ display: "flex", marginLeft: "30px" }}>
             <img
               style={{ width: "40px", marginRight: "30px" }}
@@ -178,7 +180,7 @@ export const Shipment = () => {
           </span>
         </div>
       </div>
-      <div style={{ border: "3px solid black", width: "20%", hieght: "auto" }}>
+      <div className={style.Order} >
         <Ordersummery />
       </div>
     </div>

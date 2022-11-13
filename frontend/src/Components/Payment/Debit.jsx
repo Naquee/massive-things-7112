@@ -1,9 +1,15 @@
+import { useNavigate } from 'react-router-dom'
 import styles from './Debitcard.module.css'
 export const Debitcard = () => {
+  const navigate=useNavigate()
 
 
-    const handleSubmit = () => {
-        
+    const handleSubmit = (e) => {
+      e.preventDefault()
+        alert("order placed")
+        navigate("/")
+        // e.target.reset()
+       
     
   }
   const handleChange = (e) => {
@@ -11,6 +17,7 @@ export const Debitcard = () => {
   }
   return (
     <div className={styles.CardMain}>
+      <form onSubmit={handleSubmit}>
       <div className={styles.circleTitle}>
         <div className={styles.circle}>
           <div></div>
@@ -24,6 +31,7 @@ export const Debitcard = () => {
             onChange={handleChange}
             name="Card Number"
             type="number"
+            required
             placeholder="Enter Card number"
           />
         </div>
@@ -33,7 +41,8 @@ export const Debitcard = () => {
             <input
               onChange={handleChange}
               name="Expiry"
-              type="number"
+              type="month"
+              required
               placeholder="MM / YY"
             />
           </div>
@@ -44,17 +53,19 @@ export const Debitcard = () => {
               onChange={handleChange}
               name="cvv" 
               type="number"
+              required
               placeholder="Security Code"
             />
           </div>
         </div>
         <div className={styles.checkBox}>
           {' '}
-          <input onChange={handleChange} type="checkbox" name="Save" />
+          <input onChange={handleChange} type="checkbox" name="Save" required />
           <label>Use this card for payments</label>
         </div>
-        <button onClick={handleSubmit}>Pay</button>
+        <input type="submit"/>
       </div>
+      </form>
     </div>
   )
 }

@@ -1,0 +1,41 @@
+.Order{
+    border: 20px solid rgba(84, 226, 28, 0.2);
+    width: 20%;
+    margin-top: 60px;
+    height: auto;
+    /* marginLeft:" */
+  }
+@media all and (min-width: 100px) and (max-width: 399px) {
+    .main{
+        flex-direction: column;
+        width: 100%;
+        justify-content: center;
+    }
+    .upper{
+        width: 100%;
+    }
+    .Order{
+        justify-content: center;
+        width: 80%;
+    }
+}
+@media all and (min-width: 400px) and (max-width: 900px) {
+    .main{
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+    }
+    .upper{
+        width: 100%;
+    }
+    .box{
+        
+        width: 100%;
+        width: fit-content;
+    }
+    .Order{
+        justify-content: center;
+        width: 50%;
+    }
+    
+}
