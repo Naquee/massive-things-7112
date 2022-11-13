@@ -14,7 +14,6 @@ export const UPI = () => {
     type: 'error'
   });
   const navigate = useNavigate()
-  console.log(user)
   const handleChange = () => {
     const payload = {
       name: user.email
@@ -51,7 +50,7 @@ export const UPI = () => {
             <input placeholder="user@bankname" required />
             <p>A payment request will be sent to this UPI ID</p>
           </div>
-          <button onClick={handleSubmit} >Verify</button>
+          <button onClick={handleChange} >Verify</button>
         </div>
       </div>
       <AlertMessage show={show} setStatus={setStatus} />
