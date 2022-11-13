@@ -1,0 +1,75 @@
+.cashon>div:first-child{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+.cashon>div>img{
+    width:50px;
+    height:25px;
+}
+.cashon>div>input{
+    width:30px;
+    height:20px;
+}
+.cashon{
+    display:flex;
+    gap:15px;
+    width:fit-content;
+    height: fit-content;
+    background-color: white;
+    border:1px solid rgb(0,0,0,0.1);
+    padding: 10px 20px;
+}
+.cashon>div:nth-child(2)>p{
+    font-size:15px;
+    margin:0px;
+}
+.cashon>div:nth-child(2)>p:last-child{
+   font-size: 12px;
+   margin:0px;
+   color:orange;
+}
+
+.cardon>div:first-child{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+.cardon>div>img{
+    width:50px;
+    height:25px;
+}
+.cardon>div>input{
+    width:30px;
+    height:20px;
+}
+.cardon{
+    display:flex;
+    gap:15px;
+    width:fit-content;
+    height: fit-content;
+    background-color: white;
+    border:1px solid rgb(0,0,0,0.1);
+    padding: 10px 20px;
+    margin-top:20px;
+}
+.cardon>div:nth-child(2)>p{
+    font-size:15px;
+    margin:0px;
+}
+.cardon>div:nth-child(2)>p:last-child{
+   font-size: 12px;
+   margin:0px;
+   color:orange;
+}
+.ordernow{
+    background-color: #84c255;
+    border:none;
+    padding:10px 20px;
+    width:250px;
+    color:white;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-top: 50px;
+
+}
