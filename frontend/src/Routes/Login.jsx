@@ -112,7 +112,7 @@ const Login = () => {
     useEffect(() => {
         if (state === 'login') {
             handleOpen();
-        }else{
+        } else {
             navigate("/")
         }
     }, [location.state]);
