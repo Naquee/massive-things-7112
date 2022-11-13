@@ -3,7 +3,7 @@ import styles from './Checkout.module.css';
 import {Listitems} from './Listitems';
 import { useSelector } from 'react-redux';
 export const CheckoutTable = () => {
-  const getdata = useSelector((state)=> state.carts.carts);
+  const getdata = useSelector((store) => (store.AppReducer.cart));
   return (
     <div className={styles.checkoutTable}>
     <div className={styles.tableHeading}>
@@ -16,9 +16,9 @@ export const CheckoutTable = () => {
         <div className={styles.saving}>SAVINGS</div>
     </div>
     <div>
-      { getdata.map((val)=> {
+      { getdata?.map((val)=> {
           return (
-            <Listitems  id={val.id} OFF={val.OFF}  QtyPiece={val.QtyPiece} QtyPieceForOneElement={val.QtyPieceForOneElement} productName={val.productName}  productprice={val.productprice} StrikePrice={val.StrikePrice} Brand={val.Brand} Date={val.Date} image={val.image} quantity={val.quantity}  />
+            <Listitems  id={val._id} StrikePrice={val.discount}  QtyPiece={val.purchaseQuantity} QtyPieceForOneElement={val.quantity} productName={val.name}  productprice={val.price} image={val.img_path}  />
           )
         })
       }
