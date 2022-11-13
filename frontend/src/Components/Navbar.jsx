@@ -411,8 +411,10 @@ const Navbar = () => {
                   m: 0,
                   p: 0,
                   mr: 1,
-                  height: 80,
-                  width: 120,
+                  ml:3,
+                  height: 70,
+                  width: 70,
+                  pt:1
                 }}
                 alt="The house from the offer."
                 src={logo}
@@ -481,9 +483,14 @@ const Navbar = () => {
               <Box
                 component="img"
                 sx={{
-                  display: { xs: 'flex', md: 'none' }, mr: 1,
-                  height: 120,
-                  width: 130,
+                  display: { xs: 'flex', md: 'none' },
+                  m: 0,
+                  p: 0,
+                  mr: 1,
+                  ml:3,
+                  height: 70,
+                  width: 70,
+                  pt:1
                 }}
                 alt="The house from the offer."
                 src={logo}

@@ -12,14 +12,14 @@ const Footer = () => {
     <Container>
       <Box sx={{ display: "flex", gap: { xs: '1rem', md: '8rem' }, margin: "auto", width: "90%", flexDirection: { xs: 'column', md: 'row' }, justifyContent: 'center', alignItems: { xs: 'center', md: 'stretch' } }}>
         <Box sx={{ display: "flex", flexDirection: 'column', alignItems: 'flex-start', fontSize: 'small' }}>
-          <h2 >bigbasket</h2>
+          <h2 >Organic Market</h2>
           <p>About Us</p>
           <p>In News</p>
-          <p>Green bigbasket</p>
+          <p>Green Organic Market</p>
           <p>Privacy Policy</p>
           <p>Affiliate</p>
           <p>Terms and Conditions</p>
-          <p>Careers At bigbasket</p>
+          <p>Careers At Organic Market</p>
           <p>bb Instant</p>
           <p>bb Daily</p>
           <p>bb Blog</p>
