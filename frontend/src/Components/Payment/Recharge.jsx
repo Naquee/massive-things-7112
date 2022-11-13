@@ -49,7 +49,7 @@ export const Recharge = () => {
           }}
         >
           {/* address div */}
-          <div style={{ display: "flex", width: "70%%" }}>
+          <div style={{ display: "flex", width: "70%" }}>
             <img
               style={{ width: "50px", marginLeft: "30px" }}
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3n2xgP5u_8VwrJ4rv-0K3IJrVtxKF_y91vA&usqp=CAU"
@@ -69,11 +69,7 @@ export const Recharge = () => {
           </div>
         </div>
    
-    <div style={{display:"flex",justifyContent:"space-around",marginBottom:"60px"}}>
-
-
-
-
+    <div className={styles.sangham}>
       <div className={styles.mainDiv}>
         <div className={styles.paymentDiv}>
           <div
@@ -113,7 +109,7 @@ export const Recharge = () => {
           </div>
         </div>
       </div>
-      <div style={{ border: "20px solid rgba(84, 226, 28, 0.2)", width: "20%",marginTop:"60PX", hieght: "auto",marginLeft:"" }}>
+      <div className={styles.orderSummary} >
         <Ordersummery />
       </div>
     </div>
