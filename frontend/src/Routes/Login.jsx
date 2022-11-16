@@ -15,6 +15,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { userAuthentication } from '../Redux/Auth/action';
 import AlertMessage from '../Components/AlertMessage';
+import Cookies from 'js-cookie';
+
 
 const style = {
     position: 'relative',
@@ -27,6 +29,7 @@ const style = {
 };
 
 const Login = () => {
+    console.log(Cookies)
     const location = useLocation();
     const state = location?.state?.path;
     const dispatch = useDispatch();

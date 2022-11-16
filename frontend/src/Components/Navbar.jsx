@@ -30,6 +30,7 @@ import Login from '../Routes/Login';
 import { useDispatch, useSelector } from 'react-redux';
 import { userSignout } from '../Redux/Auth/action';
 import { getCartProduct } from '../Redux/App/action';
+import Cookies from 'js-cookie';
 
 const pages = ['Gifts', 'New', 'Women', 'Men', 'Kids', 'Cashmere', 'Home', 'Stories', 'Sale'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -215,7 +216,7 @@ const phal = [
 
 
 const Navbar = () => {
-
+  console.log(Cookies)
   // Drawer
   const [state, setState] = React.useState({
     left: false,
@@ -387,10 +388,10 @@ const Navbar = () => {
   }
 
   useEffect(() => {
-    if(isAuth || !isAuth){
+    if(isAuth || !isAuth ){
       getCartData()
     }
-  }, [cart, isAuth])
+  }, [isAuth])
 
   useEffect(() => {
     if (isAuth) {

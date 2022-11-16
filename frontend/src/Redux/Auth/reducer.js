@@ -1,13 +1,14 @@
 import { accesData, saveData } from "../../Utils/appLocalStorage";
+import Cookies from 'js-cookie'
 import * as types from "./actionTypes";
 const initialState = {
-    isAuth: accesData('isAuth') || false,
-    isAdmin: accesData('isUserAdmin') || false,
-    token: accesData('token') || '',
+    isAuth: Cookies.get('isAuth') || false,
+    isAdmin: Cookies.get('isUserAdmin') || false,
+    token: Cookies.get('token') || '',
     isLoading: false,
     isError: false,
     message: '',
-    user: accesData('user') || [],
+    user: Cookies.get('user') || [],
     users: [],
 }
 
@@ -24,31 +25,28 @@ const reducer = (oldstate = initialState, action) => {
         case types.USER_LOGIN_SUCCESS:
 
             isUserAuth = payload.status;
-            saveData('isAuth', isUserAuth);
+            Cookies.set('isAuth', isUserAuth);
 
             userData = payload.user;
-            saveData('user', userData);
+            Cookies.set('user', userData);
 
             isUserAdmin = payload.isAdmin;
-            saveData('isUserAdmin', isUserAdmin)
+            Cookies.set('isUserAdmin', isUserAdmin)
 
             userToken = payload.token;
-            saveData('token', userToken)
+            Cookies.set('token', userToken)
 
             return { ...oldstate, isLoading: false, isAuth: isUserAuth, message: payload.msg, token: userToken, isAdmin: isUserAdmin, user: userData };
 
         case types.USER_LOGIN_FAILURE:
             isUserAuth = false;
-            saveData('isAuth', isUserAuth);
-
             userData = [];
-            saveData('user', userData);
-
             isUserAdmin = false;
-            saveData('isUserAdmin', isUserAdmin);
-
             userToken = "";
-            saveData('token', userToken)
+            Cookies.remove('isAuth', false);
+            Cookies.remove('user', []);
+            Cookies.remove('isUserAdmin', false);
+            Cookies.remove('token', '')
 
             return { ...oldstate, isLoading: false, isError: true, isAuth: isUserAuth, token: userToken, isAdmin: isUserAdmin };
 
@@ -65,10 +63,10 @@ const reducer = (oldstate = initialState, action) => {
         case types.USER_DATA_FAILURE: return { ...oldstate, isLoading: false, isError: true, users: [], user: [], isAdmin: false, isAuth: false };
 
         case types.USER_SIGNOUT_SUCCESS:
-            saveData('isAuth', false);
-            saveData('user', []);
-            saveData('isUserAdmin', false);
-            saveData('token', '')
+            Cookies.remove('isAuth', false);
+            Cookies.remove('user', []);
+            Cookies.remove('isUserAdmin', false);
+            Cookies.remove('token', '')
 
             return { isAuth: false, isLoading: false, isError: false, isAdmin: false, user: [], token: '' };
 
