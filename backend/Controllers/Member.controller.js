@@ -13,7 +13,7 @@ const member = () => async (req, res) => {
         if (user) {
             bcrypt.compare(password, hashedPassword, function (err, result) {
                 if (result) {
-                    const token = jwt.sign({ email: user.email }, process.env.SECRET_KEY);
+                    const token = jwt.sign({ email: user.email }, process.env.SECRET_KEY, { expiresIn: '1h' });
                     if (user.role === 'admin') {
                         res.send({ msg: "Login Successfull", status: true, token: token, isAdmin: true, user: user });
                     } else {
