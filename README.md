@@ -1,6 +1,7 @@
 # massive-things-7112
 Organic Market
-Netlify Link: https://organicmarket.netlify.app/
+Netlify Link: 
+https://organicmarket.netlify.app/
 Organic Market is India's largest online food and grocery store. from here user can buy fresh fruits and vegetables,Rice and Dals,Personal care products,Eggs,Meat,fishes at low prices
 
 We are the team of 5 Members
