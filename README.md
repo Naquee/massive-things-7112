@@ -28,4 +28,27 @@
         <li>NodeJs</li>
         <li>ExpressJs</li>
     </ul>
+    
+    # Team Member
+
+* Shubham Singh (https://github.com/shubhfire)
+* Imran Khan(https://github.com/imran120198)
+* Ashish Kumar Chaudhary (https://github.com/AshishChaudhary3639)
+* Md Naquee Alam (https://github.com/Naquee)
+* Sagar Pawar (https://github.com/SPinfluencers)
+
+# Features 
+
+* Sorting
+* Filter
+* Navigation
+* React Speech
+* Authentication
+* Login/Logout
+* Admin pannel
+* Backend
+
+# Screensort
+
+
 
