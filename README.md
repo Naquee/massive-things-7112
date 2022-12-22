@@ -41,7 +41,7 @@
 * Admin pannel
 * Backend
 
-# Screensorts of Our Website
+# Screenshots of Our Website
 Home Page 
 ![homepage](https://user-images.githubusercontent.com/101391967/209113877-8e05f59a-bf65-4d05-b10e-d40389764f03.png)
 Login And Signup Page
