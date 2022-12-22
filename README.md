@@ -43,16 +43,18 @@
 
 # Screensort
 
-
-![Screenshot (505)](https://user-images.githubusercontent.com/100348982/208991023-88b10861-7a9c-4b98-9aeb-eebf2917515a.png)
-![Screenshot (506)](https://user-images.githubusercontent.com/100348982/208991290-b1f2b3e8-81f2-4e32-a53e-b17343835b8a.png)
-![Screenshot (507)](https://user-images.githubusercontent.com/100348982/208991369-29232203-d6c2-4b5e-9dce-909044f3d55d.png)
-![Screenshot (508)](https://user-images.githubusercontent.com/100348982/208991404-67c635da-2842-45e9-987a-b8f35c9169af.png)
-![Screenshot (509)](https://user-images.githubusercontent.com/100348982/208991442-49b9351f-947c-48dc-a083-049dbea94f02.png)
-![Screenshot (510)](https://user-images.githubusercontent.com/100348982/208991468-0a0fab7e-afe6-49fb-9795-7e90b39d7226.png)
-![Screenshot (512)](https://user-images.githubusercontent.com/100348982/208991527-ef4a881e-49be-403f-b10e-9754ebe9c4b6.png)
-![Screenshot (513)](https://user-images.githubusercontent.com/100348982/208991696-83de576c-c0bd-48c1-977d-116db70a60fe.png)
-![Screenshot (514)](https://user-images.githubusercontent.com/100348982/208992046-33f409ae-4159-42d3-85de-cc4bf927d5de.png)
-
-
-
+![homepage](https://user-images.githubusercontent.com/101391967/209113877-8e05f59a-bf65-4d05-b10e-d40389764f03.png)
+![login and signup](https://user-images.githubusercontent.com/101391967/209113957-5945a451-81e2-480b-89f6-312612c67975.png)
+![admin page](https://user-images.githubusercontent.com/101391967/209114046-871a0a1c-5131-467d-a4c7-6e12cf85f39b.png)
+![Admin details](https://user-images.githubusercontent.com/101391967/209114072-51debd95-fba2-4b43-aadd-86b8deb613c0.png)
+![FRUITS AND VEGETABLES](https://user-images.githubusercontent.com/101391967/209114129-8bd5f110-ba09-491e-90b5-e0f80dc156ab.png)
+![fruits](https://user-images.githubusercontent.com/101391967/209114163-2c5e643b-6022-45dd-95fe-c076501f011c.png)
+![vegetables](https://user-images.githubusercontent.com/101391967/209114216-e46abc91-a217-476e-a8a1-7d6dcb0a1339.png)
+![bakery ,cakes and dairy](https://user-images.githubusercontent.com/101391967/209114306-7fc2478f-a20e-4b61-b1fe-0f1ed41f348b.png)
+![bakery ,cakes and dairy (2)](https://user-images.githubusercontent.com/101391967/209114377-ce63be5f-7061-4b66-806d-6f3916f20f29.png)
+![Beauty and Hygiene](https://user-images.githubusercontent.com/101391967/209114426-c053daba-8b35-4763-8288-5bb2224a1a36.png)
+![cart page](https://user-images.githubusercontent.com/101391967/209114491-9a7739bc-9cd2-43e1-9e64-d3fe1d9d8c24.png)
+![checkout page](https://user-images.githubusercontent.com/101391967/209114613-0c34479d-b33e-4058-adef-3631da3c61bc.png)
+![payment 1 page](https://user-images.githubusercontent.com/101391967/209114648-d5dc9d94-bbf1-4a61-8bb7-6b3cad2c65a2.png)
+![footer2](https://user-images.githubusercontent.com/101391967/209115371-6114af28-05fd-4d8e-b794-152797e9907b.png)
+![footer1](https://user-images.githubusercontent.com/101391967/209115417-f2f0f25f-d500-4002-9c3f-dca10e4289ab.png)
