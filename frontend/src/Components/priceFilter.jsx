@@ -6,9 +6,7 @@ import Select from '@mui/material/Select';
 import Button from '@mui/material/Button';
 import { sizing } from '@mui/system'
 import { useSearchParams } from 'react-router-dom';
-
 export default function ControlledOpenSelect() {
-
   const [open, setOpen] = React.useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
   const initialSortBy = searchParams.getAll("sortBy");

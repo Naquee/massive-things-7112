@@ -149,5 +149,4 @@ const UserContainer = styledComp.div`
     }
     
 `
-
 export default UserInfo

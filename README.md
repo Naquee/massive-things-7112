@@ -6,14 +6,14 @@
 
 <h3>Organic Market is India's largest online Food and Grocery Store.From here User can buy Fresh Fruits,Vegetables,Rice,Dals,Personal care Products,Eggs,Meat,Fishes at low Prices.</h3>
 
-<b>This is a team project by Masai school build in a week</b>
+<b>This is a Team Project by Masai school build in a week</b>
 <h2>We are the team of 5 Members</h2>
     <ul>
-        <li>Md Naquee Alam</li>
-        <li>Mohit Sharma</li>
-        <li>Gaurav Sharma</li>
-        <li>Ganesh More</li>
-        <li>Shwet Rai</li>
+        <li>Md Naquee Alam->Homepage</li>
+        <li>Mohit Sharma->Backend(Admin page)</li>
+        <li>Gaurav Sharma->Cart Page</li>
+        <li>Ganesh More->Product Page</li>
+        <li>Shwet Rai->Checkout Page</li>
     </ul>
 <h2>Tech stack used to build this project</h2>
     <ul>
@@ -24,6 +24,8 @@
         <li>Chakra-ui</li>
         <li>Redux/React-redux</li>
         <li>React-icons</li>
+        <li>Redux-thunk</li>
+        <li>Axios</li>
         <li>MongoDb</li>
         <li>NodeJs</li>
         <li>ExpressJs</li>
@@ -42,7 +44,7 @@
 * Add to cart opt for buying products
 * Detailed product preview page
 * Sorting Higher to Lower price,Lower to Higher price
-* Sorting According to Country 
+* Sorting According to Countries 
 
 # Screenshots of Our Website
 Home Page 
