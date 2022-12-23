@@ -36,13 +36,15 @@
 * Navigation
 * React Speech
 * Authentication
-* Login/Logout
+* Signin/Signout
 * Admin pannel
 * Backend
 * Add to cart opt for buying products
+* Detailed product preview page
 * Sorting Higher to Lower price,Lower to Higher price
+* Sorting According to Country 
 
-# Screensorts of Our Website
+# Screenshots of Our Website
 Home Page 
 ![homepage](https://user-images.githubusercontent.com/101391967/209113877-8e05f59a-bf65-4d05-b10e-d40389764f03.png)
 Login And Signup Page
@@ -59,7 +61,7 @@ A.Fruits And Vegetables
 B.Bakery Cakes And Dairy Products
 ![bakery ,cakes and dairy](https://user-images.githubusercontent.com/101391967/209114306-7fc2478f-a20e-4b61-b1fe-0f1ed41f348b.png)
 ![bakery ,cakes and dairy (2)](https://user-images.githubusercontent.com/101391967/209114377-ce63be5f-7061-4b66-806d-6f3916f20f29.png)
-Beauty And Hygiene Products
+C.Beauty And Hygiene Products
 ![Beauty and Hygiene](https://user-images.githubusercontent.com/101391967/209114426-c053daba-8b35-4763-8288-5bb2224a1a36.png)
 Cart Page
 ![cart page](https://user-images.githubusercontent.com/101391967/209114491-9a7739bc-9cd2-43e1-9e64-d3fe1d9d8c24.png)
