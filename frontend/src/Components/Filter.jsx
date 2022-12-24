@@ -149,6 +149,29 @@ const handleFilterCheckbox = (e) => {
         <label>Hoovu Fresh</label>
       </div>
   </div>
+  <h3>Pack Size</h3>
+    <div>
+      <div>
+        <input type="checkbox" value="2x4 pcs Multipack" checked={category.includes('2x4 pcs Multipack')} onChange={handleFilterCheckbox1} />
+        <label>2x4 pcs Multipack</label>
+      </div>
+      <div>
+        <input type="checkbox" value="2 pcs Approx (300-400g)" checked={category.includes('2 pcs Approx (300-400g)')} onChange={handleFilterCheckbox1} />
+        <label>2 pcs Approx (300-400g)</label>
+      </div>
+      <div>
+        <input type="checkbox" value="250 g" checked={category.includes('250 g')} onChange={handleFilterCheckbox1} />
+        <label>250 g</label>
+      </div>
+      <div>
+        <input type="checkbox" value="500 g" checked={category.includes('500 g')} onChange={handleFilterCheckbox1} />
+        <label>500 g</label>
+      </div>
+      <div>
+        <input type="checkbox" value="1 Kg" checked={category.includes('1 Kg')} onChange={handleFilterCheckbox1} />
+        <label>1 Kg</label>
+      </div>
+  </div>
   <h3>Seasonal</h3>
     <div>
       <div>
