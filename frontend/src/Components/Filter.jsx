@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import '../App.css';
-
 const Filter = () => {
-
   const [searchParams, setSearchParams] = useSearchParams();
   const initialCountryFilters = searchParams.getAll("country");
   const [country, setCountry] = useState(initialCountryFilters || [])
@@ -11,7 +9,6 @@ const Filter = () => {
   const [category, setCategory] = useState(initialCategoryFilters || [])
   const newCategory = [...category];
   const newCountry = [...country];
-
   const handleFilterCheckbox1 = (e) => {
     if (newCategory.includes(e.target.value)) {
       newCategory.splice(newCategory.indexOf(e.target.value), 1);
@@ -20,8 +17,7 @@ const Filter = () => {
     }
     setCategory(newCategory);
   };
-
-  const handleFilterCheckbox = (e) => {
+const handleFilterCheckbox = (e) => {
     if (newCountry.includes(e.target.value)) {
       newCountry.splice(newCountry.indexOf(e.target.value), 1);
     } else {
@@ -54,10 +50,9 @@ const Filter = () => {
         <a href="">Muffins & Cup Cakes (1)</a>
       </div>
       <h3>Country of Origin</h3>
-
       <div >
         <div>
-          <input type="checkbox" value="Australia" checked={country.includes('Australia')} onChange={handleFilterCheckbox} />
+          <input type="checkbox" value="Australia"checked={country.includes('Australia')} onChange={handleFilterCheckbox} />
           <label>Australia</label>
         </div>
         <div>
@@ -77,9 +72,7 @@ const Filter = () => {
           <label>USA</label>
         </div>
       </div>
-
-
-      <hr />
+     <hr />
       <h3>Price</h3>
       <div>
         <div>
@@ -133,7 +126,49 @@ const Filter = () => {
           <label>More than 25% (1362)</label>
         </div>
       </div>
+   <h3>Brand</h3>
+    <div>
+      <div>
+        <input type="checkbox" value="bb Combo" checked={category.includes('bb Combo')} onChange={handleFilterCheckbox1} />
+        <label>bb Combo</label>
+      </div>
+      <div>
+        <input type="checkbox" value="Fresho" checked={category.includes('Fresho')} onChange={handleFilterCheckbox1} />
+        <label>Fresho</label>
+      </div>
+      <div>
+        <input type="checkbox" value="Gopalan Organic" checked={category.includes('Gopalan Organic')} onChange={handleFilterCheckbox1} />
+        <label>Gopalan Organic</label>
+      </div>
+      <div>
+        <input type="checkbox" value="Tadaa" checked={category.includes('Tadaa')} onChange={handleFilterCheckbox1} />
+        <label>Tadaa</label>
+      </div>
+      <div>
+        <input type="checkbox" value="Hoovu Fresh" checked={category.includes('Hoovu Fresh')} onChange={handleFilterCheckbox1} />
+        <label>Hoovu Fresh</label>
+      </div>
+  </div>
+  <h3>Seasonal</h3>
+    <div>
+      <div>
+        <input type="checkbox" value="Summer Fruits" checked={category.includes('Summer Fruits')} onChange={handleFilterCheckbox1} />
+        <label>Summer Fruits</label>
+      </div>
+      <div>
+        <input type="checkbox" value="Summer Veggies" checked={category.includes('Summer Veggies')} onChange={handleFilterCheckbox1} />
+        <label>Summer Veggies</label>
+      </div>
+      <div>
+        <input type="checkbox" value="Winter Fruits" checked={category.includes('Winter Fruits')} onChange={handleFilterCheckbox1} />
+        <label>Winter Fruits</label>
+      </div>
+      <div>
+        <input type="checkbox" value="Winter Veggies" checked={category.includes('Winter Veggies')} onChange={handleFilterCheckbox1} />
+        <label>Winter Veggies</label>
+      </div>
     </div>
+  </div>
   )
 }
 export default Filter;
