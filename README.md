@@ -55,6 +55,8 @@ Admin Page
 ![admin page](https://user-images.githubusercontent.com/101391967/209114046-871a0a1c-5131-467d-a4c7-6e12cf85f39b.png)
 Admin Details
 ![Admin details](https://user-images.githubusercontent.com/101391967/209114072-51debd95-fba2-4b43-aadd-86b8deb613c0.png)
+Shop By Category:
+![shop by category](https://user-images.githubusercontent.com/101391967/209432565-84f21844-62d3-4b94-8233-e9f74b10b68f.png)
 Products Details:
 A.Fruits And Vegetables
 ![FRUITS AND VEGETABLES](https://user-images.githubusercontent.com/101391967/209114129-8bd5f110-ba09-491e-90b5-e0f80dc156ab.png)
@@ -65,6 +67,9 @@ B.Bakery Cakes And Dairy Products
 ![bakery ,cakes and dairy (2)](https://user-images.githubusercontent.com/101391967/209114377-ce63be5f-7061-4b66-806d-6f3916f20f29.png)
 C.Beauty And Hygiene Products
 ![Beauty and Hygiene](https://user-images.githubusercontent.com/101391967/209114426-c053daba-8b35-4763-8288-5bb2224a1a36.png)
+D.Beverages
+![beverage 1](https://user-images.githubusercontent.com/101391967/209433369-9ca4a313-e113-4069-9a6a-cceef527257c.png)
+![beverage 2](https://user-images.githubusercontent.com/101391967/209433374-ad1cd7f8-f757-4bc3-8f66-f8666d4ff5c7.png)
 Cart Page
 ![cart page](https://user-images.githubusercontent.com/101391967/209114491-9a7739bc-9cd2-43e1-9e64-d3fe1d9d8c24.png)
 Checkout Page
